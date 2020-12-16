@@ -5,6 +5,7 @@ class Ongkir extends CI_Controller
 {
     public function index()
     {
+        $this->load->view('templates/header_home');
         $this->load->view('ongkir/index');
     }
 
