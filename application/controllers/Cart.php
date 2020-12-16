@@ -1,10 +1,11 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class Ongkir extends CI_Controller
+class Cart extends CI_Controller
 {
     public function index()
     {
+        $data['url'] = $this->uri->segment(2);
         $this->load->view('templates/header_home');
         $this->load->view('ongkir/index');
     }

@@ -10,7 +10,7 @@
             <table class="table table-condensed">
                 <thead>
                     <tr class="cart_menu">
-                        <td class="image">Item</td>
+                        <td class="image">Items</td>
                         <td class="description"></td>
                         <td class="price">Price</td>
                         <td class="quantity">Quantity</td>

@@ -13,7 +13,7 @@
     <link href="<?= base_url('assets/eshop/'); ?>css/price-range.css" rel="stylesheet">
     <link href="<?= base_url('assets/eshop/'); ?>css/animate.css" rel="stylesheet">
     <link href="<?= base_url('assets/eshop/'); ?>css/main.css" rel="stylesheet">
-    <link href="<?= base_url('assets/eshop/'); ?>css/responsive.css" rel="stylesheet">
+    <link href="<?= base_url('asset/eshop/'); ?>css/responsive.css" rel="stylesheet">
     <!--[if lt IE 9]>
     <script src="js/html5shiv.js"></script>
     <script src="js/respond.min.js"></script>
