@@ -244,7 +244,7 @@
     $(document).ready(function() {
         $.ajax({
             type: 'post',
-            url: 'http://localhost/Ngayom/ongkir/datap',
+            url: 'http://localhost/Ngayom/cart/datap',
             success: function(hasil_pro) {
                 $("select[name=provinsi]").html(hasil_pro);
             }
@@ -254,7 +254,7 @@
             var id_provinsi_terpilih = $("option:selected", this).attr("id_provinsi");
             $.ajax({
                 type: 'post',
-                url: 'http://localhost/Ngayom/ongkir/datak',
+                url: 'http://localhost/Ngayom/cart/datak',
                 data: 'id_provinsi=' + id_provinsi_terpilih,
                 success: function(hasil_kota) {
                     $("select[name=kabupaten]").html(hasil_kota);
@@ -264,7 +264,7 @@
 
         $.ajax({
             type: 'post',
-            url: 'http://localhost/Ngayom/ongkir/datae',
+            url: 'http://localhost/Ngayom/cart/datae',
             success: function(hasil_kurir) {
                 $("select[name=kurir]").html(hasil_kurir);
             }
@@ -276,7 +276,7 @@
             var total_berat = $("input[name=total_berat]").val();
             $.ajax({
                 type: 'post',
-                url: 'http://localhost/Ngayom/ongkir/datapa',
+                url: 'http://localhost/Ngayom/cart/datapa',
                 data: 'kurir=' + kurir_terpilih + '&kabupaten=' + kab_terpilih + '&berat=' + total_berat,
                 success: function(hasil_paket) {
                     $("select[name=paket]").html(hasil_paket);
