@@ -6,13 +6,12 @@
                 <div class="login-form">
                     <!--login form-->
                     <h2>Login to your account</h2>
-                    <form action="#">
-                        <input type="text" placeholder="Name" />
-                        <input type="email" placeholder="Email Address" />
-                        <span>
-                            <input type="checkbox" class="checkbox">
-                            Keep me signed in
-                        </span>
+                    <?= $this->session->flashdata('message'); ?>
+                    <form action="<?= base_url('home/log'); ?>" method="post">
+                        <input type="email" placeholder="Email Address" name="email" id="email" />
+                        <?= form_error('email', '<small class="text-danger pl-3">', '</small>'); ?>
+                        <input type="password" placeholder="Password" name="password" id="password" />
+                        <?= form_error('password', '<small class="text-danger pl-3">', '</small>'); ?>
                         <button type="submit" class="btn btn-default">Login</button>
                     </form>
                 </div>
@@ -25,10 +24,14 @@
                 <div class="signup-form">
                     <!--sign up form-->
                     <h2>New User Signup!</h2>
-                    <form action="#">
-                        <input type="text" placeholder="Name" />
-                        <input type="email" placeholder="Email Address" />
-                        <input type="password" placeholder="Password" />
+                    <?= $this->session->flashdata('message'); ?>
+                    <form action="<?= base_url('home/regis'); ?>" method="POST">
+                        <input type="text" placeholder="Name" name="name" id="name" />
+                        <?= form_error('name', '<small class="text-danger pl-3">', '</small>'); ?>
+                        <input type="email" placeholder="Email Address" name="email" id="email" />
+                        <?= form_error('email', '<small class="text-danger pl-3">', '</small>'); ?>
+                        <input type="password" placeholder="Password" name="password" id="password" />
+                        <?= form_error('password', '<small class="text-danger pl-3">', '</small>'); ?>
                         <button type="submit" class="btn btn-default">Signup</button>
                     </form>
                 </div>
