@@ -7,26 +7,26 @@ class Cart extends CI_Controller
     {
         $data['url'] = $this->uri->segment(2);
         $this->load->view('templates/header_home');
-        $this->load->view('ongkir/index');
+        $this->load->view('cart/index');
     }
 
     public function datap()
     {
-        $this->load->view('ongkir/dataprovinsi');
+        $this->load->view('cart/dataprovinsi');
     }
 
     public function datak()
     {
-        $this->load->view('ongkir/datakota');
+        $this->load->view('cart/datakota');
     }
 
     public function datae()
     {
-        $this->load->view('ongkir/datakurir');
+        $this->load->view('cart/datakurir');
     }
 
     public function datapa()
     {
-        $this->load->view('ongkir/datapaket');
+        $this->load->view('cart/datapaket');
     }
 }
