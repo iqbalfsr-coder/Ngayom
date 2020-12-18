@@ -69,13 +69,13 @@ class Home extends CI_Controller
             $data = [
                 'nama_member' => htmlspecialchars($this->input->post('name', true)),
                 'email_member' => htmlspecialchars($this->input->post('email', true)),
-                'pass_member' => password_hash('password', PASSWORD_DEFAULT),
+                'pass_member' => password_hash($this->input->post('password', true), PASSWORD_DEFAULT),
                 'alamat' => NULL
             ];
             $this->db->insert('member', $data);
 
             $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Signup Berhasil !</div>');
-            redirect('home/login');
+            redirect('home/log');
         }
     }
 }
