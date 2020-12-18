@@ -137,23 +137,22 @@
 
                         </li>
                         <input type="text" name="total_berat" value="1200" hidden>
-                        <input type="text" name="pro">
-                        <input type="text" name="kabu">
-                        <input type="text" name="type">
-                        <input type="text" name="kodepos">
-                        <input type="text" name="kur">
-                        <input type="text" name="pa">
-                        <input type="text" name="ong">
-                        <input type="text" name="est">
+                        <input type="text" name="pro" hidden>
+                        <input type="text" name="kabu" hidden>
+                        <input type="text" name="type" hidden>
+                        <input type="text" name="kodepos" hidden>
+                        <input type="text" name="kur" hidden>
+                        <input type="text" name="pa" hidden>
+                        <input type="text" name="est" hidden>
                     </ul>
                 </div>
             </div>
             <div class="col-sm-6">
                 <div class="total_area">
-                    <ul>
-                        <li>Cart Sub Total <span>$59</span></li>
-                        <li>Shipping Cost <span>Free</span></li>
-                        <li>Total <span>$61</span></li>
+                    <ul class="user info">
+                        <li>Cart Sub Total <span> <input type="text" name="sub" disabled></span></li>
+                        <li>Shipping Cost <span><input type="text" name="ong" disabled></span></li>
+                        <li>Total <span><input type="text" name="total" disabled></span></li>
                     </ul>
                     <a class="btn btn-default update" href="">Update</a>
                     <a class="btn btn-default check_out" href="">Check Out</a>
