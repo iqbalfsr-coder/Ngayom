@@ -29,7 +29,6 @@
 <body>
     <header id="header">
         <!--header-->
-
         <!--/header_top-->
 
         <div class="header-middle">
@@ -44,11 +43,51 @@
                     <div class="col-sm-8">
                         <div class="shop-menu pull-right">
                             <ul class="nav navbar-nav">
-                                <li><a href=""><i class="fa fa-user"></i> Account</a></li>
-                                <li><a href=""><i class="fa fa-star"></i> Wishlist</a></li>
-                                <li><a href="checkout.html"><i class="fa fa-crosshairs"></i> Checkout</a></li>
-                                <li><a href="cart.html" class="active"><i class="fa fa-shopping-cart"></i> Cart</a></li>
-                                <li><a href="login.html"><i class="fa fa-lock"></i> Login</a></li>
+                                <li>
+                                    <a <?php if ($url == 'akun') {
+                                            echo 'class="active"';
+                                        } else {
+                                            echo '';
+                                        } ?> href="<?= base_url('home/akun'); ?>">
+                                        <i class="fa fa-user"></i>
+                                        Account</a>
+                                    <li />
+                                <li>
+                                    <a <?php if ($url == 'wishlist') {
+                                            echo 'class="active"';
+                                        } else {
+                                            echo '';
+                                        } ?> href="<?= base_url('home/wishlist'); ?>">
+                                        <i class="fa fa-star"></i>
+                                        Wishlist</a>
+                                    <li />
+                                <li>
+                                    <a <?php if ($url == 'checkout') {
+                                            echo 'class="active"';
+                                        } else {
+                                            echo '';
+                                        } ?> href="<?= base_url('home/checkout'); ?>">
+                                        <i class="fa fa-crosshairs"></i>
+                                        Checkout</a>
+                                    <li />
+                                <li>
+                                    <a <?php if ($url == '') {
+                                            echo 'class="active"';
+                                        } else {
+                                            echo '';
+                                        } ?> href="<?= base_url('cart'); ?>">
+                                        <i class="fa fa-shopping-cart"></i>
+                                        Cart</a>
+                                    <li />
+                                <li>
+                                    <a <?php if ($url == 'log') {
+                                            echo 'class="active"';
+                                        } else {
+                                            echo '';
+                                        } ?> href="<?= base_url('home/log'); ?>">
+                                        <i class="fa fa-lock"></i>
+                                        Login</a>
+                                    <li />
                             </ul>
                         </div>
                     </div>

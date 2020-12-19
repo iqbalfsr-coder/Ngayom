@@ -11,18 +11,19 @@ class Home extends CI_Controller
     public function index()
     {
         $data['url'] = $this->uri->segment(2);
-        $this->load->view('templates/header_home');
+        $this->load->view('templates/header_home', $data);
         $this->load->view('home/index');
         $this->load->view('templates/footer_home');
     }
 
     public function log()
     {
+        $data['url'] = $this->uri->segment(2);
         $this->form_validation->set_rules('email', 'Email', 'required|trim|valid_email');
         $this->form_validation->set_rules('password', 'Password', 'required|trim');
 
         if ($this->form_validation->run() == false) {
-            $this->load->view('templates/header_home');
+            $this->load->view('templates/header_home', $data);
             $this->load->view('home/login');
             $this->load->view('templates/footer_home');
         } else {
@@ -57,13 +58,14 @@ class Home extends CI_Controller
 
     public function regis()
     {
+        $data['url'] = $this->uri->segment(2);
         $this->form_validation->set_rules('name', 'password', 'required|trim');
         $this->form_validation->set_rules('email', 'email', 'required|trim|valid_email');
         $this->form_validation->set_rules('password', 'password', 'required|trim');
 
         if ($this->form_validation->run() == false) {
-            $this->load->view('templates/header_home');
-            $this->load->view('home/login');
+            $this->load->view('templates/header_home', $data);
+            $this->load->view('home/regis');
             $this->load->view('templates/footer_home');
         } else {
             $data = [
@@ -75,7 +77,7 @@ class Home extends CI_Controller
             $this->db->insert('member', $data);
 
             $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Signup Berhasil !</div>');
-            redirect('home/log');
+            redirect('home/regis');
         }
     }
 }
