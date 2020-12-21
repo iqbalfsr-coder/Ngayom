@@ -24,38 +24,63 @@
                         </p>
                     </a>
                     <ul class="nav nav-treeview">
+                        <?= var_dump($url) ?>
                         <li class="nav-item">
-                            <a href="./index.html" class="nav-link">
+                            <a href="<?= base_url('admin/list_penjual') ?>" <?php if ($url == 'list_penjual') {
+                                                                                echo 'class="nav-link active"';
+                                                                            } else {
+                                                                                echo 'class="nav-link"';
+                                                                            } ?>>
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Penjual</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="./index2.html" class="nav-link">
+                            <a href="<?= base_url('admin/list_member') ?>" <?php if ($url == 'list_member') {
+                                                                                echo 'class="nav-link active"';
+                                                                            } else {
+                                                                                echo 'class="nav-link"';
+                                                                            } ?>">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Member</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="./index3.html" class="nav-link">
+                            <a href="<?= base_url('admin/list_product') ?>" <?php if ($url == 'list_product') {
+                                                                                echo 'class="nav-link active"';
+                                                                            } else {
+                                                                                echo 'class="nav-link"';
+                                                                            } ?>>
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Product</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="./index3.html" class="nav-link">
+                            <a href="<?= base_url('admin/list_order') ?>" <?php if ($url == 'list_order') {
+                                                                                echo 'class="nav-link active"';
+                                                                            } else {
+                                                                                echo 'class="nav-link"';
+                                                                            } ?>>
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Order</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="./index3.html" class="nav-link">
+                            <a href="<?= base_url('admin/list_packing') ?>" <?php if ($url == 'list_packing') {
+                                                                                echo 'class="nav-link active"';
+                                                                            } else {
+                                                                                echo 'class="nav-link"';
+                                                                            } ?>>
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Packing</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="./index3.html" class="nav-link">
+                            <a href="<?= base_url('admin/list_pengiriman') ?>" <?php if ($url == 'list_pengiriman') {
+                                                                                    echo 'class="nav-link active"';
+                                                                                } else {
+                                                                                    echo 'class="nav-link"';
+                                                                                } ?>>
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Pengiriman</p>
                             </a>

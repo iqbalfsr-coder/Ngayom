@@ -5,6 +5,7 @@ class Admin extends CI_Controller
 {
     public function index()
     {
+        $data['url'] = $this->uri->segment(2);
         $data['title'] = 'Dashboard';
         $this->load->view('templates/header', $data);
         $this->load->view('templates/topbar_admin', $data);
