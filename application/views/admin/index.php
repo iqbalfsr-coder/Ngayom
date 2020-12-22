@@ -103,7 +103,7 @@
                             <div class="icon">
                                 <i class="fas fa-truck"></i>
                             </div>
-                            <a href="<?= base_url('admin/list_pengiriaman') ?>" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                            <a href="<?= base_url('admin/list_pengiriman') ?>" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
                         </div>
                     </div>
                     <!-- ./col -->
