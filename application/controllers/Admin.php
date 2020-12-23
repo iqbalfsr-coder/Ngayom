@@ -29,7 +29,7 @@ class Admin extends CI_Controller
     public function list_member()
     {
         $data['url'] = $this->uri->segment(2);
-        $data['title'] = 'Daftar Member';
+        $data['title'] = 'Daftar Pembeli';
         $data['member'] = $this->db->get('member')->result_array();
         $this->load->view('templates/header', $data);
         $this->load->view('templates/topbar_admin', $data);

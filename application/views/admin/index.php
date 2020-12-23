@@ -38,7 +38,7 @@
                             <div class="inner">
                                 <h3>1</h3>
 
-                                <p>Member</p>
+                                <p>Pembeli</p>
                             </div>
                             <div class="icon">
                                 <i class="fas fa-user"></i>

@@ -42,7 +42,7 @@
                                                                                 echo 'class="nav-link"';
                                                                             } ?>">
                                 <i class="far fa-circle nav-icon"></i>
-                                <p>Member</p>
+                                <p>Pembeli</p>
                             </a>
                         </li>
                         <li class="nav-item">
