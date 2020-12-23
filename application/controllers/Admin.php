@@ -50,6 +50,74 @@ class Admin extends CI_Controller
         $this->load->view('templates/footer');
     }
 
+    public function list_brand()
+    {
+        $data['url'] = $this->uri->segment(2);
+        $data['title'] = 'Daftar Brand';
+        $data['brand'] = $this->db->get('brand')->result_array();
+        $this->load->view('templates/header', $data);
+        $this->load->view('templates/topbar_admin', $data);
+        $this->load->view('templates/sidebar_admin', $data);
+        $this->load->view('admin/list_brand');
+        $this->load->view('templates/footer');
+    }
+
+    public function tambahbrand()
+    {
+        $data['url'] = $this->uri->segment(2);
+        $data['title'] = 'Tambah Brand';
+        $this->form_validation->set_rules('nama_brand', 'Nama Brand', 'required|trim');
+
+        if ($this->form_validation->run() == false) {
+            $this->load->view('templates/header', $data);
+            $this->load->view('templates/sidebar_admin', $data);
+            $this->load->view('templates/topbar_admin', $data);
+            $this->load->view('admin/tambahbrand', $data);
+            $this->load->view('templates/footer');
+        } else {
+            $data = [
+                'nama_brand' => htmlspecialchars($this->input->post('nama_brand', true)),
+            ];
+            $this->db->insert('brand', $data);
+            $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Brand berhasil ditambahkan !</div>');
+            redirect('admin/list_brand');
+        }
+    }
+
+    public function list_kategori()
+    {
+        $data['url'] = $this->uri->segment(2);
+        $data['title'] = 'Daftar Product';
+        $data['kategori'] = $this->db->get('kategori')->result_array();
+        $this->load->view('templates/header', $data);
+        $this->load->view('templates/topbar_admin', $data);
+        $this->load->view('templates/sidebar_admin', $data);
+        $this->load->view('admin/list_kategori');
+        $this->load->view('templates/footer');
+    }
+
+    public function tambahkategori()
+    {
+        $data['url'] = $this->uri->segment(2);
+        $data['title'] = 'Tambah Kategori';
+        $this->form_validation->set_rules('nama_kategori', 'Nama Kategori', 'required|trim');
+
+        if ($this->form_validation->run() == false) {
+            $this->load->view('templates/header', $data);
+            $this->load->view('templates/sidebar_admin', $data);
+            $this->load->view('templates/topbar_admin', $data);
+            $this->load->view('admin/tambahkategori', $data);
+            $this->load->view('templates/footer');
+        } else {
+            $data = [
+                'nama_kategori' => htmlspecialchars($this->input->post('nama_kategori', true)),
+            ];
+            $this->db->insert('kategori', $data);
+            $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Kategori berhasil ditambahkan !</div>');
+            redirect('admin/list_kategori');
+        }
+    }
+
     public function tambahpro()
     {
         $data['url'] = $this->uri->segment(2);

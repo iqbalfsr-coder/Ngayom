@@ -56,6 +56,26 @@
                             </a>
                         </li>
                         <li class="nav-item">
+                            <a href="<?= base_url('admin/list_brand') ?>" <?php if ($url == 'list_brand') {
+                                                                                echo 'class="nav-link active"';
+                                                                            } else {
+                                                                                echo 'class="nav-link"';
+                                                                            } ?>>
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Brand</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="<?= base_url('admin/list_kategori') ?>" <?php if ($url == 'list_kategori') {
+                                                                                    echo 'class="nav-link active"';
+                                                                                } else {
+                                                                                    echo 'class="nav-link"';
+                                                                                } ?>>
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Kategori</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
                             <a href="<?= base_url('admin/list_order') ?>" <?php if ($url == 'list_order') {
                                                                                 echo 'class="nav-link active"';
                                                                             } else {
