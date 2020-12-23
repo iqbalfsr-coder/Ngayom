@@ -4,7 +4,7 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1 class="m-0 text-dark">Product</h1>
+                    <h1 class="m-0 text-dark">Kategori</h1>
                 </div><!-- /.col -->
             </div><!-- /.row -->
         </div><!-- /.container-fluid -->
@@ -12,66 +12,46 @@
     <div class="container-fluid">
         <!-- Button trigger modal -->
         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#staticBackdrop">
-            Tambah Product
+            Tambah Kategori
         </button>
     </div>
-
+    <br>
+    <div class="container-fluid">
+        <?php if (validation_errors()) : ?>
+            <div class="alert alert-danger" role="alert">
+                <?= validation_errors(); ?>
+            </div>
+        <?php endif; ?>
+        <?= $this->session->flashdata('message'); ?>
+    </div>
     <!-- Modal -->
     <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="staticBackdropLabel">Tambah Penjual</h5>
+                    <h5 class="modal-title" id="staticBackdropLabel">Tambah Kategori</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <div class="modal-body">
-                    <div class="card card-primary">
-                        <div class="card-header">
-                            <h3 class="card-title">Quick Example</h3>
-                        </div>
-                        <!-- /.card-header -->
-                        <!-- form start -->
-                        <form role="form">
+                <form role="form" action="<?= base_url('admin/list_kategori') ?>" method="post">
+                    <div class="modal-body">
+                        <div class="card card-primary">
+                            <!-- form start -->
                             <div class="card-body">
                                 <div class="form-group">
-                                    <label for="exampleInputEmail1">Email address</label>
-                                    <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
-                                </div>
-                                <div class="form-group">
-                                    <label for="exampleInputPassword1">Password</label>
-                                    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-                                </div>
-                                <div class="form-group">
-                                    <label for="exampleInputFile">File input</label>
-                                    <div class="input-group">
-                                        <div class="custom-file">
-                                            <input type="file" class="custom-file-input" id="exampleInputFile">
-                                            <label class="custom-file-label" for="exampleInputFile">Choose file</label>
-                                        </div>
-                                        <div class="input-group-append">
-                                            <span class="input-group-text" id="">Upload</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="form-check">
-                                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                                    <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                                    <label for="kategori">Nama Kategori</label>
+                                    <input type="text" class="form-control" id="nama_kategori" name="nama_kategori" placeholder="Input Kategori">
                                 </div>
                             </div>
                             <!-- /.card-body -->
-
-                            <div class="card-footer">
-                                <button type="submit" class="btn btn-primary">Submit</button>
-                            </div>
-                        </form>
+                        </div>
                     </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
-                    <button type="button" class="btn btn-primary">Tambah</button>
-                </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
+                        <button type="submit" class="btn btn-primary">Tambah</button>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
@@ -79,104 +59,33 @@
     <div class="container-fluid">
         <div class="card">
             <div class="card-header border-0">
-                <h3 class="card-title">Products</h3>
-                <div class="card-tools">
-                    <a href="#" class="btn btn-tool btn-sm">
-                        <i class="fas fa-download"></i>
-                    </a>
-                    <a href="#" class="btn btn-tool btn-sm">
-                        <i class="fas fa-bars"></i>
-                    </a>
-                </div>
+                <h3 class="card-title">Kategori</h3>
             </div>
             <div class="card-body table-responsive p-0">
                 <table class="table table-striped table-valign-middle">
                     <thead>
                         <tr>
-                            <th>Product</th>
-                            <th>Price</th>
-                            <th>Sales</th>
-                            <th>More</th>
+                            <th>No</th>
+                            <th>Kategori</th>
+                            <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>
-                                <img src="dist/img/default-150x150.png" alt="Product 1" class="img-circle img-size-32 mr-2">
-                                Some Product
-                            </td>
-                            <td>$13 USD</td>
-                            <td>
-                                <small class="text-success mr-1">
-                                    <i class="fas fa-arrow-up"></i>
-                                    12%
-                                </small>
-                                12,000 Sold
-                            </td>
-                            <td>
-                                <a href="#" class="text-muted">
-                                    <i class="fas fa-search"></i>
-                                </a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <img src="dist/img/default-150x150.png" alt="Product 1" class="img-circle img-size-32 mr-2">
-                                Another Product
-                            </td>
-                            <td>$29 USD</td>
-                            <td>
-                                <small class="text-warning mr-1">
-                                    <i class="fas fa-arrow-down"></i>
-                                    0.5%
-                                </small>
-                                123,234 Sold
-                            </td>
-                            <td>
-                                <a href="#" class="text-muted">
-                                    <i class="fas fa-search"></i>
-                                </a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <img src="dist/img/default-150x150.png" alt="Product 1" class="img-circle img-size-32 mr-2">
-                                Amazing Product
-                            </td>
-                            <td>$1,230 USD</td>
-                            <td>
-                                <small class="text-danger mr-1">
-                                    <i class="fas fa-arrow-down"></i>
-                                    3%
-                                </small>
-                                198 Sold
-                            </td>
-                            <td>
-                                <a href="#" class="text-muted">
-                                    <i class="fas fa-search"></i>
-                                </a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <img src="dist/img/default-150x150.png" alt="Product 1" class="img-circle img-size-32 mr-2">
-                                Perfect Item
-                                <span class="badge bg-danger">NEW</span>
-                            </td>
-                            <td>$199 USD</td>
-                            <td>
-                                <small class="text-success mr-1">
-                                    <i class="fas fa-arrow-up"></i>
-                                    63%
-                                </small>
-                                87 Sold
-                            </td>
-                            <td>
-                                <a href="#" class="text-muted">
-                                    <i class="fas fa-search"></i>
-                                </a>
-                            </td>
-                        </tr>
+                        <?php $i = 1; ?>
+                        <?php foreach ($kategori as $k) : ?>
+                            <tr>
+                                <th scope="row">
+                                    <?= $i; ?>
+                                </th>
+                                <td><?= $k['nama_kategori']; ?></td>
+                                <td>
+                                    <a href="<?= base_url('admin/editkat/') . $k['id_kategori']; ?>" class="badge badge-success">Edit</a> |
+                                    <a href="<?= base_url('admin/deletekat/') . $k['id_kategori']; ?>" class="badge badge-danger" onclick="return confirm('Yakin?');">Delete</a>
+
+                                </td>
+                            </tr>
+                            <?php $i++; ?>
+                        <?php endforeach; ?>
                     </tbody>
                 </table>
             </div>
