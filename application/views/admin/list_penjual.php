@@ -15,7 +15,15 @@
             Tambah Penjual
         </button>
     </div>
-
+    <br>
+    <div class="container-fluid">
+        <?php if (validation_errors()) : ?>
+            <div class="alert alert-danger" role="alert">
+                <?= validation_errors(); ?>
+            </div>
+        <?php endif; ?>
+        <?= $this->session->flashdata('message'); ?>
+    </div>
     <!-- Modal -->
     <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog">
@@ -26,13 +34,24 @@
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <div class="modal-body">
-
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
-                    <button type="button" class="btn btn-primary">Tambah</button>
-                </div>
+                <form role="form" action="<?= base_url('admin/list_penjual') ?>" method="post">
+                    <div class="modal-body">
+                        <div class="card card-primary">
+                            <!-- form start -->
+                            <div class="card-body">
+                                <div class="form-group">
+                                    <label for="brand">Nama Brand</label>
+                                    <input type="text" class="form-control" id="nama_brand" name="nama_brand" placeholder="Input Brand">
+                                </div>
+                            </div>
+                            <!-- /.card-body -->
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
+                        <button type="submit" class="btn btn-primary">Tambah</button>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
@@ -41,34 +60,38 @@
         <div class="card">
             <div class="card-header border-0">
                 <h3 class="card-title">Penjual</h3>
-                <div class="card-tools">
-                    <a href="#" class="btn btn-tool btn-sm">
-                        <i class="fas fa-download"></i>
-                    </a>
-                    <a href="#" class="btn btn-tool btn-sm">
-                        <i class="fas fa-bars"></i>
-                    </a>
-                </div>
             </div>
             <div class="card-body table-responsive p-0">
                 <table class="table table-striped table-valign-middle">
                     <thead>
                         <tr>
                             <th>No</th>
-                            <th>Nama</th>
-                            <th>Email</th>
-                            <th>No HP</th>
+                            <th>Nama Penjual</th>
+                            <th>Email Penjual</th>
                             <th>Alamat</th>
+                            <th>No Hp</th>
+                            <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>$13 USD</td>
-                            <td>$13 USD</td>
-                            <td>$13 USD</td>
-                            <td>$13 USD</td>
-                            <td>$13 USD</td>
-                        </tr>
+                        <?php $i = 1; ?>
+                        <?php foreach ($penjual as $p) : ?>
+                            <tr>
+                                <th scope="row">
+                                    <?= $i; ?>
+                                </th>
+                                <td><?= $p['nama_penjual']; ?></td>
+                                <td><?= $p['email_penjual']; ?></td>
+                                <td><?= $p['alamat_penjual']; ?></td>
+                                <td><?= $p['no_hp']; ?></td>
+                                <td>
+                                    <a href="<?= base_url('admin/editbr/') . $p['id_penjual']; ?>" class="badge badge-success">Edit</a> |
+                                    <a href="<?= base_url('admin/deletebr/') . $p['id_penjual']; ?>" class="badge badge-danger" onclick="return confirm('Yakin?');">Delete</a>
+
+                                </td>
+                            </tr>
+                            <?php $i++; ?>
+                        <?php endforeach; ?>
                     </tbody>
                 </table>
             </div>

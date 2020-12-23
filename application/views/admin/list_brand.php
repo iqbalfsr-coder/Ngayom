@@ -66,7 +66,7 @@
                     <thead>
                         <tr>
                             <th>No</th>
-                            <th>Brand/th>
+                            <th>Brand</th>
                             <th>Action</th>
                         </tr>
                     </thead>

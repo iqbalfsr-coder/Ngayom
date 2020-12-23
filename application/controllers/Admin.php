@@ -13,6 +13,12 @@ class Admin extends CI_Controller
     {
         $data['url'] = $this->uri->segment(2);
         $data['title'] = 'Dashboard';
+        $data['penjual'] = $this->db->get('penjual')->num_rows();
+        $data['member'] = $this->db->get('member')->num_rows();
+        $data['product'] = $this->db->get('product')->num_rows();
+        $data['order'] = $this->db->get('tbl_order')->num_rows();
+        $data['packing'] = $this->db->get('packing')->num_rows();
+        $data['pengiriman'] = $this->db->get('pengiriman')->num_rows();
         $this->load->view('templates/header', $data);
         $this->load->view('templates/topbar_admin', $data);
         $this->load->view('templates/sidebar_admin', $data);

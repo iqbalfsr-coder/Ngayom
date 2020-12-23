@@ -21,8 +21,7 @@
                         <!-- small box -->
                         <div class="small-box bg-info">
                             <div class="inner">
-                                <h3>150</h3>
-
+                                <h3><?= $penjual; ?></h3>
                                 <p>Penjual</p>
                             </div>
                             <div class="icon">
@@ -36,8 +35,7 @@
                         <!-- small box -->
                         <div class="small-box bg-info">
                             <div class="inner">
-                                <h3>1</h3>
-
+                                <h3><?= $member; ?></h3>
                                 <p>Pembeli</p>
                             </div>
                             <div class="icon">
@@ -51,8 +49,7 @@
                         <!-- small box -->
                         <div class="small-box bg-success">
                             <div class="inner">
-                                <h3>44</h3>
-
+                                <h3><?= $product; ?></h3>
                                 <p>Product</p>
                             </div>
                             <div class="icon">
@@ -66,8 +63,7 @@
                         <!-- small box -->
                         <div class="small-box bg-success">
                             <div class="inner">
-                                <h3>65</h3>
-
+                                <h3><?= $order; ?></h3>
                                 <p>Order</p>
                             </div>
                             <div class="icon">
@@ -81,8 +77,7 @@
                         <!-- small box -->
                         <div class="small-box bg-danger">
                             <div class="inner">
-                                <h3>65</h3>
-
+                                <h3><?= $packing; ?></h3>
                                 <p>Packing</p>
                             </div>
                             <div class="icon">
@@ -96,8 +91,7 @@
                         <!-- small box -->
                         <div class="small-box bg-danger">
                             <div class="inner">
-                                <h3>65</h3>
-
+                                <h3><?= $pengiriman; ?></h3>
                                 <p>Pengiriman</p>
                             </div>
                             <div class="icon">
