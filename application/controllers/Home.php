@@ -23,8 +23,7 @@ class Home extends CI_Controller
         $this->form_validation->set_rules('password', 'Password', 'required|trim');
 
         if ($this->form_validation->run() == false) {
-            $this->load->view('templates/header_home', $data);
-            $this->load->view('home/login');
+            $this->load->view('home/login', $data);
             $this->load->view('templates/footer_home');
         } else {
             $this->login();
