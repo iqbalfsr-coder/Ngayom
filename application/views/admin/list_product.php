@@ -15,24 +15,77 @@
             Tambah Product
         </button>
     </div>
+    <br>
+    <div class="container-fluid">
+        <?php if (validation_errors()) : ?>
+            <div class="alert alert-danger" role="alert">
+                <?= validation_errors(); ?>
+            </div>
+        <?php endif; ?>
+        <?= $this->session->flashdata('message'); ?>
+    </div>
 
     <!-- Modal -->
     <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="staticBackdropLabel">Tambah Penjual</h5>
+                    <h5 class="modal-title" id="staticBackdropLabel">Tambah Product</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <div class="modal-body">
+                <form role="form" action="<?= base_url('admin/list_brand') ?>" method="post">
+                    <div class="modal-body">
+                        <div class="card card-primary">
+                            <!-- form start -->
+                            <div class="card-body">
+                                <div class="form-group">
+                                    <label for="brand">Penjual</label>
 
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
-                    <button type="button" class="btn btn-primary">Tambah</button>
-                </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="brand">Kategori</label>
+
+                                </div>
+                                <div class="form-group">
+                                    <label for="brand">Brand</label>
+
+                                </div>
+                                <div class="form-group">
+                                    <label for="brand">Nama Product</label>
+                                    <input type="text" class="form-control" id="nama_brand" name="nama_brand" placeholder="Input Brand">
+                                </div>
+                                <div class="form-group">
+                                    <label for="brand">Harga</label>
+                                    <input type="text" class="form-control" id="harga" name="harga" placeholder="Input Harga">
+                                </div>
+                                <div class="form-group">
+                                    <label for="brand">Stock</label>
+                                    <input type="text" class="form-control" id="tock" name="stock" placeholder="Input Stock">
+                                </div>
+                                <div class="form-group">
+                                    <label for="brand">Deskripsi</label>
+                                    <input type="text" class="form-control" id="nama_brand" name="nama_brand" placeholder="Input Brand">
+                                </div>
+                                <div class="form-group">
+                                    <label for="brand">Image</label>
+
+                                </div>
+                                <div class="form-group">
+                                    <label for="brand">Berat</label>
+                                    <input type="text" class="form-control" id="berat" name="berat" placeholder="Input Berat">
+                                </div>
+                            </div>
+
+                            <!-- /.card-body -->
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
+                        <button type="submit" class="btn btn-primary">Tambah</button>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
@@ -41,102 +94,20 @@
         <div class="card">
             <div class="card-header border-0">
                 <h3 class="card-title">Products</h3>
-                <div class="card-tools">
-                    <a href="#" class="btn btn-tool btn-sm">
-                        <i class="fas fa-download"></i>
-                    </a>
-                    <a href="#" class="btn btn-tool btn-sm">
-                        <i class="fas fa-bars"></i>
-                    </a>
-                </div>
             </div>
             <div class="card-body table-responsive p-0">
                 <table class="table table-striped table-valign-middle">
                     <thead>
                         <tr>
+                            <th>No</th>
+                            <th>Penjual</th>
                             <th>Product</th>
-                            <th>Price</th>
-                            <th>Sales</th>
-                            <th>More</th>
+                            <th>Stock</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td>
-                                <img src="dist/img/default-150x150.png" alt="Product 1" class="img-circle img-size-32 mr-2">
-                                Some Product
-                            </td>
                             <td>$13 USD</td>
-                            <td>
-                                <small class="text-success mr-1">
-                                    <i class="fas fa-arrow-up"></i>
-                                    12%
-                                </small>
-                                12,000 Sold
-                            </td>
-                            <td>
-                                <a href="#" class="text-muted">
-                                    <i class="fas fa-search"></i>
-                                </a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <img src="dist/img/default-150x150.png" alt="Product 1" class="img-circle img-size-32 mr-2">
-                                Another Product
-                            </td>
-                            <td>$29 USD</td>
-                            <td>
-                                <small class="text-warning mr-1">
-                                    <i class="fas fa-arrow-down"></i>
-                                    0.5%
-                                </small>
-                                123,234 Sold
-                            </td>
-                            <td>
-                                <a href="#" class="text-muted">
-                                    <i class="fas fa-search"></i>
-                                </a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <img src="dist/img/default-150x150.png" alt="Product 1" class="img-circle img-size-32 mr-2">
-                                Amazing Product
-                            </td>
-                            <td>$1,230 USD</td>
-                            <td>
-                                <small class="text-danger mr-1">
-                                    <i class="fas fa-arrow-down"></i>
-                                    3%
-                                </small>
-                                198 Sold
-                            </td>
-                            <td>
-                                <a href="#" class="text-muted">
-                                    <i class="fas fa-search"></i>
-                                </a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <img src="dist/img/default-150x150.png" alt="Product 1" class="img-circle img-size-32 mr-2">
-                                Perfect Item
-                                <span class="badge bg-danger">NEW</span>
-                            </td>
-                            <td>$199 USD</td>
-                            <td>
-                                <small class="text-success mr-1">
-                                    <i class="fas fa-arrow-up"></i>
-                                    63%
-                                </small>
-                                87 Sold
-                            </td>
-                            <td>
-                                <a href="#" class="text-muted">
-                                    <i class="fas fa-search"></i>
-                                </a>
-                            </td>
                         </tr>
                     </tbody>
                 </table>
