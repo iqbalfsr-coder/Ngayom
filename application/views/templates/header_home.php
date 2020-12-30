@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>Cart | E-Shopper</title>
+    <title><?= $title; ?></title>
     <link href="<?= base_url('assets/eshop/'); ?>css/bootstrap.min.css" rel="stylesheet">
     <link href="<?= base_url('assets/eshop/'); ?>css/font-awesome.min.css" rel="stylesheet">
     <link href="<?= base_url('assets/eshop/'); ?>css/prettyPhoto.css" rel="stylesheet">

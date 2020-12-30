@@ -11,6 +11,8 @@ class Home extends CI_Controller
     public function index()
     {
         $data['url'] = $this->uri->segment(2);
+        $data['brand'] = $this->db->get('brand')->result_array();
+        $data['kategori'] = $this->db->get('kategori')->result_array();
         $this->load->view('templates/header_home', $data);
         $this->load->view('home/index');
         $this->load->view('templates/footer_home');
