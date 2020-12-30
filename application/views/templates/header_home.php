@@ -71,7 +71,7 @@
                                         Checkout</a>
                                     <li />
                                 <li>
-                                    <a <?php if ($url == '') {
+                                    <a <?php if ($url == 'cart') {
                                             echo 'class="active"';
                                         } else {
                                             echo '';
@@ -80,13 +80,9 @@
                                         Cart</a>
                                     <li />
                                 <li>
-                                    <a <?php if ($url == 'log') {
-                                            echo 'class="active"';
-                                        } else {
-                                            echo '';
-                                        } ?> href="<?= base_url('home/log'); ?>">
-                                        <i class="fa fa-lock"></i>
-                                        Login</a>
+                                    <a href="<?= base_url('home/logout'); ?>">
+                                        <i class="fa fa-sign-out"></i>
+                                        Logout</a>
                                     <li />
                             </ul>
                         </div>

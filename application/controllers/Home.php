@@ -80,4 +80,12 @@ class Home extends CI_Controller
             redirect('home/regis');
         }
     }
+
+    public function logout()
+    {
+        $this->session->unset_userdata('email');
+        $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
+        You have been logged out ! </div>');
+        redirect('home/log');
+    }
 }
