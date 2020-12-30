@@ -6,6 +6,7 @@ class Cart extends CI_Controller
     public function index()
     {
         $data['url'] = $this->uri->segment(1);
+        $data['title'] = 'Cart';
         $this->load->view('templates/header_home', $data);
         $this->load->view('cart/index');
     }

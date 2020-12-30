@@ -44,11 +44,11 @@
                         <div class="shop-menu pull-right">
                             <ul class="nav navbar-nav">
                                 <li>
-                                    <a <?php if ($url == 'akun') {
+                                    <a <?php if ($url == 'account') {
                                             echo 'class="active"';
                                         } else {
                                             echo '';
-                                        } ?> href="<?= base_url('home/akun'); ?>">
+                                        } ?> href="<?= base_url('home/account'); ?>">
                                         <i class="fa fa-user"></i>
                                         Account</a>
                                     <li />

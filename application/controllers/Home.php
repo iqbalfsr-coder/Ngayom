@@ -8,13 +8,42 @@ class Home extends CI_Controller
         parent::__construct();
         $this->load->library('form_validation');
     }
+
     public function index()
     {
+        $data['title'] = 'Ngayom';
         $data['url'] = $this->uri->segment(2);
         $data['brand'] = $this->db->get('brand')->result_array();
         $data['kategori'] = $this->db->get('kategori')->result_array();
         $this->load->view('templates/header_home', $data);
         $this->load->view('home/index');
+        $this->load->view('templates/footer_home');
+    }
+
+    public function account()
+    {
+        $data['title'] = 'Account';
+        $data['url'] = $this->uri->segment(2);
+        $this->load->view('templates/header_home', $data);
+        $this->load->view('home/account');
+        $this->load->view('templates/footer_home');
+    }
+
+    public function wishlist()
+    {
+        $data['title'] = 'Wishlist';
+        $data['url'] = $this->uri->segment(2);
+        $this->load->view('templates/header_home', $data);
+        $this->load->view('home/wishlist');
+        $this->load->view('templates/footer_home');
+    }
+
+    public function checkout()
+    {
+        $data['title'] = 'Checkout';
+        $data['url'] = $this->uri->segment(2);
+        $this->load->view('templates/header_home', $data);
+        $this->load->view('home/checkout');
         $this->load->view('templates/footer_home');
     }
 
