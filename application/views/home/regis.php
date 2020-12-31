@@ -48,6 +48,7 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <b>New User Signup!</b>
+                                <br>
                                 <?= $this->session->flashdata('message'); ?>
                             </div>
                         </div>
@@ -56,8 +57,8 @@
                             <div class="col-md-6">
                                 <form action="<?= base_url('home/regis'); ?>" method="POST">
                                     <label>Name</label>
-                                    <input class="form-control" type="text" placeholder="Name">
-                                    <?= form_error('name', '<small class="text-danger pl-3">', '</small>'); ?>
+                                    <input class="form-control" type="text" placeholder="Name" name="name" id="name">
+                                    <?= form_error('nama', '<small class="text-danger pl-3">', '</small>'); ?>
                             </div>
                             <div class="col-md-6">
                                 <label>E-mail</label>
@@ -66,7 +67,7 @@
                             </div>
                             <div class="col-md-6">
                                 <label>Password</label>
-                                <input class="form-control" type="password" placeholder="Password">
+                                <input class="form-control" type="password" placeholder="Password" name="password" id="password">
                                 <?= form_error('password', '<small class="text-danger pl-3">', '</small>'); ?>
                             </div>
                             <div class="col-md-12">
@@ -82,7 +83,6 @@
                             <div class="col-md-6">
                                 <b>Login to your account!</b>
                             </div>
-                            <?= $this->session->flashdata('message'); ?>
                         </div>
                         <br>
                         <div class="row">
