@@ -46,7 +46,7 @@
                             <i class="fa fa-heart"></i>
                             <span>(0)</span>
                         </a>
-                        <a href="<?= base_url('cart') ?>" class="btn cart">
+                        <a href="<?= base_url('home/cart') ?>" class="btn cart">
                             <i class="fa fa-shopping-cart"></i>
                             <span>(0)</span>
                         </a>

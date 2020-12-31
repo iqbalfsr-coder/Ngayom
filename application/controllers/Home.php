@@ -38,6 +38,15 @@ class Home extends CI_Controller
         $this->load->view('templates/footer_home');
     }
 
+    public function cart()
+    {
+        $data['url'] = $this->uri->segment(1);
+        $data['title'] = 'Cart';
+        $this->load->view('templates/header_home', $data);
+        $this->load->view('home/cart');
+        $this->load->view('templates/footer_home');
+    }
+
     public function checkout()
     {
         $data['title'] = 'Checkout';
