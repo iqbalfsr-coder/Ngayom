@@ -3,137 +3,60 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <title><?= $title; ?></title>
-    <link href="<?= base_url('assets/eshop/'); ?>css/bootstrap.min.css" rel="stylesheet">
-    <link href="<?= base_url('assets/eshop/'); ?>css/font-awesome.min.css" rel="stylesheet">
-    <link href="<?= base_url('assets/eshop/'); ?>css/prettyPhoto.css" rel="stylesheet">
-    <link href="<?= base_url('assets/eshop/'); ?>css/price-range.css" rel="stylesheet">
-    <link href="<?= base_url('assets/eshop/'); ?>css/animate.css" rel="stylesheet">
-    <link href="<?= base_url('assets/eshop/'); ?>css/main.css" rel="stylesheet">
-    <link href="<?= base_url('asset/eshop/'); ?>css/responsive.css" rel="stylesheet">
-    <!--[if lt IE 9]>
-    <script src="js/html5shiv.js"></script>
-    <script src="js/respond.min.js"></script>
-    <![endif]-->
-    <link rel="shortcut icon" href="<?= base_url('assets/eshop/'); ?>images/ico/favicon.ico">
-    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="<?= base_url('assets/eshop/'); ?>images/ico/apple-touch-icon-144-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="<?= base_url('assets/eshop/'); ?>images/ico/apple-touch-icon-114-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="<?= base_url('assets/eshop/'); ?>images/ico/apple-touch-icon-72-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" href="<?= base_url('assets/eshop/'); ?>images/ico/apple-touch-icon-57-precomposed.png">
+    <title>E Store - eCommerce HTML Template</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <!-- Favicon -->
+    <link href="<?= base_url('assets/eshop/img/') ?>favicon.ico" rel="icon">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400|Source+Code+Pro:700,900&display=swap" rel="stylesheet">
+
+    <!-- CSS Libraries -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="<?= base_url('assets/eshop/') ?>lib/slick/slick.css" rel="stylesheet">
+    <link href="<?= base_url('assets/eshop/') ?>lib/slick/slick-theme.css" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link href="<?= base_url('assets/eshop/') ?>css/style.css" rel="stylesheet">
 </head>
-<!--/head-->
 
 <body>
-    <header id="header">
-        <!--header-->
-        <!--/header_top-->
-
-        <div class="header-middle">
-            <!--header-middle-->
-            <div class="container">
-                <div class="row">
-                    <div class="col-sm-4">
-                        <div class="logo pull-left">
-                            <a href="index.html"><img src="<?= base_url('assets/img/'); ?>logo.png" alt="logo" width="100" /></a>
-                        </div>
+    <!-- Bottom Bar Start -->
+    <div class="bottom-bar">
+        <div class="container-fluid">
+            <div class="row align-items-center">
+                <div class="col-md-2">
+                    <div class="logo">
+                        <a href="index.html">
+                            <img src="<?= base_url('assets/') ?>img/logo.png" alt="Logo">
+                        </a>
                     </div>
-                    <div class="col-sm-8">
-                        <div class="shop-menu pull-right">
-                            <ul class="nav navbar-nav">
-                                <li>
-                                    <a <?php if ($url == 'account') {
-                                            echo 'class="active"';
-                                        } else {
-                                            echo '';
-                                        } ?> href="<?= base_url('home/account'); ?>">
-                                        <i class="fa fa-user"></i>
-                                        Account</a>
-                                    <li />
-                                <li>
-                                    <a <?php if ($url == 'wishlist') {
-                                            echo 'class="active"';
-                                        } else {
-                                            echo '';
-                                        } ?> href="<?= base_url('home/wishlist'); ?>">
-                                        <i class="fa fa-star"></i>
-                                        Wishlist</a>
-                                    <li />
-                                <li>
-                                    <a <?php if ($url == 'checkout') {
-                                            echo 'class="active"';
-                                        } else {
-                                            echo '';
-                                        } ?> href="<?= base_url('home/checkout'); ?>">
-                                        <i class="fa fa-crosshairs"></i>
-                                        Checkout</a>
-                                    <li />
-                                <li>
-                                    <a <?php if ($url == 'cart') {
-                                            echo 'class="active"';
-                                        } else {
-                                            echo '';
-                                        } ?> href="<?= base_url('cart'); ?>">
-                                        <i class="fa fa-shopping-cart"></i>
-                                        Cart</a>
-                                    <li />
-                                <li>
-                                    <a href="<?= base_url('home/logout'); ?>">
-                                        <i class="fa fa-sign-out"></i>
-                                        Logout</a>
-                                    <li />
-                            </ul>
-                        </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="search">
+                        <input type="text" placeholder="Search">
+                        <button><i class="fa fa-search"></i></button>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="user">
+                        <a href="<?= base_url('home/wishlist') ?>" class="btn wishlist">
+                            <i class="fa fa-heart"></i>
+                            <span>(0)</span>
+                        </a>
+                        <a href="<?= base_url('cart') ?>" class="btn cart">
+                            <i class="fa fa-shopping-cart"></i>
+                            <span>(0)</span>
+                        </a>
+                        <a href="<?= base_url('home/account') ?>" class="btn cart">
+                            <i class="fa fa-user"></i>
+                            <span>(0)</span>
+                        </a>
                     </div>
                 </div>
             </div>
         </div>
-        <!--/header-middle-->
-        <div class="header-bottom">
-            <!--header-bottom-->
-            <div class="container">
-                <div class="row">
-                    <div class="col-sm-9">
-                        <div class="navbar-header">
-                            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                                <span class="sr-only">Toggle navigation</span>
-                                <span class="icon-bar"></span>
-                                <span class="icon-bar"></span>
-                                <span class="icon-bar"></span>
-                            </button>
-                        </div>
-                        <div class="mainmenu pull-left">
-                            <ul class="nav navbar-nav collapse navbar-collapse">
-                                <li><a href="index.html">Home</a></li>
-                                <li class="dropdown"><a href="#">Shop<i class="fa fa-angle-down"></i></a>
-                                    <ul role="menu" class="sub-menu">
-                                        <li><a href="shop.html">Products</a></li>
-                                        <li><a href="product-details.html">Product Details</a></li>
-                                        <li><a href="checkout.html">Checkout</a></li>
-                                        <li><a href="cart.html" class="active">Cart</a></li>
-                                        <li><a href="login.html">Login</a></li>
-                                    </ul>
-                                </li>
-                                <li class="dropdown"><a href="#">Blog<i class="fa fa-angle-down"></i></a>
-                                    <ul role="menu" class="sub-menu">
-                                        <li><a href="blog.html">Blog List</a></li>
-                                        <li><a href="blog-single.html">Blog Single</a></li>
-                                    </ul>
-                                </li>
-                                <li><a href="404.html">404</a></li>
-                                <li><a href="contact-us.html">Contact</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-sm-3">
-                        <div class="search_box pull-right">
-                            <input type="text" placeholder="Search" />
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!--/header-bottom-->
-    </header>
+    </div>
+    <!-- Bottom Bar End -->

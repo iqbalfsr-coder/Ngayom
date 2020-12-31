@@ -58,7 +58,7 @@
                                 <form action="<?= base_url('home/regis'); ?>" method="POST">
                                     <label>Name</label>
                                     <input class="form-control" type="text" placeholder="Name" name="name" id="name">
-                                    <?= form_error('nama', '<small class="text-danger pl-3">', '</small>'); ?>
+                                    <?= form_error('name', '<small class="text-danger pl-3">', '</small>'); ?>
                             </div>
                             <div class="col-md-6">
                                 <label>E-mail</label>
