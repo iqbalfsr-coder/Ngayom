@@ -1,33 +1,33 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class Cart extends CI_Controller
+class Checkout extends CI_Controller
 {
     public function index()
     {
         $data['url'] = $this->uri->segment(1);
-        $data['title'] = 'Cart';
+        $data['title'] = 'Checkout';
         $this->load->view('templates/header_home', $data);
-        $this->load->view('cart/index');
+        $this->load->view('checkout/index');
     }
 
     public function datap()
     {
-        $this->load->view('cart/dataprovinsi');
+        $this->load->view('checkout/dataprovinsi');
     }
 
     public function datak()
     {
-        $this->load->view('cart/datakota');
+        $this->load->view('checkout/datakota');
     }
 
     public function datae()
     {
-        $this->load->view('cart/datakurir');
+        $this->load->view('checkout/datakurir');
     }
 
     public function datapa()
     {
-        $this->load->view('cart/datapaket');
+        $this->load->view('checkout/datapaket');
     }
 }

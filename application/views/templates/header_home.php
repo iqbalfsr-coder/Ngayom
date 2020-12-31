@@ -17,7 +17,8 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
     <link href="<?= base_url('assets/eshop/') ?>lib/slick/slick.css" rel="stylesheet">
     <link href="<?= base_url('assets/eshop/') ?>lib/slick/slick-theme.css" rel="stylesheet">
-
+    <script type="text/javascript" src="https://app.sandbox.midtrans.com/snap/snap.js" data-client-key="SB-Mid-client-J0fbcwkO7Ggsul49"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
     <!-- Template Stylesheet -->
     <link href="<?= base_url('assets/eshop/') ?>css/style.css" rel="stylesheet">
 </head>
