@@ -30,7 +30,7 @@
             <div class="row align-items-center">
                 <div class="col-md-2">
                     <div class="logo">
-                        <a href="index.html">
+                        <a href="<?= base_url('home') ?>">
                             <img src="<?= base_url('assets/') ?>img/logo.png" alt="Logo">
                         </a>
                     </div>

@@ -56,6 +56,24 @@ class Home extends CI_Controller
         $this->load->view('templates/footer_home');
     }
 
+    public function product_detail()
+    {
+        $data['title'] = 'Product Detail';
+        $data['url'] = $this->uri->segment(2);
+        $this->load->view('templates/header_home', $data);
+        $this->load->view('home/product_detail');
+        $this->load->view('templates/footer_home');
+    }
+
+    public function product_list()
+    {
+        $data['title'] = 'Product List';
+        $data['url'] = $this->uri->segment(2);
+        $this->load->view('templates/header_home', $data);
+        $this->load->view('home/product_list');
+        $this->load->view('templates/footer_home');
+    }
+
     public function log()
     {
         $data['url'] = $this->uri->segment(2);
