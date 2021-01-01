@@ -54,6 +54,9 @@ class Admin extends CI_Controller
     {
         $data['url'] = $this->uri->segment(2);
         $data['title'] = 'Daftar Product';
+        $data['brand'] = $this->db->get('brand')->result_array();
+        $data['kategori'] = $this->db->get('kategori')->result_array();
+        $data['penjual'] = $this->db->get('penjual')->result_array();
         $data['product'] = $this->db->get('product')->result_array();
         $this->load->view('templates/header', $data);
         $this->load->view('templates/topbar_admin', $data);

@@ -42,20 +42,29 @@
                             <div class="card-body">
                                 <div class="form-group">
                                     <label>Penjual</label>
-                                    <select class="form-control">
-                                        <option>--Pilih Penjual--</option>
+                                    <select class="form-control" name="penjual">
+                                        <option value="">--Pilih Penjual--</option>
+                                        <?php foreach ($penjual as $p) : ?>
+                                            <option value="<?= $p['id_penjual']; ?>"><?= $p['nama_penjual']; ?></option>
+                                        <?php endforeach; ?>
                                     </select>
                                 </div>
                                 <div class="form-group">
                                     <label>Kategori</label>
-                                    <select class="form-control">
-                                        <option>--Pilih Kategori--</option>
+                                    <select class="form-control" name="kategori">
+                                        <option value="">--Pilih Kategori--</option>
+                                        <?php foreach ($kategori as $k) : ?>
+                                            <option value="<?= $k['id_kategori']; ?>"><?= $k['nama_kategori']; ?></option>
+                                        <?php endforeach; ?>
                                     </select>
                                 </div>
                                 <div class="form-group">
                                     <label>Brand</label>
-                                    <select class="form-control">
-                                        <option>--Pilih Brand--</option>
+                                    <select class="form-control" name="brand">
+                                        <option value="">--Pilih Brand--</option>
+                                        <?php foreach ($brand as $b) : ?>
+                                            <option value="<?= $b['id_brand']; ?>"><?= $b['nama_brand']; ?></option>
+                                        <?php endforeach; ?>
                                     </select>
                                 </div>
                                 <div class="form-group">
