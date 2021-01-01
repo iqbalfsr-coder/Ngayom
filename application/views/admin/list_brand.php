@@ -43,7 +43,17 @@
                                     <label for="brand">Nama Brand</label>
                                     <input type="text" class="form-control" id="nama_brand" name="nama_brand" placeholder="Input Brand">
                                 </div>
+                                <div class="form-group">
+                                    <label for="exampleInputFile">Images</label>
+                                    <div class="input-group">
+                                        <div class="custom-file">
+                                            <input type="file" class="custom-file-input" id="image" name="image">
+                                            <label class="custom-file-label" for="exampleInputFile">Choose file</label>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
+
                             <!-- /.card-body -->
                         </div>
                     </div>
@@ -67,6 +77,7 @@
                         <tr>
                             <th>No</th>
                             <th>Brand</th>
+                            <th>Images</th>
                             <th>Action</th>
                         </tr>
                     </thead>
@@ -78,6 +89,8 @@
                                     <?= $i; ?>
                                 </th>
                                 <td><?= $b['nama_brand']; ?></td>
+                                <td><img src="<?= base_url('assets/eshop/img/') . $b['image']; ?>" alt="" width="100px"></td>
+
                                 <td>
                                     <a href="<?= base_url('admin/editbr/') . $b['id_brand']; ?>" class="badge badge-success">Edit</a> |
                                     <a href="<?= base_url('admin/deletebr/') . $b['id_brand']; ?>" class="badge badge-danger" onclick="return confirm('Yakin?');">Delete</a>

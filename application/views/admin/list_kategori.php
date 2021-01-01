@@ -43,6 +43,17 @@
                                     <label for="kategori">Nama Kategori</label>
                                     <input type="text" class="form-control" id="nama_kategori" name="nama_kategori" placeholder="Input Kategori">
                                 </div>
+                                <div class="form-group">
+                                    <label>Icons</label>
+                                    <select class="fa" name="icon">
+                                        <option>--Pilih Icons--</option>
+                                        <option value="fas fa-female">&#xf182; Female</option>
+                                        <option value="fas fa-child">&#xf1ae; Child</option>
+                                        <option value="fas fa-male">&#xf183; Male</option>
+                                        <option value="fa fa-mobile-alt">&#xf3cd; Gadgets</option>
+                                        <option value="fa fa-microchip">&#xf2db; Electronics</option>
+                                    </select>
+                                </div>
                             </div>
                             <!-- /.card-body -->
                         </div>
@@ -67,6 +78,7 @@
                         <tr>
                             <th>No</th>
                             <th>Kategori</th>
+                            <th>Icons</th>
                             <th>Action</th>
                         </tr>
                     </thead>
@@ -78,6 +90,7 @@
                                     <?= $i; ?>
                                 </th>
                                 <td><?= $k['nama_kategori']; ?></td>
+                                <td><i class="<?= $k['icon'] ?> fa-2x"></i></td>
                                 <td>
                                     <a href="<?= base_url('admin/editkat/') . $k['id_kategori']; ?>" class="badge badge-success">Edit</a> |
                                     <a href="<?= base_url('admin/deletekat/') . $k['id_kategori']; ?>" class="badge badge-danger" onclick="return confirm('Yakin?');">Delete</a>

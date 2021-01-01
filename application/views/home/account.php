@@ -28,16 +28,13 @@
                         <h4>Account Details</h4>
                         <div class="row">
                             <div class="col-md-6">
-                                <input class="form-control" type="text" placeholder="First Name">
+                                <input class="form-control" type="text" placeholder="Name">
                             </div>
                             <div class="col-md-6">
-                                <input class="form-control" type="text" placeholder="Last Name">
+                                <input class="form-control" type="email" placeholder="Email">
                             </div>
                             <div class="col-md-6">
                                 <input class="form-control" type="text" placeholder="Mobile">
-                            </div>
-                            <div class="col-md-6">
-                                <input class="form-control" type="text" placeholder="Email">
                             </div>
                             <div class="col-md-12">
                                 <input class="form-control" type="text" placeholder="Address">
@@ -53,10 +50,10 @@
                                 <input class="form-control" type="password" placeholder="Current Password">
                             </div>
                             <div class="col-md-6">
-                                <input class="form-control" type="text" placeholder="New Password">
+                                <input class="form-control" type="password" placeholder="New Password">
                             </div>
                             <div class="col-md-6">
-                                <input class="form-control" type="text" placeholder="Confirm Password">
+                                <input class="form-control" type="password" placeholder="Confirm Password">
                             </div>
                             <div class="col-md-12">
                                 <button class="btn">Save Changes</button>
@@ -66,12 +63,6 @@
                     <div class="tab-pane fade" id="address-tab" role="tabpanel" aria-labelledby="address-nav">
                         <h4>Address</h4>
                         <div class="row">
-                            <div class="col-md-6">
-                                <h5>Payment Address</h5>
-                                <p>123 Payment Street, Los Angeles, CA</p>
-                                <p>Mobile: 012-345-6789</p>
-                                <button class="btn">Edit Address</button>
-                            </div>
                             <div class="col-md-6">
                                 <h5>Shipping Address</h5>
                                 <p>123 Shipping Street, Los Angeles, CA</p>

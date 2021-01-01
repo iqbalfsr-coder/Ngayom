@@ -41,16 +41,22 @@
                             <!-- form start -->
                             <div class="card-body">
                                 <div class="form-group">
-                                    <label for="brand">Penjual</label>
-
+                                    <label>Penjual</label>
+                                    <select class="form-control">
+                                        <option>--Pilih Penjual--</option>
+                                    </select>
                                 </div>
                                 <div class="form-group">
-                                    <label for="brand">Kategori</label>
-
+                                    <label>Kategori</label>
+                                    <select class="form-control">
+                                        <option>--Pilih Kategori--</option>
+                                    </select>
                                 </div>
                                 <div class="form-group">
-                                    <label for="brand">Brand</label>
-
+                                    <label>Brand</label>
+                                    <select class="form-control">
+                                        <option>--Pilih Brand--</option>
+                                    </select>
                                 </div>
                                 <div class="form-group">
                                     <label for="brand">Nama Product</label>
@@ -65,12 +71,17 @@
                                     <input type="text" class="form-control" id="tock" name="stock" placeholder="Input Stock">
                                 </div>
                                 <div class="form-group">
-                                    <label for="brand">Deskripsi</label>
-                                    <input type="text" class="form-control" id="nama_brand" name="nama_brand" placeholder="Input Brand">
+                                    <label>Deskripsi</label>
+                                    <textarea class="form-control" rows="3" placeholder="Deskripsi" name="deskripsi" id="deskripsi"></textarea>
                                 </div>
                                 <div class="form-group">
-                                    <label for="brand">Image</label>
-
+                                    <label for="exampleInputFile">Images</label>
+                                    <div class="input-group">
+                                        <div class="custom-file">
+                                            <input type="file" class="custom-file-input" id="image" name="image">
+                                            <label class="custom-file-label" for="exampleInputFile">Choose file</label>
+                                        </div>
+                                    </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="brand">Berat</label>

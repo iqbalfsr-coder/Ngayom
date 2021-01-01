@@ -72,7 +72,8 @@
 <div class="brand">
     <div class="container-fluid">
         <div class="brand-slider">
-            <div class="brand-item"><img src="<?= base_url('assets/eshop/') ?>img/brand-1.png" alt=""></div>
+            <div class="brand-item"><img src="<?= base_url('assets/eshop/') ?>img/nike.png" alt="" width="100px"></div>
+            <div class="brand-item"><img src="<?= base_url('assets/eshop/') ?>img/adidas.png" alt="" width="100px"></div>
             <div class="brand-item"><img src="<?= base_url('assets/eshop/') ?>img/brand-2.png" alt=""></div>
             <div class="brand-item"><img src="<?= base_url('assets/eshop/') ?>img/brand-3.png" alt=""></div>
             <div class="brand-item"><img src="<?= base_url('assets/eshop/') ?>img/brand-4.png" alt=""></div>
