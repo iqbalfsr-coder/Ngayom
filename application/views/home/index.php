@@ -83,50 +83,6 @@
 </div>
 <!-- Brand End -->
 
-<!-- Feature Start-->
-<div class="feature">
-    <div class="container-fluid">
-        <div class="row align-items-center">
-            <div class="col-lg-3 col-md-6 feature-col">
-                <div class="feature-content">
-                    <i class="fab fa-cc-mastercard"></i>
-                    <h2>Secure Payment</h2>
-                    <p>
-                        Lorem ipsum dolor sit amet consectetur elit
-                    </p>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6 feature-col">
-                <div class="feature-content">
-                    <i class="fa fa-truck"></i>
-                    <h2>Worldwide Delivery</h2>
-                    <p>
-                        Lorem ipsum dolor sit amet consectetur elit
-                    </p>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6 feature-col">
-                <div class="feature-content">
-                    <i class="fa fa-sync-alt"></i>
-                    <h2>90 Days Return</h2>
-                    <p>
-                        Lorem ipsum dolor sit amet consectetur elit
-                    </p>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6 feature-col">
-                <div class="feature-content">
-                    <i class="fa fa-comments"></i>
-                    <h2>24/7 Support</h2>
-                    <p>
-                        Lorem ipsum dolor sit amet consectetur elit
-                    </p>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- Feature End-->
 
 <!-- Category Start-->
 <div class="category">
@@ -221,44 +177,3 @@
     </div>
 </div>
 <!-- Featured Product End -->
-
-
-<!-- Recent Product Start -->
-<div class="recent-product product">
-    <div class="container-fluid">
-        <div class="section-header">
-            <h1>Recent Product</h1>
-        </div>
-        <div class="row align-items-center product-slider product-slider-4">
-            <div class="col-lg-3">
-                <div class="product-item">
-                    <div class="product-title">
-                        <a href="#">Product Name</a>
-                        <div class="ratting">
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                        </div>
-                    </div>
-                    <div class="product-image">
-                        <a href="product-detail.html">
-                            <img src="<?= base_url('assets/eshop/') ?>/img/product-6.jpg" alt="Product Image">
-                        </a>
-                        <div class="product-action">
-                            <a href="<?= base_url('home/cart') ?>"><i class="fa fa-cart-plus"></i></a>
-                            <a href="<?= base_url('home/wishlist') ?>"><i class="fa fa-heart"></i></a>
-                            <a href="<?= base_url('home/product_detail') ?>"><i class="fa fa-search"></i></a>
-                        </div>
-                    </div>
-                    <div class="product-price">
-                        <h3><span>$</span>99</h3>
-                        <a class="btn" href=""><i class="fa fa-shopping-cart"></i>Buy Now</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- Recent Product End -->
