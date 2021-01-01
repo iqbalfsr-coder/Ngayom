@@ -2,8 +2,8 @@
 <div class="breadcrumb-wrap">
     <div class="container-fluid">
         <ul class="breadcrumb">
-            <li class="breadcrumb-item"><a href="#">Home</a></li>
-            <li class="breadcrumb-item"><a href="#">Products</a></li>
+            <li class="breadcrumb-item"><a href="<?= base_url('home') ?>">Home</a></li>
+            <li class="breadcrumb-item"><a href="<?= base_url('product_list') ?>">Products</a></li>
             <li class="breadcrumb-item active">Cart</li>
         </ul>
     </div>
@@ -31,7 +31,7 @@
                                 <tr>
                                     <td>
                                         <div class="img">
-                                            <a href="#"><img src="img/product-1.jpg" alt="Image"></a>
+                                            <a href="#"><img src="<?= base_url('assets/eshop/') ?>img/product-1.jpg" alt="Image"></a>
                                             <p>Product Name</p>
                                         </div>
                                     </td>
@@ -39,7 +39,7 @@
                                     <td>
                                         <div class="qty">
                                             <button class="btn-minus"><i class="fa fa-minus"></i></button>
-                                            <input type="text" value="1">
+                                            <input type="text" value="">
                                             <button class="btn-plus"><i class="fa fa-plus"></i></button>
                                         </div>
                                     </td>

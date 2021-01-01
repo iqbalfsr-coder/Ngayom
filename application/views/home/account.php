@@ -3,7 +3,7 @@
     <div class="container-fluid">
         <ul class="breadcrumb">
             <li class="breadcrumb-item"><a href="<?= base_url('home') ?>">Home</a></li>
-            <li class="breadcrumb-item"><a href="<?= base_url('product') ?>">Products</a></li>
+            <li class="breadcrumb-item"><a href="<?= base_url('product_list') ?>">Products</a></li>
             <li class="breadcrumb-item active">My Account</li>
         </ul>
     </div>
