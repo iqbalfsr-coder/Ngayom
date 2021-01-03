@@ -40,8 +40,24 @@
                             <!-- form start -->
                             <div class="card-body">
                                 <div class="form-group">
-                                    <label for="brand">Nama Brand</label>
-                                    <input type="text" class="form-control" id="nama_brand" name="nama_brand" placeholder="Input Brand">
+                                    <label for="brand">Nama</label>
+                                    <input type="text" class="form-control" id="nama_brand" name="nama_brand" placeholder="Input Nama">
+                                </div>
+                                <div class="form-group">
+                                    <label for="email">Email</label>
+                                    <input type="email" class="form-control" id="email" name="email" placeholder="Input Email">
+                                </div>
+                                <div class="form-group">
+                                    <label for="password">Password</label>
+                                    <input type="password" class="form-control" id="password" name="password" placeholder="Input Password">
+                                </div>
+                                <div class="form-group">
+                                    <label>Alamat</label>
+                                    <textarea class="form-control" rows="3" placeholder="Deskripsi" name="alamat" id="alamat"></textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label for="brand">No HP</label>
+                                    <input type="text" class="form-control" id="no_hp name=" no_hp" placeholder="Input No HP">
                                 </div>
                             </div>
                             <!-- /.card-body -->

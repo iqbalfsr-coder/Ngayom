@@ -105,6 +105,16 @@
                                 <p>Pengiriman</p>
                             </a>
                         </li>
+                        <li class="nav-item">
+                            <a href="<?= base_url('admin/list_refund') ?>" <?php if ($url == 'list_refund') {
+                                                                                echo 'class="nav-link active"';
+                                                                            } else {
+                                                                                echo 'class="nav-link"';
+                                                                            } ?>>
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Refund</p>
+                            </a>
+                        </li>
                     </ul>
                 </li>
         </nav>

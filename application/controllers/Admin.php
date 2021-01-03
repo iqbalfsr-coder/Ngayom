@@ -19,6 +19,7 @@ class Admin extends CI_Controller
         $data['order'] = $this->db->get('tbl_order')->num_rows();
         $data['packing'] = $this->db->get('packing')->num_rows();
         $data['pengiriman'] = $this->db->get('pengiriman')->num_rows();
+        $data['refund'] = $this->db->get('refund')->num_rows();
         $this->load->view('templates/header', $data);
         $this->load->view('templates/topbar_admin', $data);
         $this->load->view('templates/sidebar_admin', $data);
@@ -192,6 +193,18 @@ class Admin extends CI_Controller
         $this->load->view('templates/topbar_admin', $data);
         $this->load->view('templates/sidebar_admin', $data);
         $this->load->view('admin/list_pengiriman');
+        $this->load->view('templates/footer');
+    }
+
+    public function list_refund()
+    {
+        $data['url'] = $this->uri->segment(2);
+        $data['title'] = 'Daftar Refund';
+        $data['refund'] = $this->db->get('refund')->result_array();
+        $this->load->view('templates/header', $data);
+        $this->load->view('templates/topbar_admin', $data);
+        $this->load->view('templates/sidebar_admin', $data);
+        $this->load->view('admin/list_refund');
         $this->load->view('templates/footer');
     }
 }

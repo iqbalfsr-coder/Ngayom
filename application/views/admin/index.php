@@ -81,7 +81,7 @@
                                 <p>Packing</p>
                             </div>
                             <div class="icon">
-                                <i class="ion ion-bag"></i>
+                                <i class="fas fa-archive"></i>
                             </div>
                             <a href="<?= base_url('admin/list_packing') ?>" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
                         </div>
@@ -101,6 +101,19 @@
                         </div>
                     </div>
                     <!-- ./col -->
+                    <div class="col-lg-3 col-6">
+                        <!-- small box -->
+                        <div class="small-box bg-warning">
+                            <div class="inner">
+                                <h3><?= $refund; ?></h3>
+                                <p>Refund</p>
+                            </div>
+                            <div class="icon">
+                                <i class="fas fa-share-square"></i>
+                            </div>
+                            <a href="<?= base_url('admin/list_refund') ?>" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                        </div>
+                    </div>
                 </div>
                 <!-- /.row -->
             </div>
