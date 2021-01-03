@@ -40,26 +40,26 @@
                                 <input class="form-control" type="text" placeholder="Address">
                             </div>
                             <div class="col-md-6">
-                                <label>Country</label>
-                                <select class="custom-select">
-                                    <option selected>United States</option>
-                                    <option>Afghanistan</option>
-                                    <option>Albania</option>
-                                    <option>Algeria</option>
+                                <label>Provinsi</label>
+                                <select class="form-control" name="provinsi">
                                 </select>
                             </div>
                             <div class="col-md-6">
-                                <label>City</label>
-                                <input class="form-control" type="text" placeholder="City">
+                                <label>Kota/Kabupaten</label>
+                                <select class="form-control" name="kabupaten">
+                                </select>
                             </div>
                             <div class="col-md-6">
-                                <label>State</label>
-                                <input class="form-control" type="text" placeholder="State">
+                                <label>Kurir</label>
+                                <select class="form-control" name="kurir">
+                                </select>
                             </div>
                             <div class="col-md-6">
-                                <label>ZIP Code</label>
-                                <input class="form-control" type="text" placeholder="ZIP Code">
+                                <label>Paket</label>
+                                <select class="form-control" name="paket">
+                                </select>
                             </div>
+                            <input type="text" name="total_berat" value="1200" hidden>
                         </div>
                     </div>
                 </div>
