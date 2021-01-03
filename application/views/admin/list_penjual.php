@@ -41,23 +41,23 @@
                             <div class="card-body">
                                 <div class="form-group">
                                     <label for="brand">Nama</label>
-                                    <input type="text" class="form-control" id="nama_brand" name="nama_brand" placeholder="Input Nama">
+                                    <input type="text" class="form-control" id="nama_penjual" name="nama_penjual" placeholder="Input Nama">
                                 </div>
                                 <div class="form-group">
                                     <label for="email">Email</label>
-                                    <input type="email" class="form-control" id="email" name="email" placeholder="Input Email">
+                                    <input type="email" class="form-control" id="email_penjual" name="email_penjual" placeholder="Input Email">
                                 </div>
                                 <div class="form-group">
                                     <label for="password">Password</label>
-                                    <input type="password" class="form-control" id="password" name="password" placeholder="Input Password">
+                                    <input type="password" class="form-control" id="password_penjual" name="password_penjual" placeholder="Input Password">
                                 </div>
                                 <div class="form-group">
                                     <label>Alamat</label>
-                                    <textarea class="form-control" rows="3" placeholder="Deskripsi" name="alamat" id="alamat"></textarea>
+                                    <textarea class="form-control" rows="3" placeholder="Alamat" name="alamat_penjual" id="alamat_penjual"></textarea>
                                 </div>
                                 <div class="form-group">
                                     <label for="brand">No HP</label>
-                                    <input type="text" class="form-control" id="no_hp name=" no_hp" placeholder="Input No HP">
+                                    <input type="text" class="form-control" id="no_hp" name="no_hp" placeholder="Input No HP">
                                 </div>
                             </div>
                             <!-- /.card-body -->

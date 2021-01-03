@@ -32,11 +32,31 @@ class Admin extends CI_Controller
         $data['url'] = $this->uri->segment(2);
         $data['title'] = 'Daftar Penjual';
         $data['penjual'] = $this->db->get('penjual')->result_array();
-        $this->load->view('templates/header', $data);
-        $this->load->view('templates/topbar_admin', $data);
-        $this->load->view('templates/sidebar_admin', $data);
-        $this->load->view('admin/list_penjual');
-        $this->load->view('templates/footer');
+        $this->form_validation->set_rules('nama_penjual', 'Nama', 'required|trim');
+        $this->form_validation->set_rules('email_penjual', 'Email', 'required|trim');
+        $this->form_validation->set_rules('password_penjual', 'Password', 'required|trim');
+        $this->form_validation->set_rules('alamat_penjual', 'Alamat', 'required|trim');
+        $this->form_validation->set_rules('no_hp', 'No HP', 'required|trim');
+
+        if ($this->form_validation->run() == false) {
+            $this->load->view('templates/header', $data);
+            $this->load->view('templates/sidebar_admin', $data);
+            $this->load->view('templates/topbar_admin', $data);
+            $this->load->view('admin/list_penjual', $data);
+            $this->load->view('templates/footer');
+        } else {
+            $data = [
+                'nama_penjual' => htmlspecialchars($this->input->post('nama_penjual', true)),
+                'email_penjual' => htmlspecialchars($this->input->post('email_penjual', true)),
+                'pass_penjual' => password_hash($this->input->post('password', true), PASSWORD_DEFAULT),
+                'alamat_penjual' => htmlspecialchars($this->input->post('alamat_penjual', true)),
+                'no_hp' => htmlspecialchars($this->input->post('no_hp', true)),
+                'role_id' => '2'
+            ];
+            $this->db->insert('penjual', $data);
+            $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Penjual berhasil ditambahkan !</div>');
+            redirect('admin/list_penjual');
+        }
     }
 
     public function list_member()
