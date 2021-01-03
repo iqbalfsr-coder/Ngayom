@@ -24,7 +24,6 @@
                         </p>
                     </a>
                     <ul class="nav nav-treeview">
-                        <?= var_dump($url) ?>
                         <li class="nav-item">
                             <a href="<?= base_url('admin/list_penjual') ?>" <?php if ($url == 'list_penjual') {
                                                                                 echo 'class="nav-link active"';

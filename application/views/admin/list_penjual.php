@@ -101,8 +101,8 @@
                                 <td><?= $p['alamat_penjual']; ?></td>
                                 <td><?= $p['no_hp']; ?></td>
                                 <td>
-                                    <a href="<?= base_url('admin/editbr/') . $p['id_penjual']; ?>" class="badge badge-success">Edit</a> |
-                                    <a href="<?= base_url('admin/deletebr/') . $p['id_penjual']; ?>" class="badge badge-danger" onclick="return confirm('Yakin?');">Delete</a>
+                                    <a href="<?= base_url('admin/editpenjual/') . $p['id_penjual']; ?>" class="badge badge-success">Edit</a> |
+                                    <a href="<?= base_url('admin/deletepenjual/') . $p['id_penjual']; ?>" class="badge badge-danger" onclick="return confirm('Yakin?');">Delete</a>
 
                                 </td>
                             </tr>

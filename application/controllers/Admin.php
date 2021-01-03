@@ -59,6 +59,48 @@ class Admin extends CI_Controller
         }
     }
 
+    public function editpenjual($id)
+    {
+        $data['url'] = $this->uri->segment(2);
+        $this->load->model('Admin_model', 'admin');
+        $data['title'] = 'Ubah Penjual';
+        $data['penjual'] = $this->admin->getPenjualById($id);
+        $this->form_validation->set_rules('nama_penjual', 'Nama', 'required|trim');
+        $this->form_validation->set_rules('email_penjual', 'Email', 'required|trim');
+        $this->form_validation->set_rules('alamat_penjual', 'Alamat', 'required|trim');
+        $this->form_validation->set_rules('no_hp', 'No HP', 'required|trim');
+
+        if ($this->form_validation->run() == false) {
+            $this->load->view('templates/header', $data);
+            $this->load->view('templates/sidebar_admin', $data);
+            $this->load->view('templates/topbar_admin', $data);
+            $this->load->view('admin/editpenjual', $data);
+            $this->load->view('templates/footer');
+        } else {
+            $id_penjual = $this->input->post('id_penjual');
+            $nama_penjual = $this->input->post('nama_penjual');
+            $email_penjual = $this->input->post('email_penjual');
+            $alamat_penjual = $this->input->post('alamat_penjual');
+            $no_hp = $this->input->post('no_hp');
+            $this->db->set('nama_penjual', $nama_penjual);
+            $this->db->set('email_penjual', $email_penjual);
+            $this->db->set('alamat_penjual', $alamat_penjual);
+            $this->db->set('no_hp', $no_hp);
+            $this->db->where('id_penjual',  $id_penjual);
+            $this->db->update('penjual');
+            $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Penjual berhasil diubah!</div>');
+            redirect('admin/list_penjual');
+        }
+    }
+
+    public function deletepenjual($id)
+    {
+        $this->db->where('id_penjual', $id);
+        $this->db->delete('penjual');
+        $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Penjual berhasil dihapus !</div>');
+        redirect('admin/list_penjual');
+    }
+
     public function list_member()
     {
         $data['url'] = $this->uri->segment(2);
