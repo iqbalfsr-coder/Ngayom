@@ -27,13 +27,14 @@
             <div class="card-body table-responsive p-0">
                 <?= form_open_multipart(''); ?>
                 <form role="form" action="<?= base_url('') ?>" method="post">
+                    <input type="text" name="id_brand" value="<?= $brand['id_brand']; ?>" hidden>
                     <div class="modal-body">
                         <div class="card card-primary">
                             <!-- form start -->
                             <div class="card-body">
                                 <div class="form-group">
                                     <label for="brand">Nama Brand</label>
-                                    <input type="text" class="form-control" id="nama_brand" name="nama_brand" <?= $brand['nama_brand']; ?>>
+                                    <input type="text" class="form-control" id="nama_brand" name="nama_brand" value="<?= $brand['nama_brand']; ?>">
                                 </div>
                                 <div class="form-group">
                                     <div class="col-sm-2">Image Brand</div>
@@ -58,7 +59,7 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
-                        <button type="submit" class="btn btn-primary">Tambah</button>
+                        <button type="submit" class="btn btn-primary">Edit</button>
                     </div>
                 </form>
             </div>

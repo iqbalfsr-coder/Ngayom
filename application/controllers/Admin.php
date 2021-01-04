@@ -333,14 +333,15 @@ class Admin extends CI_Controller
         $data['url'] = $this->uri->segment(2);
         $this->load->model('Admin_model', 'admin');
         $data['title'] = 'Ubah Product';
-        $data['brand'] = $this->db->get('brand')->result_array();
+        $data['brand'] = $this->admin->getBrandById($id);
+
         $this->form_validation->set_rules('nama_brand', 'Nama Brand', 'required|trim');
 
         if ($this->form_validation->run() == false) {
             $this->load->view('templates/header', $data);
             $this->load->view('templates/sidebar_admin', $data);
             $this->load->view('templates/topbar_admin', $data);
-            $this->load->view('admin/list_brand', $data);
+            $this->load->view('admin/editbrand', $data);
             $this->load->view('templates/footer');
         } else {
 
@@ -353,7 +354,7 @@ class Admin extends CI_Controller
                 $config['max_size']     = '2048';
                 $config['max_width'] = '2000';
                 $config['max_height'] = '1500';
-                $config['upload_path'] = './assets/img/product/';
+                $config['upload_path'] = './assets/img/brand/';
                 $this->load->library('upload', $config);
 
                 if ($this->upload->do_upload('image')) {
@@ -369,6 +370,14 @@ class Admin extends CI_Controller
             $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Brand berhasil diubah !</div>');
             redirect('admin/list_brand');
         }
+    }
+
+    public function deletebr($id)
+    {
+        $this->db->where('id_brand', $id);
+        $this->db->delete('brand');
+        $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Brand berhasil dihapus !</div>');
+        redirect('admin/list_brand');
     }
 
     public function list_kategori()
