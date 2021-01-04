@@ -332,7 +332,7 @@ class Admin extends CI_Controller
     {
         $data['url'] = $this->uri->segment(2);
         $this->load->model('Admin_model', 'admin');
-        $data['title'] = 'Ubah Product';
+        $data['title'] = 'Ubah Brand';
         $data['brand'] = $this->admin->getBrandById($id);
 
         $this->form_validation->set_rules('nama_brand', 'Nama Brand', 'required|trim');
@@ -387,6 +387,7 @@ class Admin extends CI_Controller
         $data['kategori'] = $this->db->get('kategori')->result_array();
 
         $this->form_validation->set_rules('nama_kategori', 'Nama Kategori', 'required|trim');
+        $this->form_validation->set_rules('icon', 'Icon', 'required|trim');
 
         if ($this->form_validation->run() == false) {
             $this->load->view('templates/header', $data);
@@ -396,12 +397,48 @@ class Admin extends CI_Controller
             $this->load->view('templates/footer');
         } else {
             $data = [
-                'nama_kategori' => htmlspecialchars($this->input->post('nama_kategori', true))
+                'nama_kategori' => htmlspecialchars($this->input->post('nama_kategori', true)),
+                'icon' => htmlspecialchars($this->input->post('icon', true))
             ];
             $this->db->insert('kategori', $data);
             $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Kategori berhasil ditambahkan !</div>');
             redirect('admin/list_kategori');
         }
+    }
+
+    public function editkat($id)
+    {
+        $data['url'] = $this->uri->segment(2);
+        $this->load->model('Admin_model', 'admin');
+        $data['title'] = 'Ubah Kategori';
+        $data['kategori'] = $this->admin->getKategoriById($id);
+        $this->form_validation->set_rules('nama_kategori', 'Nama Kategori', 'required|trim');
+        $this->form_validation->set_rules('icon', 'Icon', 'required|trim');
+        if ($this->form_validation->run() == false) {
+            $this->load->view('templates/header', $data);
+            $this->load->view('templates/sidebar_admin', $data);
+            $this->load->view('templates/topbar_admin', $data);
+            $this->load->view('admin/editkat', $data);
+            $this->load->view('templates/footer');
+        } else {
+            $id_kategori = $this->input->post('id_kategori');
+            $nama_kategori = $this->input->post('nama_kategori');
+            $icon = $this->input->post('icon');
+            $this->db->set('nama_kategori', $nama_kategori);
+            $this->db->set('icon', $icon);
+            $this->db->where('id_kategori',  $id_kategori);
+            $this->db->update('kategori');
+            $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Kategori berhasil diubah!</div>');
+            redirect('admin/list_kategori');
+        }
+    }
+
+    public function deletekat($id)
+    {
+        $this->db->where('id_kategori', $id);
+        $this->db->delete('kategori');
+        $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Kategori berhasil dihapus !</div>');
+        redirect('admin/list_kategori');
     }
 
     public function tambahpro()

@@ -7,6 +7,7 @@ class Home extends CI_Controller
     {
         parent::__construct();
         $this->load->library('form_validation');
+        //is_logged_in();
     }
 
     public function index()
@@ -126,6 +127,7 @@ class Home extends CI_Controller
                 $data = [
                     'email_member' => $member['email_member'],
                     'nama_member' => $member['nama_member'],
+                    'role_id' => $member['role_id'],
                 ];
                 $this->session->set_userdata($data);
                 redirect('home');
@@ -166,7 +168,7 @@ class Home extends CI_Controller
 
     public function logout()
     {
-        $this->session->unset_userdata('email');
+        $this->session->unset_userdata('email_member');
         $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
         You have been logged out ! </div>');
         redirect('home/log');
