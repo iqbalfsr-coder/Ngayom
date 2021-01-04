@@ -34,6 +34,7 @@
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
+                <?= form_open_multipart('admin/list_brand'); ?>
                 <form role="form" action="<?= base_url('admin/list_brand') ?>" method="post">
                     <div class="modal-body">
                         <div class="card card-primary">
@@ -89,7 +90,7 @@
                                     <?= $i; ?>
                                 </th>
                                 <td><?= $b['nama_brand']; ?></td>
-                                <td><img src="<?= base_url('assets/eshop/img/') . $b['image']; ?>" alt="" width="100px"></td>
+                                <td><img src="<?= base_url('assets/img/brand/') . $b['image']; ?>" alt="" width="100px"></td>
 
                                 <td>
                                     <a href="<?= base_url('admin/editbr/') . $b['id_brand']; ?>" class="badge badge-success">Edit</a> |

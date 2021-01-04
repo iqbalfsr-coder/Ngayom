@@ -145,8 +145,8 @@
         <div class="section-header">
             <h1>Featured Product</h1>
         </div>
-        <?php foreach ($product as $p) : ?>
-            <div class="row align-items-center product-slider product-slider-4">
+        <div class="row align-items-center product-slider product-slider-4">
+            <?php foreach ($product as $p) : ?>
                 <div class="col-lg-3">
                     <div class="product-item">
                         <div class="product-title">
@@ -161,7 +161,7 @@
                         </div>
                         <div class="product-image">
                             <a href="product-detail.html">
-                                <img src="<?= base_url('assets/img/product/') ?><?= $p['img_product']; ?>" alt="Product Image">
+                                <img src="<?= base_url('assets/img/product/') ?><?= $p['img_product']; ?>" alt="Product Image" height="500px">
                             </a>
                             <div class="product-action">
                                 <a href="<?= base_url('home/product_detail/') . $p['id_product']; ?>"><i class="fa fa-search"></i></a>
@@ -173,8 +173,8 @@
                         </div>
                     </div>
                 </div>
-            </div>
-        <?php endforeach; ?>
+            <?php endforeach; ?>
+        </div>
     </div>
 </div>
 <!-- Featured Product End -->
