@@ -30,4 +30,9 @@ class Admin_model extends CI_Model
     {
         return  $this->db->get_where('penjual', ['id_penjual' => $id])->row_array();
     }
+
+    public function getPembeliById($id)
+    {
+        return  $this->db->get_where('member', ['id_member' => $id])->row_array();
+    }
 }

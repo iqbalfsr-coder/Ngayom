@@ -35,14 +35,15 @@
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <form role="form" action="<?= base_url('admin/list_brand') ?>" method="post">
+                <?= form_open_multipart('admin/list_product'); ?>
+                <form role="form" action="<?= base_url('admin/list_product') ?>" method="post">
                     <div class="modal-body">
                         <div class="card card-primary">
                             <!-- form start -->
                             <div class="card-body">
                                 <div class="form-group">
                                     <label>Penjual</label>
-                                    <select class="form-control" name="penjual">
+                                    <select class="form-control" name="id_penjual">
                                         <option value="">--Pilih Penjual--</option>
                                         <?php foreach ($penjual as $p) : ?>
                                             <option value="<?= $p['id_penjual']; ?>"><?= $p['nama_penjual']; ?></option>
@@ -51,7 +52,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label>Kategori</label>
-                                    <select class="form-control" name="kategori">
+                                    <select class="form-control" name="id_kategori">
                                         <option value="">--Pilih Kategori--</option>
                                         <?php foreach ($kategori as $k) : ?>
                                             <option value="<?= $k['id_kategori']; ?>"><?= $k['nama_kategori']; ?></option>
@@ -60,7 +61,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label>Brand</label>
-                                    <select class="form-control" name="brand">
+                                    <select class="form-control" name="id_brand">
                                         <option value="">--Pilih Brand--</option>
                                         <?php foreach ($brand as $b) : ?>
                                             <option value="<?= $b['id_brand']; ?>"><?= $b['nama_brand']; ?></option>
@@ -69,7 +70,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="brand">Nama Product</label>
-                                    <input type="text" class="form-control" id="nama_brand" name="nama_brand" placeholder="Input Brand">
+                                    <input type="text" class="form-control" id="nama_product" name="nama_product" placeholder="Input Product">
                                 </div>
                                 <div class="form-group">
                                     <label for="brand">Harga</label>
@@ -77,18 +78,18 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="brand">Stock</label>
-                                    <input type="text" class="form-control" id="tock" name="stock" placeholder="Input Stock">
+                                    <input type="text" class="form-control" id="stock" name="stock" placeholder="Input Stock">
                                 </div>
                                 <div class="form-group">
                                     <label>Deskripsi</label>
                                     <textarea class="form-control" rows="3" placeholder="Deskripsi" name="deskripsi" id="deskripsi"></textarea>
                                 </div>
                                 <div class="form-group">
-                                    <label for="exampleInputFile">Images</label>
+                                    <label for="image">Images</label>
                                     <div class="input-group">
                                         <div class="custom-file">
                                             <input type="file" class="custom-file-input" id="image" name="image">
-                                            <label class="custom-file-label" for="exampleInputFile">Choose file</label>
+                                            <label class="custom-file-label" for="image">Choose file</label>
                                         </div>
                                     </div>
                                 </div>

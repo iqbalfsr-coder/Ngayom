@@ -113,6 +113,48 @@ class Admin extends CI_Controller
         $this->load->view('templates/footer');
     }
 
+    public function editmember($id)
+    {
+        $data['url'] = $this->uri->segment(2);
+        $this->load->model('Admin_model', 'admin');
+        $data['title'] = 'Ubah Pembeli';
+        $data['member'] = $this->admin->getPembeliById($id);
+        $this->form_validation->set_rules('nama_member', 'Nama', 'required|trim');
+        $this->form_validation->set_rules('email_member', 'Email', 'required|trim');
+        $this->form_validation->set_rules('alamat', 'Alamat', 'required|trim');
+        $this->form_validation->set_rules('no_hp', 'No HP', 'required|trim');
+
+        if ($this->form_validation->run() == false) {
+            $this->load->view('templates/header', $data);
+            $this->load->view('templates/sidebar_admin', $data);
+            $this->load->view('templates/topbar_admin', $data);
+            $this->load->view('admin/editmember', $data);
+            $this->load->view('templates/footer');
+        } else {
+            $id_member = $this->input->post('id_member');
+            $nama_member = $this->input->post('nama_member');
+            $email_member = $this->input->post('email_member');
+            $alamat = $this->input->post('alamat');
+            $no_hp = $this->input->post('no_hp');
+            $this->db->set('nama_member', $nama_member);
+            $this->db->set('email_member', $email_member);
+            $this->db->set('alamat', $alamat);
+            $this->db->set('no_hp', $no_hp);
+            $this->db->where('id_member',  $id_member);
+            $this->db->update('member');
+            $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Pembeli berhasil diubah!</div>');
+            redirect('admin/list_member');
+        }
+    }
+
+    public function deletemember($id)
+    {
+        $this->db->where('id_member', $id);
+        $this->db->delete('member');
+        $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Pembeli berhasil dihapus !</div>');
+        redirect('admin/list_member');
+    }
+
     public function list_product()
     {
         $data['url'] = $this->uri->segment(2);
@@ -121,11 +163,55 @@ class Admin extends CI_Controller
         $data['kategori'] = $this->db->get('kategori')->result_array();
         $data['penjual'] = $this->db->get('penjual')->result_array();
         $data['product'] = $this->db->get('product')->result_array();
-        $this->load->view('templates/header', $data);
-        $this->load->view('templates/topbar_admin', $data);
-        $this->load->view('templates/sidebar_admin', $data);
-        $this->load->view('admin/list_product');
-        $this->load->view('templates/footer');
+        $this->form_validation->set_rules('id_penjual', 'Id_Penjual', 'required|trim');
+        $this->form_validation->set_rules('id_kategori', 'Id_Kategori', 'required|trim');
+        $this->form_validation->set_rules('id_brand', 'Id_Brand', 'required|trim');
+        $this->form_validation->set_rules('nama_product', 'Nama Product', 'required|trim');
+        $this->form_validation->set_rules('harga', 'Harga', 'required|trim');
+        $this->form_validation->set_rules('stock', 'Stock', 'required|trim');
+        $this->form_validation->set_rules('deskripsi', 'Deskripsi', 'required|trim');
+        $this->form_validation->set_rules('berat', 'Berat', 'required|trim');
+        if ($this->form_validation->run() == false) {
+            $this->load->view('templates/header', $data);
+            $this->load->view('templates/sidebar_admin', $data);
+            $this->load->view('templates/topbar_admin', $data);
+            $this->load->view('admin/list_product', $data);
+            $this->load->view('templates/footer');
+        } else {
+            $upload_image = $_FILES['image']['name'];
+
+            if ($upload_image) {
+                $config['allowed_types'] = 'gif|jpg|png';
+                $config['max_size']     = '2048';
+                $config['max_width'] = '1360';
+                $config['max_height'] = '1360';
+                $config['upload_path'] = './assets/img/product/';
+                $this->load->library('upload', $config);
+
+                if ($this->upload->do_upload('image')) {
+                    $new_image = $this->upload->data('file_name');
+                } else {
+                    echo $this->upload->display_errors();
+                }
+            }
+            $data = [
+                'id_penjual' => htmlspecialchars($this->input->post('id_penjual', true)),
+                'id_kategori' => htmlspecialchars($this->input->post('id_kategori', true)),
+                'id_brand' => htmlspecialchars($this->input->post('id_brand', true)),
+                'nama_product' => htmlspecialchars($this->input->post('nama_product', true)),
+                'harga' => htmlspecialchars($this->input->post('harga', true)),
+                'stock_product' => htmlspecialchars($this->input->post('stock', true)),
+                'desk_product' => htmlspecialchars($this->input->post('deskripsi', true)),
+                'img_product' => $new_image,
+                'berat' => htmlspecialchars($this->input->post('berat', true))
+            ];
+
+            $this->db->insert('product', $data);
+
+
+            $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Produk berhasil ditambahkan !</div>');
+            redirect('admin/list_product');
+        }
     }
 
     public function list_brand()
