@@ -32,7 +32,6 @@ if ($err) {
 } else {
     $array_response = json_decode($response, TRUE);
     $datapaket = $array_response["rajaongkir"]["results"]['0']['costs'];
-    print_r($datapaket);
 
     echo "<option value=''>Pilih Paket</option>";
 

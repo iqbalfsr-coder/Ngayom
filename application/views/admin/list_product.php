@@ -127,9 +127,23 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>$13 USD</td>
-                        </tr>
+                        <?php $i = 1; ?>
+                        <?php foreach ($product as $p) : ?>
+                            <tr>
+                                <th scope="row">
+                                    <?= $i; ?>
+                                </th>
+                                <td><?= $p['nama_product']; ?></td>
+                                <td><img src="<?= base_url('assets/img/product/') . $p['img_product']; ?>" alt="" width="100px"></td>
+
+                                <td>
+                                    <a href="<?= base_url('admin/editproduct/') . $p['id_product']; ?>" class="badge badge-success">Edit</a> |
+                                    <a href="<?= base_url('admin/deleteproduct/') . $p['id_product']; ?>" class="badge badge-danger" onclick="return confirm('Yakin?');">Delete</a>
+
+                                </td>
+                            </tr>
+                            <?php $i++; ?>
+                        <?php endforeach; ?>
                     </tbody>
                 </table>
             </div>
