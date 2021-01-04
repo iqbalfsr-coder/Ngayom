@@ -11,7 +11,7 @@ class Admin_model extends CI_Model
         return $this->db->get('tbl_produk', $limit, $start)->result_array();
     }
 
-    public function getProdukById($id)
+    public function getProductById($id)
     {
         return  $this->db->get_where('product', ['id_product' => $id])->row_array();
     }

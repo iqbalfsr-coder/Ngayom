@@ -122,19 +122,41 @@
                         <tr>
                             <th>No</th>
                             <th>Penjual</th>
+                            <th>Kategori</th>
+                            <th>Brand</th>
                             <th>Product</th>
+                            <th>Harga</th>
                             <th>Stock</th>
+                            <th>Deskripsi</th>
+                            <th>Images</th>
+                            <th>Berat</th>
+                            <th>Action</th>
                         </tr>
                     </thead>
+                    <?php
+                    $querypro = "SELECT `p`.`id_product`, `p`.`nama_product`, `p`.`harga`, `p`.`stock_product`,`p`.`desk_product`,`p`.`img_product`,`p`.`berat`,`pe`.`nama_penjual`,`ka`.`nama_kategori`,`br`.`nama_brand`
+                    FROM `product` `p`
+                    INNER JOIN `penjual` `pe` ON `p`.`id_penjual` = `pe`.`id_penjual`
+                    INNER JOIN `kategori` `ka` ON `p`.`id_kategori` = `ka`.`id_kategori`
+                    INNER JOIN `brand` `br` ON `p`.`id_brand` = `br`.`id_brand`";
+                    $pro = $this->db->query($querypro)->result_array();
+                    ?>
                     <tbody>
                         <?php $i = 1; ?>
-                        <?php foreach ($product as $p) : ?>
+                        <?php foreach ($pro as $p) : ?>
                             <tr>
                                 <th scope="row">
                                     <?= $i; ?>
                                 </th>
+                                <td><?= $p['nama_penjual']; ?></td>
+                                <td><?= $p['nama_kategori']; ?></td>
+                                <td><?= $p['nama_brand']; ?></td>
                                 <td><?= $p['nama_product']; ?></td>
+                                <td><?= $p['harga']; ?></td>
+                                <td><?= $p['stock_product']; ?></td>
+                                <td><?= $p['desk_product']; ?></td>
                                 <td><img src="<?= base_url('assets/img/product/') . $p['img_product']; ?>" alt="" width="100px"></td>
+                                <td><?= $p['berat']; ?></td>
 
                                 <td>
                                     <a href="<?= base_url('admin/editproduct/') . $p['id_product']; ?>" class="badge badge-success">Edit</a> |

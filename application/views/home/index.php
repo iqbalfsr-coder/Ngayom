@@ -145,36 +145,36 @@
         <div class="section-header">
             <h1>Featured Product</h1>
         </div>
-        <div class="row align-items-center product-slider product-slider-4">
-            <div class="col-lg-3">
-                <div class="product-item">
-                    <div class="product-title">
-                        <a href="#">Product Name</a>
-                        <div class="ratting">
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
+        <?php foreach ($product as $p) : ?>
+            <div class="row align-items-center product-slider product-slider-4">
+                <div class="col-lg-3">
+                    <div class="product-item">
+                        <div class="product-title">
+                            <a href="#"><?= $p['nama_product']; ?></a>
+                            <div class="ratting">
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                            </div>
                         </div>
-                    </div>
-                    <div class="product-image">
-                        <a href="product-detail.html">
-                            <img src="<?= base_url('assets/eshop/') ?>/img/product-1.jpg" alt="Product Image">
-                        </a>
-                        <div class="product-action">
-                            <a href="<?= base_url('home/cart') ?>"><i class="fa fa-cart-plus"></i></a>
-                            <a href="<?= base_url('home/wishlist') ?>"><i class="fa fa-heart"></i></a>
-                            <a href="<?= base_url('home/product_detail') ?>"><i class="fa fa-search"></i></a>
+                        <div class="product-image">
+                            <a href="product-detail.html">
+                                <img src="<?= base_url('assets/img/product/') ?><?= $p['img_product']; ?>" alt="Product Image">
+                            </a>
+                            <div class="product-action">
+                                <a href="<?= base_url('home/product_detail/') . $p['id_product']; ?>"><i class="fa fa-search"></i></a>
+                            </div>
                         </div>
-                    </div>
-                    <div class="product-price">
-                        <h3><span>$</span>99</h3>
-                        <a class="btn" href=""><i class="fa fa-shopping-cart"></i>Buy Now</a>
+                        <div class="product-price">
+                            <h3><?= $p['harga']; ?></h3>
+                            <a class="btn" href=""><i class="fa fa-shopping-cart"></i>Buy Now</a>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
+        <?php endforeach; ?>
     </div>
 </div>
 <!-- Featured Product End -->

@@ -15,8 +15,9 @@ class Home extends CI_Controller
         $data['url'] = $this->uri->segment(2);
         $data['brand'] = $this->db->get('brand')->result_array();
         $data['kategori'] = $this->db->get('kategori')->result_array();
+        $data['product'] = $this->db->get('product')->result_array();
         $this->load->view('templates/header_home', $data);
-        $this->load->view('home/index');
+        $this->load->view('home/index', $data);
         $this->load->view('templates/footer_home');
     }
 
@@ -33,15 +34,27 @@ class Home extends CI_Controller
     {
         $data['title'] = 'Wishlist';
         $data['url'] = $this->uri->segment(2);
+        $data['user'] = $this->db->get_where('member', ['email_member' => $this->session->userdata('email_member')])->row_array();
+        $data['pro'] = $this->db->get('product')->result_array();
         $this->load->view('templates/header_home', $data);
         $this->load->view('home/wishlist');
         $this->load->view('templates/footer_home');
+    }
+
+    public function deletewish($id)
+    {
+        $this->db->where('id_wishlist', $id);
+        $this->db->delete('wishlist');
+        $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Wishlist berhasil dihapus !</div>');
+        redirect('home/wishlist');
     }
 
     public function cart()
     {
         $data['url'] = $this->uri->segment(1);
         $data['title'] = 'Cart';
+        $data['user'] = $this->db->get_where('member', ['email_member' => $this->session->userdata('email_member')])->row_array();
+        $data['pro'] = $this->db->get('product')->result_array();
         $this->load->view('templates/header_home', $data);
         $this->load->view('home/cart');
         $this->load->view('templates/footer_home');
@@ -59,10 +72,24 @@ class Home extends CI_Controller
     public function product_detail()
     {
         $data['title'] = 'Product Detail';
-        $data['url'] = $this->uri->segment(2);
-        $this->load->view('templates/header_home', $data);
-        $this->load->view('home/product_detail');
-        $this->load->view('templates/footer_home');
+        $data['url'] = $this->uri->segment(3);
+        $data['product'] = $this->db->get_where('product', ['id_product' => $data['url']])->row_array();
+        $data['user'] = $this->db->get_where('member', ['email_member' => $this->session->userdata('email_member')])->row_array();
+        $this->form_validation->set_rules('id_member', 'Id_Member', 'required|trim');
+        $this->form_validation->set_rules('id_product', 'Id_Product', 'required|trim');
+        if ($this->form_validation->run() == false) {
+            $this->load->view('templates/header_home', $data);
+            $this->load->view('home/product_detail');
+            $this->load->view('templates/footer_home');
+        } else {
+            $data = [
+                'id_product' => htmlspecialchars($this->input->post('id_product', true)),
+                'id_member' => htmlspecialchars($this->input->post('id_member', true))
+            ];
+            $this->db->insert('wishlist', $data);
+            $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Wishlist berhasil ditambahkan !</div>');
+            redirect('home/wishlist');;
+        }
     }
 
     public function product_list()

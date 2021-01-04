@@ -214,6 +214,72 @@ class Admin extends CI_Controller
         }
     }
 
+    public function editproduct($id)
+    {
+        $data['url'] = $this->uri->segment(2);
+        $this->load->model('Admin_model', 'admin');
+        $data['title'] = 'Ubah Product';
+        $data['brand'] = $this->db->get('brand')->result_array();
+        $data['kategori'] = $this->db->get('kategori')->result_array();
+        $data['penjual'] = $this->db->get('penjual')->result_array();
+        $data['product'] = $this->admin->getProductById($id);
+        $this->form_validation->set_rules('id_penjual', 'Id_Penjual', 'required|trim');
+        $this->form_validation->set_rules('id_kategori', 'Id_Kategori', 'required|trim');
+        $this->form_validation->set_rules('id_brand', 'Id_Brand', 'required|trim');
+        $this->form_validation->set_rules('nama_product', 'Nama Product', 'required|trim');
+        $this->form_validation->set_rules('harga', 'Harga', 'required|trim');
+        $this->form_validation->set_rules('stock', 'Stock', 'required|trim');
+        $this->form_validation->set_rules('deskripsi', 'Deskripsi', 'required|trim');
+        $this->form_validation->set_rules('berat', 'Berat', 'required|trim');
+
+        if ($this->form_validation->run() == false) {
+            $this->load->view('templates/header', $data);
+            $this->load->view('templates/sidebar_admin', $data);
+            $this->load->view('templates/topbar_admin', $data);
+            $this->load->view('admin/editproduct', $data);
+            $this->load->view('templates/footer');
+        } else {
+            $id_product = $this->input->post('id_product');
+            $id_penjual = $this->input->post('id_penjual');
+            $id_kategori = $this->input->post('id_kategori');
+            $id_brand = $this->input->post('id_brand');
+            $nama_product = $this->input->post('nama_product');
+            $harga = $this->input->post('harga');
+            $stock_product = $this->input->post('stock');
+            $desk_product = $this->input->post('deskripsi');
+            $berat = $this->input->post('berat');
+            $upload_image = $_FILES['image']['name'];
+
+            if ($upload_image) {
+                $config['allowed_types'] = 'gif|jpg|png';
+                $config['max_size']     = '2048';
+                $config['max_width'] = '1360';
+                $config['max_height'] = '1360';
+                $config['upload_path'] = './assets/img/product/';
+                $this->load->library('upload', $config);
+
+                if ($this->upload->do_upload('image')) {
+                    $new_image = $this->upload->data('file_name');
+                } else {
+                    echo $this->upload->display_errors();
+                }
+            }
+            $this->db->set('id_penjual', $id_penjual);
+            $this->db->set('id_kategori', $id_kategori);
+            $this->db->set('id_brand', $id_brand);
+            $this->db->set('nama_product', $nama_product);
+            $this->db->set('harga', $harga);
+            $this->db->set('stock_product', $stock_product);
+            $this->db->set('desk_product', $desk_product);
+            $this->db->set('img_product', $new_image);
+            $this->db->set('berat', $berat);
+            $this->db->where('id_product', $id_product);
+            $this->db->update('product');
+            $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Produk berhasil diubah !</div>');
+            redirect('admin/list_product');
+        }
+    }
+
     public function list_brand()
     {
         $data['url'] = $this->uri->segment(2);

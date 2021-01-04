@@ -9,7 +9,16 @@
     </div>
 </div>
 <!-- Breadcrumb End -->
-
+<?php
+$sortuser  = $user['id_member'];
+$querywish = "SELECT `p`.`id_product`, `p`.`nama_product`, `p`.`harga`, `p`.`img_product`, `w`.`id_wishlist`
+                FROM `wishlist` `w`
+                JOIN `member` `m` ON `w`.`id_member` = `m`.`id_member`
+                JOIN `product` `p` ON `w`.`id_product` = `p`.`id_product`
+                WHERE `m`.`id_member` = $sortuser;
+                ";
+$wish = $this->db->query($querywish)->result_array();
+?>
 <!-- Wishlist Start -->
 <div class="wishlist-page">
     <div class="container-fluid">
@@ -18,6 +27,7 @@
                 <div class="col-md-12">
                     <div class="table-responsive">
                         <table class="table table-bordered">
+                            <?= $this->session->flashdata('message'); ?>
                             <thead class="thead-dark">
                                 <tr>
                                     <th>Product</th>
@@ -28,24 +38,34 @@
                                 </tr>
                             </thead>
                             <tbody class="align-middle">
-                                <tr>
-                                    <td>
-                                        <div class="img">
-                                            <a href="#"><img src="<?= base_url('assets/eshop/') ?>img/product-6.jpg" alt="Image"></a>
-                                            <p>Product Name</p>
-                                        </div>
-                                    </td>
-                                    <td>$99</td>
-                                    <td>
-                                        <div class="qty">
-                                            <button class="btn-minus"><i class="fa fa-minus"></i></button>
-                                            <input type="text" value="1">
-                                            <button class="btn-plus"><i class="fa fa-plus"></i></button>
-                                        </div>
-                                    </td>
-                                    <td><button class="btn-cart">Add to Cart</button></td>
-                                    <td><button><i class="fa fa-trash"></i></button></td>
-                                </tr>
+                                <?php foreach ($wish as $w) : ?>
+                                    <tr>
+                                        <td>
+                                            <div class="img">
+                                                <a href="#"><img src="<?= base_url('assets/img/product/') ?><?= $w['img_product']; ?>" alt="Image"></a>
+                                                <p><?= $w['nama_product']; ?></p>
+                                            </div>
+                                        </td>
+                                        <td><?= $w['harga']; ?></td>
+                                        <td>
+                                            <div class="qty">
+                                                <button class="btn-minus"><i class="fa fa-minus"></i></button>
+                                                <input type="text" value="1">
+                                                <button class="btn-plus"><i class="fa fa-plus"></i></button>
+                                            </div>
+                                        </td>
+                                        <td><button class="btn-cart">Add to Cart</button></td>
+                                        <td>
+                                            <a href="<?= base_url('home/deletewish/') . $w['id_wishlist']; ?>">
+                                                <button>
+                                                    <i class="fa fa-trash"></i>
+
+
+                                                </button>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                <?php endforeach; ?>
                             </tbody>
                         </table>
                     </div>

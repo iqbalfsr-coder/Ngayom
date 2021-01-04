@@ -9,7 +9,16 @@
     </div>
 </div>
 <!-- Breadcrumb End -->
-
+<?php
+$sortuser  = $user['id_member'];
+$querycart = "SELECT `p`.`id_product`, `p`.`nama_product`, `p`.`harga`
+                FROM `cart` `c`
+                JOIN `member` `m` ON `c`.`id_member` = `m`.`id_member`
+                JOIN `product` `p` ON `c`.`id_product` = `p`.`id_product`
+                WHERE `m`.`id_member` = $sortuser;
+                ";
+$cart = $this->db->query($querycart)->result_array();
+?>
 <!-- Cart Start -->
 <div class="cart-page">
     <div class="container-fluid">
@@ -54,12 +63,6 @@
             <div class="col-lg-4">
                 <div class="cart-page-inner">
                     <div class="row">
-                        <div class="col-md-12">
-                            <div class="coupon">
-                                <input type="text" placeholder="Coupon Code">
-                                <button>Apply Code</button>
-                            </div>
-                        </div>
                         <div class="col-md-12">
                             <div class="cart-summary">
                                 <div class="cart-content">
