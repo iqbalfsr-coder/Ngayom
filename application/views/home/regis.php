@@ -57,21 +57,21 @@
                             <div class="col-md-6">
                                 <form action="<?= base_url('home/regis'); ?>" method="POST">
                                     <label>Name</label>
-                                    <input class="form-control" type="text" placeholder="Name" name="name" id="name">
+                                    <input class="form-control" type="text" placeholder="Name" name="nama_member" id="nama_member">
                                     <?= form_error('name', '<small class="text-danger pl-3">', '</small>'); ?>
                             </div>
                             <div class="col-md-6">
                                 <label>E-mail</label>
-                                <input class="form-control" type="email" placeholder="E-mail" name="email" id="email">
+                                <input class="form-control" type="email" placeholder="E-mail" name="email_member" id="email_member">
                                 <?= form_error('email', '<small class="text-danger pl-3">', '</small>'); ?>
                             </div>
                             <div class="col-md-6">
                                 <label>Password</label>
-                                <input class="form-control" type="password" placeholder="Password" name="password" id="password">
+                                <input class="form-control" type="password" placeholder="Password" name="pass_member" id="pass_member">
                                 <?= form_error('password', '<small class="text-danger pl-3">', '</small>'); ?>
                             </div>
                             <div class="col-md-12">
-                                <button type="submit " class="btn">Submit</button>
+                                <button type="submit " class="btn">Register</button>
                             </div>
                             </form>
                         </div>

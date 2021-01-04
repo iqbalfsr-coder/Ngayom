@@ -28,16 +28,16 @@
                         <h4>Account Details</h4>
                         <div class="row">
                             <div class="col-md-6">
-                                <input class="form-control" type="text" placeholder="Name">
+                                <input class="form-control" type="text" value="<?= $member['nama_member']; ?>" name="nama_member">
                             </div>
                             <div class="col-md-6">
-                                <input class="form-control" type="email" placeholder="Email">
+                                <input class="form-control" type="email" value="<?= $member['email_member']; ?>" name="email_member">
                             </div>
                             <div class="col-md-6">
-                                <input class="form-control" type="text" placeholder="Mobile">
+                                <input class="form-control" type="text" value="<?= $member['no_hp']; ?>" name="no_hp">
                             </div>
                             <div class="col-md-12">
-                                <input class="form-control" type="text" placeholder="Address">
+                                <input class="form-control" type="text" value="<?= $member['alamat']; ?>" name="alamat">
                             </div>
                             <div class="col-md-12">
                                 <button class="btn">Update Account</button>
@@ -64,9 +64,7 @@
                         <h4>Address</h4>
                         <div class="row">
                             <div class="col-md-6">
-                                <h5>Shipping Address</h5>
-                                <p>123 Shipping Street, Los Angeles, CA</p>
-                                <p>Mobile: 012-345-6789</p>
+                                <p><?= $member['alamat']; ?></p>
                                 <button class="btn">Edit Address</button>
                             </div>
                         </div>
@@ -88,22 +86,6 @@
                                 <tbody>
                                     <tr>
                                         <td>1</td>
-                                        <td>Product Name</td>
-                                        <td>01 Jan 2020</td>
-                                        <td>$99</td>
-                                        <td>Approved</td>
-                                        <td><button class="btn">View</button></td>
-                                    </tr>
-                                    <tr>
-                                        <td>2</td>
-                                        <td>Product Name</td>
-                                        <td>01 Jan 2020</td>
-                                        <td>$99</td>
-                                        <td>Approved</td>
-                                        <td><button class="btn">View</button></td>
-                                    </tr>
-                                    <tr>
-                                        <td>3</td>
                                         <td>Product Name</td>
                                         <td>01 Jan 2020</td>
                                         <td>$99</td>

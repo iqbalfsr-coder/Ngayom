@@ -26,6 +26,7 @@ class Home extends CI_Controller
     {
         $data['title'] = 'Account';
         $data['url'] = $this->uri->segment(2);
+        $data['member'] = $this->db->get_where('member', ['email_member' => $this->session->userdata('email_member')])->row_array();
         $this->load->view('templates/header_home', $data);
         $this->load->view('home/account');
         $this->load->view('templates/footer_home');
@@ -145,18 +146,18 @@ class Home extends CI_Controller
     public function regis()
     {
         $data['url'] = $this->uri->segment(2);
-        $this->form_validation->set_rules('name', 'Name', 'required|trim');
-        $this->form_validation->set_rules('email', 'Email', 'required|trim|valid_email');
-        $this->form_validation->set_rules('password', 'Password', 'required|trim');
+        $this->form_validation->set_rules('nama_member', 'Nama Member', 'required|trim');
+        $this->form_validation->set_rules('email_member', 'Email Member', 'required|trim|valid_email');
+        $this->form_validation->set_rules('pass_member', 'Password', 'required|trim');
 
         if ($this->form_validation->run() == false) {
             $this->load->view('home/regis');
             $this->load->view('templates/footer_home');
         } else {
             $data = [
-                'nama_member' => htmlspecialchars($this->input->post('name', true)),
-                'email_member' => htmlspecialchars($this->input->post('email', true)),
-                'pass_member' => password_hash($this->input->post('password', true), PASSWORD_DEFAULT),
+                'nama_member' => htmlspecialchars($this->input->post('nama_member', true)),
+                'email_member' => htmlspecialchars($this->input->post('email_member', true)),
+                'pass_member' => password_hash($this->input->post('pass_member', true), PASSWORD_DEFAULT),
                 'alamat' => NULL
             ];
             $this->db->insert('member', $data);
@@ -169,6 +170,8 @@ class Home extends CI_Controller
     public function logout()
     {
         $this->session->unset_userdata('email_member');
+        $this->session->unset_userdata('nama_member');
+        $this->session->unset_userdata('role_id');
         $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
         You have been logged out ! </div>');
         redirect('home/log');

@@ -55,18 +55,18 @@
                             <div class="col-md-6">
                                 <form action="<?= base_url('home/regis'); ?>" method="POST">
                                     <label>Name</label>
-                                    <input class="form-control" type="text" placeholder="Name">
+                                    <input class="form-control" type="text" placeholder="Name" name="nama_member" id="nama_member">
                             </div>
                             <div class="col-md-6">
                                 <label>E-mail</label>
-                                <input class="form-control" type="email" placeholder="E-mail" name="email" id="email">
+                                <input class="form-control" type="email" placeholder="E-mail" name="email_member" id="email_member">
                             </div>
                             <div class="col-md-6">
                                 <label>Password</label>
-                                <input class="form-control" type="password" placeholder="Password">
+                                <input class="form-control" type="password" placeholder="Password" name="pass_member" id="pass_member">
                             </div>
                             <div class="col-md-12">
-                                <button type="submit " class="btn">Submit</button>
+                                <button type="submit " class="btn">Register</button>
                             </div>
                             </form>
                         </div>
