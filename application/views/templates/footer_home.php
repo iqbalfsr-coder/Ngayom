@@ -6,7 +6,7 @@
                 <div class="footer-widget">
                     <h2>Get in Touch</h2>
                     <div class="contact-info">
-                        <p><i class="fa fa-map-marker"></i>Tangerang,</p>
+                        <p><i class="fa fa-map-marker"></i>Tangerang, Tangerang City, Banten</p>
                         <p><i class="fa fa-envelope"></i>ngayomfulfillmentcenter@gmail.com</p>
                         <p><i class="fa fa-phone"></i>+123-456-7890</p>
                     </div>

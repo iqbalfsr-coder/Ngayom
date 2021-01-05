@@ -5,8 +5,9 @@ class Checkout extends CI_Controller
 {
     public function index()
     {
-        $data['url'] = $this->uri->segment(1);
         $data['title'] = 'Checkout';
+        $data['url'] = $this->uri->segment(1);
+        $data['member'] = $this->db->get_where('member', ['email_member' => $this->session->userdata('email_member')])->row_array();
         $this->load->view('templates/header_home', $data);
         $this->load->view('checkout/index');
     }

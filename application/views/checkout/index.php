@@ -20,24 +20,16 @@
                         <h2>Shipping Address</h2>
                         <div class="row">
                             <div class="col-md-6">
-                                <label>First Name</label>
-                                <input class="form-control" type="text" placeholder="First Name">
-                            </div>
-                            <div class="col-md-6">
-                                <label>Last Name"</label>
-                                <input class="form-control" type="text" placeholder="Last Name">
-                            </div>
-                            <div class="col-md-6">
-                                <label>E-mail</label>
-                                <input class="form-control" type="text" placeholder="E-mail">
+                                <label>Name</label>
+                                <input class="form-control" type="text" value="<?= $member['nama_member']; ?>" name="nama_member">
                             </div>
                             <div class="col-md-6">
                                 <label>Mobile No</label>
-                                <input class="form-control" type="text" placeholder="Mobile No">
+                                <input class="form-control" type="text" value="<?= $member['no_hp']; ?>" name="no_hp">
                             </div>
                             <div class="col-md-12">
                                 <label>Address</label>
-                                <input class="form-control" type="text" placeholder="Address">
+                                <input class="form-control" type="text" value="<?= $member['alamat']; ?>" name="alamat">
                             </div>
                             <div class="col-md-6">
                                 <label>Provinsi</label>
@@ -85,6 +77,10 @@
 </div>
 </div>
 <!-- Checkout End -->
+<form id="payment-form" method="post" action="<?= site_url() ?>/snap/finish">
+    <input type="hidden" name="result_type" id="result-type" value=""></div>
+    <input type="hidden" name="result_data" id="result-data" value=""></div>
+</form>
 <script type="text/javascript">
     $('#pay-button').click(function(event) {
         event.preventDefault();
