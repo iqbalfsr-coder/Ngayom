@@ -42,7 +42,8 @@ $wish = $this->db->query($querywish)->result_array();
                                     <form action="<?= base_url('home/wishlist'); ?>" method="post">
                                         <input type="text" value="<?= $w['id_product']; ?>" name="id_product" hidden>
                                         <input type="text" value="<?= $w['id_member']; ?>" name="id_member" hidden>
-                                        <input type="text" value="<?= $w['harga']; ?>" name="harga" hidden>
+                                        <input type="text" value="<?= $w['harga']; ?>" name="harga" hidden id="harga">
+                                        <input type="text" value="" name="sub_total" id="sub_total" hidden>
                                         <tr>
                                             <td>
                                                 <div class="img">
@@ -50,12 +51,10 @@ $wish = $this->db->query($querywish)->result_array();
                                                     <p><?= $w['nama_product']; ?></p>
                                                 </div>
                                             </td>
-                                            <td><?= $w['harga']; ?></td>
+                                            <td>Rp. <?= number_format($w['harga']); ?></td>
                                             <td>
                                                 <div class="qty">
-                                                    <button class="btn-minus"><i class="fa fa-minus"></i></button>
-                                                    <input type="text" value="1" name="qty">
-                                                    <button class="btn-plus"><i class="fa fa-plus"></i></button>
+                                                    <input type="number" value="1" name="qty" min="1" id="qty">
                                                 </div>
                                             </td>
                                             <td>
@@ -84,3 +83,17 @@ $wish = $this->db->query($querywish)->result_array();
         </div>
     </div>
 </div>
+
+<script>
+    $(document).ready(function() {
+        $("input[name=qty]").on("change", function() {
+            var qty = document.getElementById("qty").value;
+            var harga = document.getElementById("harga").value;
+            var sub_total = qty * harga;
+            console.log(qty);
+            console.log(harga);
+            console.log(sub_total);
+            $("input[name=sub_total]").val(sub_total);
+        })
+    });
+</script>

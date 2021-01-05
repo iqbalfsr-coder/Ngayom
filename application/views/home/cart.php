@@ -47,11 +47,11 @@ $cart = $this->db->query($querycart)->result_array();
                                                 <p><?= $c['nama_product']; ?></p>
                                             </div>
                                         </td>
-                                        <td><?= $c['harga']; ?></td>
+                                        <td>Rp. <?= number_format($c['harga']); ?></td>
                                         <td>
                                             <?= $c['qty']; ?>
                                         </td>
-                                        <td><?= $c['harga'] * $c['qty']; ?></td>
+                                        <td>Rp. <?= number_format($c['harga'] * $c['qty']); ?></td>
                                         <td>
                                             <a href="<?= base_url('home/deletecart/') . $c['id_cart']; ?>">
                                                 <button>
@@ -66,6 +66,13 @@ $cart = $this->db->query($querycart)->result_array();
                     </div>
                 </div>
             </div>
+            <?php
+            $sortuser  = $user['id_member'];
+            $querytot = "Select sum(sub_total) FROM cart
+            WHERE id_member = $sortuser;
+            ";
+            $total = $this->db->query($querytot)->row_array();
+            ?>
             <div class="col-lg-4">
                 <div class="cart-page-inner">
                     <div class="row">
@@ -73,8 +80,8 @@ $cart = $this->db->query($querycart)->result_array();
                             <div class="cart-summary">
                                 <div class="cart-content">
                                     <h1>Cart Summary</h1>
-                                    <p>Sub Total<span><?= $c['harga'] * $c['qty']; ?></span></p>
-                                    <h2>Grand Total<span><?= $c['harga'] * $c['qty']; ?></span></h2>
+                                    <p>Sub Total<span>Rp. <?= number_format($total["sum(sub_total)"]); ?></span></p>
+                                    <h2>Grand Total<span>Rp. <?= number_format($total["sum(sub_total)"]); ?></span></h2>
                                 </div>
                                 <div class="cart-btn">
                                     <form action="<?= base_url('checkout') ?>" method="post">

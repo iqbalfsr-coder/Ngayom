@@ -39,7 +39,7 @@
                                     </div>
                                     <div class="price">
                                         <h4>Price:</h4>
-                                        <p><?= $product['harga'] ?></p>
+                                        <p>Rp. <?= number_format($product['harga']); ?></p>
                                     </div>
                                     <div class="quantity">
                                         <h4>Quantity:</h4>

@@ -56,14 +56,22 @@
                     </div>
                 </div>
             </div>
+            <?php
+            $sortuser  = $member['id_member'];
+            $querytot = "Select sum(sub_total) FROM cart
+            WHERE id_member = $sortuser;
+            ";
+            $total = $this->db->query($querytot)->row_array();
+            ?>
             <div class="col-lg-4">
                 <div class="checkout-inner">
                     <div class="checkout-summary">
                         <h1>Cart Total</h1>
-                        <p>Product Name<span>$99</span></p>
-                        <p class="sub-total">Sub Total<span>$99</span></p>
-                        <p class="ship-cost">Shipping Cost<span>$1</span></p>
-                        <h2>Grand Total<span>$100</span></h2>
+                        <p class="sub-total">Sub Total<span>Rp. <?= number_format($total["sum(sub_total)"]); ?></span></p>
+                        <input type="text" id="sub_tot" name="sub_tot" value=" <?= $total["sum(sub_total)"]; ?>" hidden>
+                        <input type="text" name="ong" id="ong" hidden>
+                        <p class=" shipcost">Shipping Cost<span id="shipcost"></span></p>
+                        <h2>Grand Total<span id="total"></span></h2>
                     </div>
                     <div class="checkout-payment">
                         <div class="checkout-btn">
@@ -266,7 +274,21 @@
 
             $("input[name=pa]").val(pa);
             $("input[name=ong]").val(ong);
+            document.getElementById("shipcost").innerHTML = (new Intl.NumberFormat("id-ID", {
+                style: "currency",
+                currency: "IDR"
+            }).format(ong));
             $("input[name=est]").val(est);
+
+            var sub_tot = document.getElementById("sub_tot").value;
+            var ongkirr = document.getElementById("ong").value;
+            var sub_num = parseInt(sub_tot);
+            var ong_num = parseInt(ongkirr);
+            var total = sub_num + ong_num;
+            document.getElementById("total").innerHTML = (new Intl.NumberFormat("id-ID", {
+                style: "currency",
+                currency: "IDR"
+            }).format(total));
         })
     });
 </script>

@@ -49,7 +49,7 @@
                                     </div>
                                 </div>
                                 <div class="product-price">
-                                    <h3><?= $p['harga']; ?></h3>
+                                    <h3>Rp. <?= number_format($p['harga']); ?></h3>
                                     <a class="btn" href=""><i class="fa fa-shopping-cart"></i>Buy Now</a>
                                 </div>
                             </div>

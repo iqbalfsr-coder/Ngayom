@@ -41,6 +41,7 @@ class Home extends CI_Controller
         $this->form_validation->set_rules('id_member', 'Id_Member', 'required|trim');
         $this->form_validation->set_rules('id_product', 'Id_Product', 'required|trim');
         $this->form_validation->set_rules('qty', 'Qty', 'required|trim');
+        $this->form_validation->set_rules('sub_total', 'sub_total', 'required|trim');
         if ($this->form_validation->run() == false) {
             $this->load->view('templates/header_home', $data);
             $this->load->view('home/wishlist');
@@ -50,6 +51,7 @@ class Home extends CI_Controller
                 'id_product' => htmlspecialchars($this->input->post('id_product', true)),
                 'id_member' => htmlspecialchars($this->input->post('id_member', true)),
                 'qty' => htmlspecialchars($this->input->post('qty', true)),
+                'sub_total' => htmlspecialchars($this->input->post('sub_total', true)),
             ];
             $this->db->insert('cart', $data);
             $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Product berhasil ditambahkan !</div>');
