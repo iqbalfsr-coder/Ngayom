@@ -119,97 +119,64 @@
                     <div class="section-header">
                         <h1>Related Products</h1>
                     </div>
+                    <?php
+                    $id_kategori = $product['id_kategori'];
+                    $querykategori = "SELECT `k`.`id_kategori`, `k`.`nama_kategori`, `p`.`nama_product`, `p`.`id_product`, `p`.`img_product`, `p`.`harga`
+                            FROM `kategori` `k`
+                            JOIN `product` `p` 
+                            ON `k`.`id_kategori` = $id_kategori
+                            WHERE `p`.`id_kategori` = $id_kategori
+                            ";
+                    $kat = $this->db->query($querykategori)->result_array();
+                    ?>
 
                     <div class="row align-items-center product-slider product-slider-3">
-                        <div class="col-lg-3">
-                            <div class="product-item">
-                                <div class="product-title">
-                                    <a href="#">Product Name</a>
-                                    <div class="ratting">
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
+                        <?php foreach ($kat as $ka) : ?>
+                            <div class="col-lg-3">
+                                <div class="product-item">
+                                    <div class="product-title">
+                                        <a href="#"><?= $ka['nama_product']; ?></a>
+                                        <div class="ratting">
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="product-image">
-                                    <a href="product-detail.html">
-                                        <img src="<?= base_url('assets/eshop/') ?>img/product-10.jpg" alt="Product Image">
-                                    </a>
-                                    <div class="product-action">
-                                        <a href="#"><i class="fa fa-cart-plus"></i></a>
-                                        <a href="#"><i class="fa fa-heart"></i></a>
-                                        <a href="#"><i class="fa fa-search"></i></a>
+                                    <div class="product-image">
+                                        <a href="product-detail.html">
+                                            <img src="<?= base_url('assets/img/product/') ?><?= $ka['img_product']; ?>" alt="Product Image" height="500px">
+                                        </a>
+                                        <div class="product-action">
+                                            <a href="<?= base_url('home/product_detail/') . $ka['id_product']; ?>"><i class="fa fa-search"></i></a>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="product-price">
-                                    <h3><span>$</span>99</h3>
-                                    <a class="btn" href=""><i class="fa fa-shopping-cart"></i>Buy Now</a>
+                                    <div class="product-price">
+                                        <h3><?= $ka['harga']; ?></h3>
+                                        <a class="btn" href=""><i class="fa fa-shopping-cart"></i>Buy Now</a>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
+                        <?php endforeach; ?>
                     </div>
                 </div>
             </div>
 
-            <!-- Side Bar Start -->
             <div class="col-lg-4 sidebar">
                 <div class="sidebar-widget category">
                     <h2 class="title">Category</h2>
                     <nav class="navbar bg-light">
                         <ul class="navbar-nav">
-                            <li class="nav-item">
-                                <a class="nav-link" href="#"><i class="fa fa-female"></i>Fashion & Beauty</a>
-                            </li>
+                            <?php foreach ($kategori as $k) : ?>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="<?= base_url('home/product_list/') . $k['id_kategori']; ?>"><i class="<?= $k['icon']; ?>"></i><?= $k['nama_kategori']; ?></a>
+                                </li>
+                            <?php endforeach; ?>
                         </ul>
                     </nav>
                 </div>
-
-                <div class="sidebar-widget widget-slider">
-                    <div class="sidebar-slider normal-slider">
-                        <div class="product-item">
-                            <div class="product-title">
-                                <a href="#">Product Name</a>
-                                <div class="ratting">
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                </div>
-                            </div>
-                            <div class="product-image">
-                                <a href="product-detail.html">
-                                    <img src="<?= base_url('assets/eshop/') ?>img/product-7.jpg" alt="Product Image">
-                                </a>
-                                <div class="product-action">
-                                    <a href="#"><i class="fa fa-cart-plus"></i></a>
-                                    <a href="#"><i class="fa fa-heart"></i></a>
-                                    <a href="#"><i class="fa fa-search"></i></a>
-                                </div>
-                            </div>
-                            <div class="product-price">
-                                <h3><span>$</span>99</h3>
-                                <a class="btn" href=""><i class="fa fa-shopping-cart"></i>Buy Now</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="sidebar-widget brands">
-                    <h2 class="title">Our Brands</h2>
-                    <ul>
-                        <li><a href="#">Nulla </a><span>(45)</span></li>
-                    </ul>
-                </div>
-
-                <div class="sidebar-widget tag">
-                    <h2 class="title">Tags Cloud</h2>
-                    <a href="#">Lorem ipsum</a>
-                </div>
             </div>
-            <!-- Side Bar End -->
         </div>
     </div>
 </div>

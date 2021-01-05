@@ -16,7 +16,7 @@
 
                         <?php foreach ($kategori as $k) : ?>
                             <li class="nav-item">
-                                <a class="nav-link" href="<?= base_url('home/product_list') ?>"><?= $k['nama_kategori']; ?></a>
+                                <a class="nav-link" href="<?= base_url('home/product_list/') . $k['id_kategori']; ?>"><i class="<?= $k['icon']; ?>"></i><?= $k['nama_kategori']; ?></a>
                             </li>
                         <?php endforeach; ?>
                     </ul>
