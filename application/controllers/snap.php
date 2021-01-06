@@ -34,29 +34,47 @@ class Snap extends CI_Controller
 		$this->load->view('checkout_snap');
 	}
 
+	public function checkout()
+	{
+		$this->load->view('checkout/index');
+	}
+	public function account()
+	{
+		$this->load->view('home/account');
+	}
+
 	public function token()
 	{
+		$nama = $this->input->post('nama');
+		$no_hp = $this->input->post('no_hp');
+		$alamat = $this->input->post('alamat');
+		$total_h = $this->input->post('total_h');
+		$qty_p =  $this->input->post('qty_p');
+		$email =  $this->input->post('email');
+		$nama_p =  $this->input->post('nama_p');
+		$sub_totall = $this->input->post('sub_totall');
+		$ong = $this->input->post('ong');
 
 		// Required
 		$transaction_details = array(
 			'order_id' => rand(),
-			'gross_amount' => 94000, // no decimal allowed for creditcard
+			'gross_amount' => $total_h // no decimal allowed for creditcard
 		);
 
 		// Optional
 		$item1_details = array(
 			'id' => 'a1',
-			'price' => 18000,
-			'quantity' => 3,
-			'name' => "Apple"
+			'price' => $sub_totall,
+			'quantity' => $qty_p,
+			'name' => "$nama_p"
 		);
 
 		// Optional
 		$item2_details = array(
 			'id' => 'a2',
-			'price' => 20000,
-			'quantity' => 2,
-			'name' => "Orange"
+			'price' => $ong,
+			'quantity' => 1,
+			'name' => "Ongkir"
 		);
 
 		// Optional
@@ -64,32 +82,25 @@ class Snap extends CI_Controller
 
 		// Optional
 		$billing_address = array(
-			'first_name'    => "Andri",
-			'last_name'     => "Litani",
-			'address'       => "Mangga 20",
-			'city'          => "Jakarta",
-			'postal_code'   => "16602",
-			'phone'         => "081122334455",
+			'first_name'    => "$nama",
+			'address'       => "$alamat",
+			'phone'         => "$no_hp ",
 			'country_code'  => 'IDN'
 		);
 
 		// Optional
 		$shipping_address = array(
-			'first_name'    => "Obet",
-			'last_name'     => "Supriadi",
-			'address'       => "Manggis 90",
-			'city'          => "Jakarta",
-			'postal_code'   => "16601",
-			'phone'         => "08113366345",
+			'first_name'    => "$nama",
+			'address'       => "$alamat",
+			'phone'         => "$no_hp ",
 			'country_code'  => 'IDN'
 		);
 
 		// Optional
 		$customer_details = array(
-			'first_name'    => "Andri",
-			'last_name'     => "Litani",
-			'email'         => "andri@litani.com",
-			'phone'         => "081122334455",
+			'first_name'    => "$nama",
+			'email'         => "$email",
+			'phone'         => "$no_hp ",
 			'billing_address'  => $billing_address,
 			'shipping_address' => $shipping_address
 		);
@@ -122,9 +133,25 @@ class Snap extends CI_Controller
 
 	public function finish()
 	{
-		$result = json_decode($this->input->post('result_data'));
-		echo 'RESULT <br><pre>';
-		var_dump($result);
-		echo '</pre>';
+		$result = json_decode($this->input->post('result_data'), true);
+		$data = [
+			'id_order' => $result['order_id'],
+			'gross_amount' => $result['gross_amount'],
+			'payment_type' => $result['payment_type'],
+			'transaction_time' => $result['transaction_time'],
+			'bank' => $result['va_numbers'][0]['bank'],
+			'va_number' => $result['va_numbers'][0]['va_number'],
+			'pdf_url' => $result['pdf_url'],
+			'status_code' => $result['status_code'],
+			'id_member' => $this->input->post('id_member')
+		];
+
+		$save = $this->db->insert('transaksi', $data);
+		if ($save) {
+			echo 'Sukses';
+			redirect('home/account');
+		} else {
+			echo 'Gagal';
+		}
 	}
 }

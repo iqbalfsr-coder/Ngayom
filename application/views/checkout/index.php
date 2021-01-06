@@ -62,41 +62,83 @@
             WHERE id_member = $sortuser;
             ";
             $total = $this->db->query($querytot)->row_array();
+            $tot = 0;
+            ?>
+            <?php
+            $sortuser  = $member['id_member'];
+            $querycart = "SELECT `c`.`id_cart`, `p`.`nama_product`,`m`.`nama_member`, `c`.`qty`, `c`.`sub_total`,  `m`.`alamat`,  `m`.`email_member`,  `m`.`no_hp`
+                FROM `cart` `c`
+                JOIN `member` `m` ON `c`.`id_member` = `m`.`id_member`
+                JOIN `product` `p` ON `c`.`id_product` = `p`.`id_product`
+                WHERE `c`.`id_member` = $sortuser;
+                ";
+            $cart = $this->db->query($querycart)->result_array();
             ?>
             <div class="col-lg-4">
                 <div class="checkout-inner">
                     <div class="checkout-summary">
                         <h1>Cart Total</h1>
-                        <p class="sub-total">Sub Total<span>Rp. <?= number_format($total["sum(sub_total)"]); ?></span></p>
+                        <p class="sub-total">Sub Total<span>Rp. <?= number_format($total["sum(sub_total)"], 2, ',', ' '); ?></span></p>
                         <input type="text" id="sub_tot" name="sub_tot" value=" <?= $total["sum(sub_total)"]; ?>" hidden>
-                        <input type="text" name="ong" id="ong" hidden>
                         <p class=" shipcost">Shipping Cost<span id="shipcost"></span></p>
                         <h2>Grand Total<span id="total"></span></h2>
                     </div>
-                    <div class="checkout-payment">
-                        <div class="checkout-btn">
-                            <button id="pay-button">Place Order</button>
-                        </div>
-                    </div>
+                    <?php foreach ($cart as $c) : ?>
+                        <form id="payment-form" method="post" action="<?= site_url() ?>/snap/finish">
+                            <input name="id_member" id="id_member" value="<?= $member['id_member'] ?>" hidden>
+                            <input type="hidden" name="result_type" id="result-type" value="">
+                            <input type="hidden" name="result_data" id="result-data" value="">
+                            <input type="text" name="total_h" id="total_h" hidden>
+                            <input type="text" name="ong" id="ong" hidden>
+                            <input type="text" name="nama_p" id="nama_p" value="<?= $c['nama_product'] ?>" hidden>
+                            <input type="text" name="qty_p" id="qty_p" value="<?= $c['qty'] ?>" hidden>
+                            <input type="text" name="sub_totall" id="sub_totall" value="<?= $c['sub_total'] ?>" hidden>
+                            <input type="text" name="nama" id="nama" value="<?= $c['nama_member'] ?>" hidden>
+                            <input type="text" name="alamat" id="alamat" value="<?= $c['alamat'] ?>" hidden>
+                            <input type="text" name="no_hp" id="no_hp" value="<?= $c['no_hp'] ?>" hidden>
+                            <input type="text" name="email" id="email" value="<?= $c['email_member'] ?>" hidden>
+                            <div class="checkout-payment">
+                                <div class="checkout-btn">
+                                    <button id="pay-button">Place Order</button>
+                                </div>
+                            </div>
+                        <?php endforeach; ?>
                 </div>
             </div>
+            </form>
         </div>
     </div>
 </div>
 </div>
 <!-- Checkout End -->
-<form id="payment-form" method="post" action="<?= site_url() ?>/snap/finish">
-    <input type="hidden" name="result_type" id="result-type" value=""></div>
-    <input type="hidden" name="result_data" id="result-data" value=""></div>
-</form>
 <script type="text/javascript">
     $('#pay-button').click(function(event) {
         event.preventDefault();
         $(this).attr("disabled", "disabled");
-
+        var ong = $("#ong").val();
+        var total_h = $("#total_h").val();
+        var nama_p = $("#nama_p").val();
+        var qty_p = $("#qty_p").val();
+        var sub_totall = $("#sub_totall").val();
+        var nama = $("#nama").val();
+        var alamat = $("#alamat").val();
+        var no_hp = $("#no_hp").val();
+        var email = $("#email").val();
         $.ajax({
-            url: '<?= base_url() ?>/snap/token',
+            type: 'POST',
+            url: '<?= site_url() ?>/snap/token',
             cache: false,
+            data: {
+                total_h: total_h,
+                nama_p: nama_p,
+                qty_p: qty_p,
+                sub_totall: sub_totall,
+                nama: nama,
+                alamat: alamat,
+                no_hp: no_hp,
+                email: email,
+                ong: ong,
+            },
 
             success: function(data) {
                 //location = data;
@@ -144,7 +186,7 @@
                 <div class="footer-widget">
                     <h2>Get in Touch</h2>
                     <div class="contact-info">
-                        <p><i class="fa fa-map-marker"></i>123 E Store, Los Angeles, USA</p>
+                        <p><i class="fa fa-map-marker"></i>Tangerang, Tangerang City, Banten</p>
                         <p><i class="fa fa-envelope"></i>ngayomfulfillmentcenter@gmail.com</p>
                         <p><i class="fa fa-phone"></i>+123-456-7890</p>
                     </div>
@@ -289,6 +331,7 @@
                 style: "currency",
                 currency: "IDR"
             }).format(total));
+            $("input[name=total_h]").val(total);
         })
     });
 </script>
