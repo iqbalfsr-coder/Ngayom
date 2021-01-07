@@ -51,7 +51,7 @@
                                 <select class="form-control" name="paket">
                                 </select>
                             </div>
-                            <input type="text" name="total_berat" value="1200" hidden>
+                            <input type="text" name="total_berat" value="250" hidden>
                         </div>
                     </div>
                 </div>
@@ -66,7 +66,7 @@
             ?>
             <?php
             $sortuser  = $member['id_member'];
-            $querycart = "SELECT `c`.`id_cart`, `p`.`nama_product`,`m`.`nama_member`, `c`.`qty`, `c`.`sub_total`,  `m`.`alamat`,  `m`.`email_member`,  `m`.`no_hp`
+            $querycart = "SELECT `c`.`id_cart`, `p`.`nama_product`,`m`.`nama_member`, `c`.`qty`, `c`.`sub_total`,  `m`.`alamat`,  `m`.`email_member`,  `m`.`no_hp`, `p`.`id_product`
                 FROM `cart` `c`
                 JOIN `member` `m` ON `c`.`id_member` = `m`.`id_member`
                 JOIN `product` `p` ON `c`.`id_product` = `p`.`id_product`
@@ -86,6 +86,7 @@
                     <?php foreach ($cart as $c) : ?>
                         <form id="payment-form" method="post" action="<?= site_url() ?>/snap/finish">
                             <input name="id_member" id="id_member" value="<?= $member['id_member'] ?>" hidden>
+                            <input name="id_product" id="id_product" value="<?= $c['id_product'] ?>" hidden>
                             <input type="hidden" name="result_type" id="result-type" value="">
                             <input type="hidden" name="result_data" id="result-data" value="">
                             <input type="text" name="total_h" id="total_h" hidden>
@@ -97,6 +98,13 @@
                             <input type="text" name="alamat" id="alamat" value="<?= $c['alamat'] ?>" hidden>
                             <input type="text" name="no_hp" id="no_hp" value="<?= $c['no_hp'] ?>" hidden>
                             <input type="text" name="email" id="email" value="<?= $c['email_member'] ?>" hidden>
+                            <input type="text" name="pro" id="pro" hidden>
+                            <input type="text" name="kabu" id="kabu" hidden>
+                            <input type="text" name="type" id="type" hidden>
+                            <input type="text" name="kodepos" id="kodepos" hidden>
+                            <input type="text" name="kur" id="kur" hidden>
+                            <input type="text" name="pa" id="pa" hidden>
+                            <input type="text" name="est" id="est" hidden>
                             <div class="checkout-payment">
                                 <div class="checkout-btn">
                                     <button id="pay-button">Place Order</button>
@@ -332,6 +340,7 @@
                 currency: "IDR"
             }).format(total));
             $("input[name=total_h]").val(total);
+
         })
     });
 </script>

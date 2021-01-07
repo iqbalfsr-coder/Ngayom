@@ -91,7 +91,7 @@
                         <!-- small box -->
                         <div class="small-box bg-danger">
                             <div class="inner">
-                                <h3><?= $pengiriman; ?></h3>
+                                <h3>0</h3>
                                 <p>Pengiriman</p>
                             </div>
                             <div class="icon">

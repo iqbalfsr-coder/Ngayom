@@ -35,4 +35,8 @@ class Admin_model extends CI_Model
     {
         return  $this->db->get_where('member', ['id_member' => $id])->row_array();
     }
+    public function getTransaksiById($id)
+    {
+        return  $this->db->get_where('transaksi', ['id_order' => $id])->row_array();
+    }
 }

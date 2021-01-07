@@ -143,7 +143,21 @@ class Snap extends CI_Controller
 			'va_number' => $result['va_numbers'][0]['va_number'],
 			'pdf_url' => $result['pdf_url'],
 			'status_code' => $result['status_code'],
-			'id_member' => $this->input->post('id_member')
+			'id_member' => $this->input->post('id_member'),
+			'id_product' => $this->input->post('id_product'),
+			'qty' => $this->input->post('qty_p'),
+			'ongkir' => $this->input->post('ong'),
+			'sub_total' => $this->input->post('sub_totall'),
+			'status_order' => 0,
+			'resi' => 0,
+			'totalberat' => '250',
+			'provinsi' => $this->input->post('pro'),
+			'kota' => $this->input->post('kabu'),
+			'tipe' => $this->input->post('type'),
+			'kodepos' => $this->input->post('kodepos'),
+			'kurir' => $this->input->post('kur'),
+			'paket' => $this->input->post('pa'),
+			'estimasi' => $this->input->post('est'),
 		];
 
 		$save = $this->db->insert('transaksi', $data);

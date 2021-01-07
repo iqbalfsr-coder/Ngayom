@@ -16,9 +16,8 @@ class Admin extends CI_Controller
         $data['penjual'] = $this->db->get('penjual')->num_rows();
         $data['member'] = $this->db->get('member')->num_rows();
         $data['product'] = $this->db->get('product')->num_rows();
-        $data['order'] = $this->db->get('tbl_order')->num_rows();
+        $data['order'] = $this->db->get('transaksi')->num_rows();
         $data['packing'] = $this->db->get('packing')->num_rows();
-        $data['pengiriman'] = $this->db->get('pengiriman')->num_rows();
         $data['refund'] = $this->db->get('refund')->num_rows();
         $this->load->view('templates/header', $data);
         $this->load->view('templates/topbar_admin', $data);
@@ -492,13 +491,62 @@ class Admin extends CI_Controller
     {
         $data['url'] = $this->uri->segment(2);
         $data['title'] = 'Daftar Order';
-        $data['order'] = $this->db->get('tbl_order')->result_array();
+        $data['order'] = $this->db->get('transaksi')->result_array();
         $this->load->view('templates/header', $data);
         $this->load->view('templates/topbar_admin', $data);
         $this->load->view('templates/sidebar_admin', $data);
         $this->load->view('admin/list_order');
         $this->load->view('templates/footer');
     }
+
+    public function editpes($id)
+    {
+        $data['url'] = $this->uri->segment(2);
+        $this->load->model('Admin_model', 'admin');
+        $data['transaksi'] = $this->admin->getTransaksiById($id);
+        $this->form_validation->set_rules('status_order', 'status order', 'required|trim');
+        if ($this->form_validation->run() == false) {
+            $this->load->view('templates/header', $data);
+            $this->load->view('templates/sidebar_admin', $data);
+            $this->load->view('templates/topbar_admin', $data);
+            $this->load->view('admin/list_order', $data);
+            $this->load->view('templates/footer');
+        } else {
+            $id_order = $this->input->post('id_order');
+            $status_order = $this->input->post('status_order');
+            $this->db->set('status_order', $status_order);
+            $this->db->where('id_order',  $id_order);
+            $this->db->update('transaksi');
+            $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Product dipacking!</div>');
+            redirect('admin/list_packing');
+        }
+    }
+
+    public function editpack($id)
+    {
+        $data['url'] = $this->uri->segment(2);
+        $this->load->model('Admin_model', 'admin');
+        $data['transaksi'] = $this->admin->getTransaksiById($id);
+        $this->form_validation->set_rules('status_order', 'status order', 'required|trim');
+        if ($this->form_validation->run() == false) {
+            $this->load->view('templates/header', $data);
+            $this->load->view('templates/sidebar_admin', $data);
+            $this->load->view('templates/topbar_admin', $data);
+            $this->load->view('admin/list_order', $data);
+            $this->load->view('templates/footer');
+        } else {
+            $id_order = $this->input->post('id_order');
+            $status_order = $this->input->post('status_order');
+            $resi = $this->input->post('resi');
+            $this->db->set('status_order', $status_order);
+            $this->db->set('resi', $resi);
+            $this->db->where('id_order',  $id_order);
+            $this->db->update('transaksi');
+            $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Product Dikirim!</div>');
+            redirect('admin/list_pengiriman');
+        }
+    }
+
 
     public function list_packing()
     {
@@ -516,7 +564,6 @@ class Admin extends CI_Controller
     {
         $data['url'] = $this->uri->segment(2);
         $data['title'] = 'Daftar Pengiriman';
-        $data['pengiriman'] = $this->db->get('pengiriman')->result_array();
         $this->load->view('templates/header', $data);
         $this->load->view('templates/topbar_admin', $data);
         $this->load->view('templates/sidebar_admin', $data);

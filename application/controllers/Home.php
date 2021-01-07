@@ -27,9 +27,29 @@ class Home extends CI_Controller
         $data['title'] = 'Account';
         $data['url'] = $this->uri->segment(2);
         $data['member'] = $this->db->get_where('member', ['email_member' => $this->session->userdata('email_member')])->row_array();
-        $this->load->view('templates/header_home', $data);
-        $this->load->view('home/account');
-        $this->load->view('templates/footer_home');
+        $this->form_validation->set_rules('nama_member', 'Nama Member', 'required|trim');
+        $this->form_validation->set_rules('email_member', 'Email Member', 'required|trim');
+        $this->form_validation->set_rules('no_hp', 'No HP', 'required|trim');
+        $this->form_validation->set_rules('alamat', 'Alamat', 'required|trim');
+        if ($this->form_validation->run() == false) {
+            $this->load->view('templates/header_home', $data);
+            $this->load->view('home/account');
+            $this->load->view('templates/footer_home');
+        } else {
+            $id_member = $this->input->post('id_member');
+            $nama_member = $this->input->post('nama_member');
+            $email = $this->input->post('email_member');
+            $no_hp = $this->input->post('no_hp');
+            $alamat = $this->input->post('alamat');
+            $this->db->set('nama_member', $nama_member);
+            $this->db->set('email_member', $email);
+            $this->db->set('no_hp', $no_hp);
+            $this->db->set('alamat', $alamat);
+            $this->db->where('id_member',  $id_member);
+            $this->db->update('member');
+            $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Data berhasil diubah!</div>');
+            redirect('home/account');
+        }
     }
 
     public function wishlist()
@@ -186,6 +206,58 @@ class Home extends CI_Controller
             redirect('home/regis');
         }
     }
+
+    public function account_pass()
+    {
+        $data['member'] = $this->db->get_where('member', ['email_member' => $this->session->userdata('email_member')])->row_array();
+        $this->form_validation->set_rules('current_password', 'Current Password', 'required|trim');
+        $this->form_validation->set_rules('new_password1', 'New Password', 'required|trim|matches[new_password2]');
+        $this->form_validation->set_rules('new_password2', 'Confirm New Password', 'required|trim|matches[new_password1]');
+        if ($this->form_validation->run() == false) {
+            $this->load->view('templates/header_home', $data);
+            $this->load->view('home/account');
+            $this->load->view('templates/footer_home');
+        } else {
+            $current_password = $this->input->post('current_password');
+            $new_password = $this->input->post('new_password1');
+            if (!password_verify($current_password, $data['member']['pass_member'])) {
+                $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Password sekarang salah!</div>');
+                redirect('home/account');
+            } else {
+                if ($current_password == $new_password) {
+                    $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Password baru tidak bisa sama dengan password saat ini!</div>');
+                    redirect('home/account');
+                } else {
+                    $password_hash = password_hash($new_password, PASSWORD_DEFAULT);
+                    $this->db->set('pass_member', $password_hash);
+                    $this->db->where('id_member', $data['member']['id_member']);
+                    $this->db->update('member');
+                    $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Password berhasil diubah!</div>');
+                    redirect('home/account');
+                }
+            }
+        }
+    }
+
+    public function account_editadd()
+    {
+        $data['member'] = $this->db->get_where('member', ['email_member' => $this->session->userdata('email_member')])->row_array();
+        $this->form_validation->set_rules('alamat', 'Alamat', 'required|trim');
+        if ($this->form_validation->run() == false) {
+            $this->load->view('templates/header_home', $data);
+            $this->load->view('home/account');
+            $this->load->view('templates/footer_home');
+        } else {
+            $alamat = $this->input->post('alamat');
+            $this->db->set('alamat', $alamat);
+            $this->db->where('id_member', $data['member']['id_member']);
+            $this->db->update('member');
+            $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Password berhasil diubah!</div>');
+            redirect('home/account');
+        }
+    }
+
+
 
     public function logout()
     {

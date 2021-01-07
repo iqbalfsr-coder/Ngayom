@@ -27,22 +27,22 @@
                     <div class="header-slider-item">
                         <img src="<?= base_url('assets/eshop/') ?>img/slider-1.jpg" alt="Slider Image" />
                         <div class="header-slider-caption">
-                            <p>Some text goes here that describes the image</p>
-                            <a class="btn" href=""><i class="fa fa-shopping-cart"></i>Shop Now</a>
+                            <p>Shop Now</p>
+                            <a class="btn" href="<?= base_url('home/product_list/2') ?>"><i class="fa fa-shopping-cart"></i>Shop Now</a>
                         </div>
                     </div>
                     <div class="header-slider-item">
                         <img src="<?= base_url('assets/eshop/') ?>img/slider-2.jpg" alt="Slider Image" />
                         <div class="header-slider-caption">
-                            <p>Some text goes here that describes the image</p>
-                            <a class="btn" href=""><i class="fa fa-shopping-cart"></i>Shop Now</a>
+                            <p>Shop Now</p>
+                            <a class="btn" href="<?= base_url('home/product_list/2') ?>"><i class="fa fa-shopping-cart"></i>Shop Now</a>
                         </div>
                     </div>
                     <div class="header-slider-item">
                         <img src="<?= base_url('assets/eshop/') ?>img/slider-3.jpg" alt="Slider Image" />
                         <div class="header-slider-caption">
-                            <p>Some text goes here that describes the image</p>
-                            <a class="btn" href=""><i class="fa fa-shopping-cart"></i>Shop Now</a>
+                            <p>Shop Now</p>
+                            <a class="btn" href="<?= base_url('home/product_list/2') ?>"><i class="fa fa-shopping-cart"></i>Shop Now</a>
                         </div>
                     </div>
                 </div>
@@ -52,13 +52,13 @@
                     <div class="img-item">
                         <img src="<?= base_url('assets/eshop/') ?>img/category-1.jpg" />
                         <a class="img-text" href="">
-                            <p>Some text goes here that describes the image</p>
+                            <p>Shop Now</p>
                         </a>
                     </div>
                     <div class="img-item">
                         <img src="<?= base_url('assets/eshop/') ?>img/category-2.jpg" />
                         <a class="img-text" href="">
-                            <p>Some text goes here that describes the image</p>
+                            <p>Shop Now</p>
                         </a>
                     </div>
                 </div>
@@ -93,7 +93,7 @@
                 <div class="category-item ch-400">
                     <img src="<?= base_url('assets/eshop/') ?>/img/category-3.jpg" />
                     <a class="category-name" href="">
-                        <p>Some text goes here that describes the image</p>
+                        <p>Shop Now</p>
                     </a>
                 </div>
             </div>
@@ -101,13 +101,13 @@
                 <div class="category-item ch-250">
                     <img src="<?= base_url('assets/eshop/') ?>/img/category-4.jpg" />
                     <a class="category-name" href="">
-                        <p>Some text goes here that describes the image</p>
+                        <p>Shop Now</p>
                     </a>
                 </div>
                 <div class="category-item ch-150">
                     <img src="<?= base_url('assets/eshop/') ?>/img/category-5.jpg" />
                     <a class="category-name" href="">
-                        <p>Some text goes here that describes the image</p>
+                        <p>Shop Now</p>
                     </a>
                 </div>
             </div>
@@ -115,13 +115,13 @@
                 <div class="category-item ch-150">
                     <img src="<?= base_url('assets/eshop/') ?>/img/category-6.jpg" />
                     <a class="category-name" href="">
-                        <p>Some text goes here that describes the image</p>
+                        <p>Shop Now</p>
                     </a>
                 </div>
                 <div class="category-item ch-250">
                     <img src="<?= base_url('assets/eshop/') ?>/img/category-7.jpg" />
                     <a class="category-name" href="">
-                        <p>Some text goes here that describes the image</p>
+                        <p>Shop Now</p>
                     </a>
                 </div>
             </div>
@@ -129,7 +129,7 @@
                 <div class="category-item ch-400">
                     <img src="<?= base_url('assets/eshop/') ?>/img/category-8.jpg" />
                     <a class="category-name" href="">
-                        <p>Some text goes here that describes the image</p>
+                        <p>Shop Now</p>
                     </a>
                 </div>
             </div>
