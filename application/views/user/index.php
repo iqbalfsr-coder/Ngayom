@@ -126,22 +126,14 @@
     <!-- Main Sidebar Container -->
     <aside class="main-sidebar sidebar-dark-primary elevation-4">
         <!-- Brand Logo -->
-        <a href="index3.html" class="brand-link">
-            <img src="dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-            <span class="brand-text font-weight-light">AdminLTE 3</span>
+        <a href="<?= base_url('admin') ?>" class="brand-link">
+            <img src="<?= base_url('assets/img/logo.png') ?>" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+            <span class="brand-text font-weight-light">Ngayom</span>
         </a>
 
         <!-- Sidebar -->
         <div class="sidebar">
             <!-- Sidebar user panel (optional) -->
-            <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-                <div class="image">
-                    <img src="dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
-                </div>
-                <div class="info">
-                    <a href="#" class="d-block">Alexander Pierce</a>
-                </div>
-            </div>
 
             <!-- Sidebar Menu -->
             <nav class="mt-2">
@@ -149,474 +141,15 @@
                     <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
                     <li class="nav-item has-treeview menu-open">
-                        <a href="#" class="nav-link active">
+                        <a href="" class="nav-link active">
                             <i class="nav-icon fas fa-tachometer-alt"></i>
                             <p>
                                 Dashboard
                                 <i class="right fas fa-angle-left"></i>
                             </p>
                         </a>
-                        <ul class="nav nav-treeview">
-                            <li class="nav-item">
-                                <a href="./index.html" class="nav-link">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>Penjualan</p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="./index2.html" class="nav-link">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>Pendapatan</p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="./index3.html" class="nav-link">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>Pengiriman</p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="./index3.html" class="nav-link">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>Stock Barang</p>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
 
-                    <li class="nav-item has-treeview">
-                        <a href="#" class="nav-link">
-                            <i class="nav-icon fas fa-chart-pie"></i>
-                            <p>
-                                Charts
-                                <i class="right fas fa-angle-left"></i>
-                            </p>
-                        </a>
-                        <ul class="nav nav-treeview">
-                            <li class="nav-item">
-                                <a href="pages/charts/chartjs.html" class="nav-link">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>ChartJS</p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="pages/charts/flot.html" class="nav-link">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>Flot</p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="pages/charts/inline.html" class="nav-link">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>Inline</p>
-                                </a>
-                            </li>
-                        </ul>
                     </li>
-                    <li class="nav-item has-treeview">
-                        <a href="#" class="nav-link">
-                            <i class="nav-icon fas fa-tree"></i>
-                            <p>
-                                UI Elements
-                                <i class="fas fa-angle-left right"></i>
-                            </p>
-                        </a>
-                        <ul class="nav nav-treeview">
-                            <li class="nav-item">
-                                <a href="pages/UI/general.html" class="nav-link">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>General</p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="pages/UI/icons.html" class="nav-link">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>Icons</p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="pages/UI/buttons.html" class="nav-link">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>Buttons</p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="pages/UI/sliders.html" class="nav-link">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>Sliders</p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="pages/UI/modals.html" class="nav-link">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>Modals & Alerts</p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="pages/UI/navbar.html" class="nav-link">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>Navbar & Tabs</p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="pages/UI/timeline.html" class="nav-link">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>Timeline</p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="pages/UI/ribbons.html" class="nav-link">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>Ribbons</p>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="nav-item has-treeview">
-                        <a href="#" class="nav-link">
-                            <i class="nav-icon fas fa-edit"></i>
-                            <p>
-                                Forms
-                                <i class="fas fa-angle-left right"></i>
-                            </p>
-                        </a>
-                        <ul class="nav nav-treeview">
-                            <li class="nav-item">
-                                <a href="pages/forms/general.html" class="nav-link">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>General Elements</p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="pages/forms/advanced.html" class="nav-link">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>Advanced Elements</p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="pages/forms/editors.html" class="nav-link">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>Editors</p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="pages/forms/validation.html" class="nav-link">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>Validation</p>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="nav-item has-treeview">
-                        <a href="#" class="nav-link">
-                            <i class="nav-icon fas fa-table"></i>
-                            <p>
-                                Tables
-                                <i class="fas fa-angle-left right"></i>
-                            </p>
-                        </a>
-                        <ul class="nav nav-treeview">
-                            <li class="nav-item">
-                                <a href="pages/tables/simple.html" class="nav-link">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>Simple Tables</p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="pages/tables/data.html" class="nav-link">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>DataTables</p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="pages/tables/jsgrid.html" class="nav-link">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>jsGrid</p>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="nav-header">EXAMPLES</li>
-                    <li class="nav-item">
-                        <a href="pages/calendar.html" class="nav-link">
-                            <i class="nav-icon far fa-calendar-alt"></i>
-                            <p>
-                                Calendar
-                                <span class="badge badge-info right">2</span>
-                            </p>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="pages/gallery.html" class="nav-link">
-                            <i class="nav-icon far fa-image"></i>
-                            <p>
-                                Gallery
-                            </p>
-                        </a>
-                    </li>
-                    <li class="nav-item has-treeview">
-                        <a href="#" class="nav-link">
-                            <i class="nav-icon far fa-envelope"></i>
-                            <p>
-                                Mailbox
-                                <i class="fas fa-angle-left right"></i>
-                            </p>
-                        </a>
-                        <ul class="nav nav-treeview">
-                            <li class="nav-item">
-                                <a href="pages/mailbox/mailbox.html" class="nav-link">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>Inbox</p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="pages/mailbox/compose.html" class="nav-link">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>Compose</p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="pages/mailbox/read-mail.html" class="nav-link">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>Read</p>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="nav-item has-treeview">
-                        <a href="#" class="nav-link">
-                            <i class="nav-icon fas fa-book"></i>
-                            <p>
-                                Pages
-                                <i class="fas fa-angle-left right"></i>
-                            </p>
-                        </a>
-                        <ul class="nav nav-treeview">
-                            <li class="nav-item">
-                                <a href="pages/examples/invoice.html" class="nav-link">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>Invoice</p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="pages/examples/profile.html" class="nav-link">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>Profile</p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="pages/examples/e_commerce.html" class="nav-link">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>E-commerce</p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="pages/examples/projects.html" class="nav-link">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>Projects</p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="pages/examples/project_add.html" class="nav-link">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>Project Add</p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="pages/examples/project_edit.html" class="nav-link">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>Project Edit</p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="pages/examples/project_detail.html" class="nav-link">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>Project Detail</p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="pages/examples/contacts.html" class="nav-link">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>Contacts</p>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="nav-item has-treeview">
-                        <a href="#" class="nav-link">
-                            <i class="nav-icon far fa-plus-square"></i>
-                            <p>
-                                Extras
-                                <i class="fas fa-angle-left right"></i>
-                            </p>
-                        </a>
-                        <ul class="nav nav-treeview">
-                            <li class="nav-item">
-                                <a href="pages/examples/login.html" class="nav-link">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>Login</p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="pages/examples/register.html" class="nav-link">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>Register</p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="pages/examples/forgot-password.html" class="nav-link">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>Forgot Password</p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="pages/examples/recover-password.html" class="nav-link">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>Recover Password</p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="pages/examples/lockscreen.html" class="nav-link">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>Lockscreen</p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="pages/examples/legacy-user-menu.html" class="nav-link">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>Legacy User Menu</p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="pages/examples/language-menu.html" class="nav-link">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>Language Menu</p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="pages/examples/404.html" class="nav-link">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>Error 404</p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="pages/examples/500.html" class="nav-link">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>Error 500</p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="pages/examples/pace.html" class="nav-link">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>Pace</p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="pages/examples/blank.html" class="nav-link">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>Blank Page</p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="starter.html" class="nav-link">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>Starter Page</p>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="nav-header">MISCELLANEOUS</li>
-                    <li class="nav-item">
-                        <a href="https://adminlte.io/docs/3.0" class="nav-link">
-                            <i class="nav-icon fas fa-file"></i>
-                            <p>Documentation</p>
-                        </a>
-                    </li>
-                    <li class="nav-header">MULTI LEVEL EXAMPLE</li>
-                    <li class="nav-item">
-                        <a href="#" class="nav-link">
-                            <i class="fas fa-circle nav-icon"></i>
-                            <p>Level 1</p>
-                        </a>
-                    </li>
-                    <li class="nav-item has-treeview">
-                        <a href="#" class="nav-link">
-                            <i class="nav-icon fas fa-circle"></i>
-                            <p>
-                                Level 1
-                                <i class="right fas fa-angle-left"></i>
-                            </p>
-                        </a>
-                        <ul class="nav nav-treeview">
-                            <li class="nav-item">
-                                <a href="#" class="nav-link">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>Level 2</p>
-                                </a>
-                            </li>
-                            <li class="nav-item has-treeview">
-                                <a href="#" class="nav-link">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>
-                                        Level 2
-                                        <i class="right fas fa-angle-left"></i>
-                                    </p>
-                                </a>
-                                <ul class="nav nav-treeview">
-                                    <li class="nav-item">
-                                        <a href="#" class="nav-link">
-                                            <i class="far fa-dot-circle nav-icon"></i>
-                                            <p>Level 3</p>
-                                        </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="#" class="nav-link">
-                                            <i class="far fa-dot-circle nav-icon"></i>
-                                            <p>Level 3</p>
-                                        </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="#" class="nav-link">
-                                            <i class="far fa-dot-circle nav-icon"></i>
-                                            <p>Level 3</p>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li class="nav-item">
-                                <a href="#" class="nav-link">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>Level 2</p>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#" class="nav-link">
-                            <i class="fas fa-circle nav-icon"></i>
-                            <p>Level 1</p>
-                        </a>
-                    </li>
-                    <li class="nav-header">LABELS</li>
-                    <li class="nav-item">
-                        <a href="#" class="nav-link">
-                            <i class="nav-icon far fa-circle text-danger"></i>
-                            <p class="text">Important</p>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#" class="nav-link">
-                            <i class="nav-icon far fa-circle text-warning"></i>
-                            <p>Warning</p>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#" class="nav-link">
-                            <i class="nav-icon far fa-circle text-info"></i>
-                            <p>Informational</p>
-                        </a>
-                    </li>
-                </ul>
             </nav>
             <!-- /.sidebar-menu -->
         </div>
@@ -711,109 +244,66 @@
                 </div>
                 <!-- /.row -->
 
-                <!-- Main row -->
-                <div class="card">
-                    <div class="card-header border-0">
-                        <h3 class="card-title">Products</h3>
-                        <div class="card-tools">
-                            <a href="#" class="btn btn-tool btn-sm">
-                                <i class="fas fa-download"></i>
-                            </a>
-                            <a href="#" class="btn btn-tool btn-sm">
-                                <i class="fas fa-bars"></i>
-                            </a>
+                <div class="container-fluid">
+                    <div class="card">
+                        <div class="card-header border-0">
+                            <h3 class="card-title">Products</h3>
                         </div>
-                    </div>
-                    <div class="card-body table-responsive p-0">
-                        <table class="table table-striped table-valign-middle">
-                            <thead>
-                                <tr>
-                                    <th>Product</th>
-                                    <th>Price</th>
-                                    <th>Sales</th>
-                                    <th>More</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>
-                                        <img src="dist/img/default-150x150.png" alt="Product 1" class="img-circle img-size-32 mr-2">
-                                        Some Product
-                                    </td>
-                                    <td>$13 USD</td>
-                                    <td>
-                                        <small class="text-success mr-1">
-                                            <i class="fas fa-arrow-up"></i>
-                                            12%
-                                        </small>
-                                        12,000 Sold
-                                    </td>
-                                    <td>
-                                        <a href="#" class="text-muted">
-                                            <i class="fas fa-search"></i>
-                                        </a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <img src="dist/img/default-150x150.png" alt="Product 1" class="img-circle img-size-32 mr-2">
-                                        Another Product
-                                    </td>
-                                    <td>$29 USD</td>
-                                    <td>
-                                        <small class="text-warning mr-1">
-                                            <i class="fas fa-arrow-down"></i>
-                                            0.5%
-                                        </small>
-                                        123,234 Sold
-                                    </td>
-                                    <td>
-                                        <a href="#" class="text-muted">
-                                            <i class="fas fa-search"></i>
-                                        </a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <img src="dist/img/default-150x150.png" alt="Product 1" class="img-circle img-size-32 mr-2">
-                                        Amazing Product
-                                    </td>
-                                    <td>$1,230 USD</td>
-                                    <td>
-                                        <small class="text-danger mr-1">
-                                            <i class="fas fa-arrow-down"></i>
-                                            3%
-                                        </small>
-                                        198 Sold
-                                    </td>
-                                    <td>
-                                        <a href="#" class="text-muted">
-                                            <i class="fas fa-search"></i>
-                                        </a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <img src="dist/img/default-150x150.png" alt="Product 1" class="img-circle img-size-32 mr-2">
-                                        Perfect Item
-                                        <span class="badge bg-danger">NEW</span>
-                                    </td>
-                                    <td>$199 USD</td>
-                                    <td>
-                                        <small class="text-success mr-1">
-                                            <i class="fas fa-arrow-up"></i>
-                                            63%
-                                        </small>
-                                        87 Sold
-                                    </td>
-                                    <td>
-                                        <a href="#" class="text-muted">
-                                            <i class="fas fa-search"></i>
-                                        </a>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
+                        <div class="card-body table-responsive p-0">
+                            <table class="table table-striped table-valign-middle">
+                                <thead>
+                                    <tr>
+                                        <th>No</th>
+                                        <th>Penjual</th>
+                                        <th>Kategori</th>
+                                        <th>Brand</th>
+                                        <th>Product</th>
+                                        <th>Harga</th>
+                                        <th>Stock</th>
+                                        <th>Deskripsi</th>
+                                        <th>Images</th>
+                                        <th>Berat</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <?php
+                                $sortuser  = $product['id_penjual'];
+                                $querypro = "SELECT `p`.`id_product`, `p`.`nama_product`, `p`.`harga`, `p`.`stock_product`,`p`.`desk_product`,`p`.`img_product`,`p`.`berat`,`pe`.`nama_penjual`,`ka`.`nama_kategori`,`br`.`nama_brand`
+                    FROM `product` `p`
+                    INNER JOIN `penjual` `pe` ON `p`.`id_penjual` = `pe`.`id_penjual`
+                    INNER JOIN `kategori` `ka` ON `p`.`id_kategori` = `ka`.`id_kategori`
+                    INNER JOIN `brand` `br` ON `p`.`id_brand` = `br`.`id_brand`
+                    where `p`.`id_penjual` = $sortuser;
+                    ";
+                                $pro = $this->db->query($querypro)->result_array();
+                                ?>
+                                <tbody>
+                                    <?php $i = 1; ?>
+                                    <?php foreach ($pro as $p) : ?>
+                                        <tr>
+                                            <th scope="row">
+                                                <?= $i; ?>
+                                            </th>
+                                            <td><?= $p['nama_penjual']; ?></td>
+                                            <td><?= $p['nama_kategori']; ?></td>
+                                            <td><?= $p['nama_brand']; ?></td>
+                                            <td><?= $p['nama_product']; ?></td>
+                                            <td><?= $p['harga']; ?></td>
+                                            <td><?= $p['stock_product']; ?></td>
+                                            <td><?= $p['desk_product']; ?></td>
+                                            <td><img src="<?= base_url('assets/img/product/') . $p['img_product']; ?>" alt="" width="100px"></td>
+                                            <td><?= $p['berat']; ?></td>
+
+                                            <td>
+                                                <a href="<?= base_url('admin/editproduct/') . $p['id_product']; ?>" class="badge badge-success">Edit</a>
+
+                                            </td>
+                                        </tr>
+                                        <?php $i++; ?>
+                                    <?php endforeach; ?>
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                 </div>
                 <!-- TABLE: LATEST ORDERS -->
@@ -831,84 +321,216 @@
                         </div>
                     </div>
                     <!-- /.card-header -->
-                    <div class="card-body p-0">
-                        <div class="table-responsive">
-                            <table class="table m-0">
-                                <thead>
-                                    <tr>
-                                        <th>Order ID</th>
-                                        <th>Item</th>
-                                        <th>Status</th>
-                                        <th>Popularity</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td><a href="pages/examples/invoice.html">OR9842</a></td>
-                                        <td>Call of Duty IV</td>
-                                        <td><span class="badge badge-success">Shipped</span></td>
-                                        <td>
-                                            <div class="sparkbar" data-color="#00a65a" data-height="20">90,80,90,-70,61,-83,63</div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td><a href="pages/examples/invoice.html">OR1848</a></td>
-                                        <td>Samsung Smart TV</td>
-                                        <td><span class="badge badge-warning">Pending</span></td>
-                                        <td>
-                                            <div class="sparkbar" data-color="#f39c12" data-height="20">90,80,-90,70,61,-83,68</div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td><a href="pages/examples/invoice.html">OR7429</a></td>
-                                        <td>iPhone 6 Plus</td>
-                                        <td><span class="badge badge-danger">Delivered</span></td>
-                                        <td>
-                                            <div class="sparkbar" data-color="#f56954" data-height="20">90,-80,90,70,-61,83,63</div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td><a href="pages/examples/invoice.html">OR7429</a></td>
-                                        <td>Samsung Smart TV</td>
-                                        <td><span class="badge badge-info">Processing</span></td>
-                                        <td>
-                                            <div class="sparkbar" data-color="#00c0ef" data-height="20">90,80,-90,70,-61,83,63</div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td><a href="pages/examples/invoice.html">OR1848</a></td>
-                                        <td>Samsung Smart TV</td>
-                                        <td><span class="badge badge-warning">Pending</span></td>
-                                        <td>
-                                            <div class="sparkbar" data-color="#f39c12" data-height="20">90,80,-90,70,61,-83,68</div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td><a href="pages/examples/invoice.html">OR7429</a></td>
-                                        <td>iPhone 6 Plus</td>
-                                        <td><span class="badge badge-danger">Delivered</span></td>
-                                        <td>
-                                            <div class="sparkbar" data-color="#f56954" data-height="20">90,-80,90,70,-61,83,63</div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td><a href="pages/examples/invoice.html">OR9842</a></td>
-                                        <td>Call of Duty IV</td>
-                                        <td><span class="badge badge-success">Shipped</span></td>
-                                        <td>
-                                            <div class="sparkbar" data-color="#00a65a" data-height="20">90,80,90,-70,61,-83,63</div>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
+                    <?php
+                    error_reporting(0);
+                    $queryorder = "SELECT `p`.`id_product`, `p`.`nama_product`, `p`.`harga`, `p`.`img_product`, `t`.`id_order`, `m`.`id_member`,`t`.`qty`, `t`.`transaction_time`, `t`.`status_code`, `t`.`pdf_url`,`t`.`ongkir`,`t`.`gross_amount`,`t`.`sub_total`,`t`.`status_order`,`m`.`nama_member`,`m`.`alamat`,`t`.`kurir`,`t`.`paket`,`t`.`estimasi`,`t`.`resi`
+                FROM `transaksi` `t`
+                JOIN `member` `m` ON `t`.`id_member` = `m`.`id_member`
+                JOIN `product` `p` ON `t`.`id_product` = `p`.`id_product`
+                ";
+                    $order = $this->db->query($queryorder)->result_array();
+                    ?>
+                    <div class="container-fluid">
+                        <div class="card">
+                            <div class="card-header border-0">
+                                <h3 class="card-title">Order</h3>
+                            </div>
+                            <div class="card-body table-responsive p-0">
+                                <table class="table table-striped table-valign-middle">
+                                    <thead>
+                                        <tr>
+                                            <th>No</th>
+                                            <th>ID Order</th>
+                                            <th>Nama Pembeli</th>
+                                            <th>Tanggal</th>
+                                            <th>Product</th>
+                                            <th>Qty</th>
+                                            <th>Sub Total</th>
+                                            <th>Ongkir</th>
+                                            <th>Total Harga</th>
+                                            <th>Status</th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <?php $i = 1; ?>
+                                        <?php foreach ($order as $m) : ?>
+                                            <tr>
+                                                <th scope="row">
+                                                    <?= $i; ?>
+                                                </th>
+                                                <td><?= $m['id_order']; ?></td>
+                                                <td><?= $m['nama_member']; ?></td>
+                                                <td><?= $m['transaction_time']; ?></td>
+                                                <td><?= $m['nama_product']; ?></td>
+                                                <td><?= $m['qty']; ?></td>
+                                                <td><?= $m['sub_total']; ?></td>
+                                                <td><?= $m['ongkir']; ?></td>
+                                                <td><?= $m['gross_amount']; ?></td>
+                                                <td><?php if ($m['status_order'] == '0') {
+                                                        echo ' <a href="" class="badge badge-danger">Belum Bayar</a>';
+                                                    } else if ($m['status_order'] == '1') {
+                                                        echo ' <a href="" class="badge badge-success">Pesanan Diproses</a>';
+                                                    } else if ($m['status_order'] == '2') {
+                                                        echo ' <a href="" class="badge badge-success">Pesanan Dikirim</a>';
+                                                    } else if ($m['status_order'] == '4') {
+                                                        echo ' <a href="" class="badge badge-success">Pesanan Diterima</a>';
+                                                    } ?></td>
+                                                <td>
+                                                    <!-- Button trigger modal -->
+                                                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#staticBackdrop">
+                                                        View
+                                                    </button>
+
+                                                    <!-- Modal -->
+                                                    <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                                                        <div class="modal-dialog modal-xl">
+                                                            <div class="modal-content">
+                                                                <div class="modal-header">
+                                                                    <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
+                                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                        <span aria-hidden="true">&times;</span>
+                                                                    </button>
+                                                                </div>
+                                                                <div class="modal-body">
+                                                                    <form role="form" action="<?= base_url('admin/list_penjual') ?>" method="post">
+                                                                        <div class="modal-body">
+                                                                            <div class="card mb-12" style="max-width: auto;">
+                                                                                <div class="row no-gutters">
+                                                                                    <div class="col-md-4">
+                                                                                        <img src="<?= base_url('assets/img/product/'), $m['img_product']; ?>" class="card-img">
+                                                                                    </div>
+                                                                                    <div class="col-md-8">
+                                                                                        <div class="card-body">
+                                                                                            <table>
+                                                                                                <tr>
+                                                                                                    <td>
+                                                                                                        Product
+                                                                                                    </td>
+                                                                                                    <td>:</td>
+                                                                                                    <td>
+                                                                                                        <?= $m['nama_product']; ?>
+                                                                                                    </td>
+                                                                                                </tr>
+                                                                                                <tr>
+                                                                                                    <td>
+                                                                                                        Qty
+                                                                                                    </td>
+                                                                                                    <td>:</td>
+                                                                                                    <td>
+                                                                                                        <?= $m['qty']; ?>
+                                                                                                    </td>
+                                                                                                </tr>
+                                                                                                <tr>
+                                                                                                    <td>
+                                                                                                        Sub Total
+                                                                                                    </td>
+                                                                                                    <td>:</td>
+                                                                                                    <td>Rp. <?= number_format($m['sub_total']); ?></td>
+                                                                                                </tr>
+                                                                                                <tr>
+                                                                                                    <td>
+                                                                                                        Ongkir
+                                                                                                    </td>
+                                                                                                    <td>:</td>
+                                                                                                    <td>Rp. <?= number_format($m['ongkir']); ?><?= " (" . $m['kurir'] . " " . $m['paket'] . ")";
+                                                                                                                                                ?>
+                                                                                                </tr>
+                                                                                                <tr>
+                                                                                                    <td>
+                                                                                                        Total
+                                                                                                    </td>
+                                                                                                    <td>:</td>
+                                                                                                    <td>Rp. <?= number_format($m['gross_amount']); ?></td>
+                                                                                                </tr>
+                                                                                                <tr>
+                                                                                                    <td>
+                                                                                                        Status
+                                                                                                    </td>
+                                                                                                    <td>:</td>
+                                                                                                    <td>
+                                                                                                        <?php if ($m['status_order'] == '0') {
+                                                                                                            echo 'Belum Dibayar';
+                                                                                                        } elseif ($m['status_order'] == '1') {
+                                                                                                            echo 'Pesanan Diproses';
+                                                                                                        } elseif ($m['status_order'] == '2') {
+                                                                                                            echo 'Sedang Dikirim';
+                                                                                                        } elseif ($m['status_order'] == '3') {
+                                                                                                            echo 'Sampai Tujuan';
+                                                                                                        }; ?>
+                                                                                                    </td>
+                                                                                                </tr>
+                                                                                                <tr>
+                                                                                                    <td>
+                                                                                                        Alamat Pengiriman
+                                                                                                    </td>
+                                                                                                    <td>:</td>
+                                                                                                    <td>
+
+                                                                                                    </td>
+                                                                                                </tr>
+                                                                                                <tr>
+                                                                                                    <td>
+                                                                                                        Resi
+                                                                                                    </td>
+                                                                                                    <td>:</td>
+                                                                                                    <td>
+                                                                                                        <?= $m['resi']; ?>
+
+                                                                                                    </td>
+                                                                                                </tr>
+                                                                                                <tr>
+                                                                                                    <td>
+                                                                                                        Nama
+                                                                                                    </td>
+                                                                                                    <td>:</td>
+                                                                                                    <td>
+                                                                                                        <?= $m['nama_member']; ?>
+
+                                                                                                    </td>
+                                                                                                </tr>
+                                                                                                <tr>
+                                                                                                    <td>
+                                                                                                        Alamat
+                                                                                                    </td>
+                                                                                                    <td>:</td>
+                                                                                                    <td>
+
+                                                                                                        <?= $m['alamat']; ?>
+                                                                                                    </td>
+                                                                                                </tr>
+                                                                                                <tr>
+                                                                                                    <td>
+                                                                                                        Estimasi Pengiriman
+                                                                                                    </td>
+                                                                                                    <td>:</td>
+                                                                                                    <td><?= $m['estimasi'] . " Hari"; ?></td>
+                                                                                                </tr>
+                                                                                            </table>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                </div>
+                                                                <div class="modal-footer">
+                                                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
+                                                                    <button type="submit" class="btn btn-primary">Tambah</button>
+                                                                </div>
+                                                                </form>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                            </div>
+                            </td>
+                            </tr>
+                            <?php $i++; ?>
+                        <?php endforeach; ?>
+                        </tbody>
+                        </table>
                         </div>
-                        <!-- /.table-responsive -->
                     </div>
                     <!-- /.card-body -->
-                    <div class="card-footer clearfix">
-                        <a href="javascript:void(0)" class="btn btn-sm btn-info float-left">Place New Order</a>
-                        <a href="javascript:void(0)" class="btn btn-sm btn-secondary float-right">View All Orders</a>
-                    </div>
                     <!-- /.card-footer -->
                 </div>
                 <!-- /.row (main row) -->
