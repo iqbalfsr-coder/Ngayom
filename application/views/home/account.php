@@ -155,7 +155,7 @@
                                                 } elseif ($o['status_order'] == '2') {
                                                     echo 'Sedang Dikirim';
                                                 } elseif ($o['status_order'] == '3') {
-                                                    echo 'Sampai Tujuan';
+                                                    echo 'Pesanan Diterima';
                                                 }; ?>
                                             </td>
                                             <td>

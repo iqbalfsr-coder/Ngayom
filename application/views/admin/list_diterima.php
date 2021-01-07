@@ -4,7 +4,7 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1 class="m-0 text-dark">Order</h1>
+                    <h1 class="m-0 text-dark">Pesanan Diterima</h1>
                 </div><!-- /.col -->
             </div><!-- /.row -->
         </div><!-- /.container-fluid -->
@@ -23,14 +23,14 @@
                 FROM `transaksi` `t`
                 JOIN `member` `m` ON `t`.`id_member` = `m`.`id_member`
                 JOIN `product` `p` ON `t`.`id_product` = `p`.`id_product`
-                where `status_order` = 0
+                where `t`.`status_order` = 3
                 ";
     $order = $this->db->query($queryorder)->result_array();
     ?>
     <div class="container-fluid">
         <div class="card">
             <div class="card-header border-0">
-                <h3 class="card-title">Order</h3>
+                <h3 class="card-title">Pesanan Diterima</h3>
             </div>
             <div class="card-body table-responsive p-0">
                 <table class="table table-striped table-valign-middle">
@@ -70,18 +70,11 @@
                                         echo ' <a href="" class="badge badge-success">Pesanan Diproses</a>';
                                     } else if ($m['status_order'] == '2') {
                                         echo ' <a href="" class="badge badge-success">Pesanan Dikirim</a>';
-                                    } else if ($m['status_order'] == '4') {
+                                    } else if ($m['status_order'] == '3') {
                                         echo ' <a href="" class="badge badge-success">Pesanan Diterima</a>';
                                     } ?></td>
                                 <td>
-                                    <form action="<?= base_url('admin/editpes/') . $m['id_order']; ?>" method="post">
-                                        <input type="text" name="id_order" id="id_order" value="<?= $m['id_order']; ?>" hidden>
-                                        <input type="text" name="status_order" id="status_order" value="1" hidden>
-                                        <button type="submit" class="btn btn-primary">
-                                            Packing Order
-                                        </button>
-                                    </form>
-                                    <br>
+
                                     <!-- Button trigger modal -->
                                     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#cek<?= $m['id_order']; ?>">
                                         View
@@ -160,8 +153,8 @@
                                                                                             echo 'Pesanan Diproses';
                                                                                         } elseif ($m['status_order'] == '2') {
                                                                                             echo 'Sedang Dikirim';
-                                                                                        } elseif ($m['status_order'] == '3') {
-                                                                                            echo 'Sampai Tujuan';
+                                                                                        } else {
+                                                                                            echo 'Pesanan Diterima';
                                                                                         }; ?>
                                                                                     </td>
                                                                                 </tr>
@@ -228,6 +221,7 @@
                                     </div>
             </div>
             </td>
+
             </tr>
             <?php $i++; ?>
         <?php endforeach; ?>

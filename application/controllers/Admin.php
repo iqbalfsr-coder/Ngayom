@@ -16,8 +16,10 @@ class Admin extends CI_Controller
         $data['penjual'] = $this->db->get('penjual')->num_rows();
         $data['member'] = $this->db->get('member')->num_rows();
         $data['product'] = $this->db->get('product')->num_rows();
-        $data['order'] = $this->db->get('transaksi')->num_rows();
-        $data['packing'] = $this->db->get('packing')->num_rows();
+        $data['order'] = $this->db->get_where('transaksi', ['status_order' => '0'])->num_rows();
+        $data['packing'] = $this->db->get_where('transaksi', ['status_order' => '1'])->num_rows();
+        $data['dikirim'] = $this->db->get_where('transaksi', ['status_order' => '2'])->num_rows();
+        $data['diterima'] = $this->db->get_where('transaksi', ['status_order' => '3'])->num_rows();
         $data['refund'] = $this->db->get('refund')->num_rows();
         $this->load->view('templates/header', $data);
         $this->load->view('templates/topbar_admin', $data);
@@ -546,13 +548,34 @@ class Admin extends CI_Controller
             redirect('admin/list_pengiriman');
         }
     }
+    public function editkir($id)
+    {
+        $data['url'] = $this->uri->segment(2);
+        $this->load->model('Admin_model', 'admin');
+        $data['transaksi'] = $this->admin->getTransaksiById($id);
+        $this->form_validation->set_rules('status_order', 'status order', 'required|trim');
+        if ($this->form_validation->run() == false) {
+            $this->load->view('templates/header', $data);
+            $this->load->view('templates/sidebar_admin', $data);
+            $this->load->view('templates/topbar_admin', $data);
+            $this->load->view('admin/list_order', $data);
+            $this->load->view('templates/footer');
+        } else {
+            $id_order = $this->input->post('id_order');
+            $status_order = $this->input->post('status_order');
+            $this->db->set('status_order', $status_order);
+            $this->db->where('id_order',  $id_order);
+            $this->db->update('transaksi');
+            $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Product Diterima!</div>');
+            redirect('admin/list_diterima');
+        }
+    }
 
 
     public function list_packing()
     {
         $data['url'] = $this->uri->segment(2);
         $data['title'] = 'Daftar Packing';
-        $data['packing'] = $this->db->get('packing')->result_array();
         $this->load->view('templates/header', $data);
         $this->load->view('templates/topbar_admin', $data);
         $this->load->view('templates/sidebar_admin', $data);
@@ -568,6 +591,17 @@ class Admin extends CI_Controller
         $this->load->view('templates/topbar_admin', $data);
         $this->load->view('templates/sidebar_admin', $data);
         $this->load->view('admin/list_pengiriman');
+        $this->load->view('templates/footer');
+    }
+
+    public function list_diterima()
+    {
+        $data['url'] = $this->uri->segment(2);
+        $data['title'] = 'Daftar Pengiriman';
+        $this->load->view('templates/header', $data);
+        $this->load->view('templates/topbar_admin', $data);
+        $this->load->view('templates/sidebar_admin', $data);
+        $this->load->view('admin/list_diterima');
         $this->load->view('templates/footer');
     }
 

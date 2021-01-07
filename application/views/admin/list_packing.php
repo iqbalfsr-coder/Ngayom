@@ -68,20 +68,20 @@
                                 <td><?php if ($m['status_order'] == '0') {
                                         echo ' <a href="" class="badge badge-danger">Belum Bayar</a>';
                                     } else if ($m['status_order'] == '1') {
-                                        echo ' <a href="" class="badge badge-success">Pesanan Diproses</a>';
+                                        echo ' <a href="" class="badge badge-warning">Pesanan Diproses</a>';
                                     } else if ($m['status_order'] == '2') {
-                                        echo ' <a href="" class="badge badge-success">Pesanan Dikirim</a>';
+                                        echo ' <a href="" class="badge badge-secondary">Pesanan Dikirim</a>';
                                     } else if ($m['status_order'] == '4') {
                                         echo ' <a href="" class="badge badge-success">Pesanan Diterima</a>';
                                     } ?></td>
                                 <td>
                                     <!-- Button trigger modal -->
-                                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#staticBackdrop">
+                                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#cek<?= $m['id_order']; ?>">
                                         View
                                     </button>
 
                                     <!-- Modal -->
-                                    <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                                    <div class="modal fade" id="cek<?= $m['id_order']; ?>" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                                         <div class="modal-dialog modal-xl">
                                             <div class="modal-content">
                                                 <div class="modal-header">

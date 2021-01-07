@@ -15,6 +15,8 @@ class Home extends CI_Controller
         $data['title'] = 'Ngayom';
         $data['url'] = $this->uri->segment(2);
         $data['brand'] = $this->db->get('brand')->result_array();
+        $data['wi'] = $this->db->get_where('wishlist',  ['id_member' => $this->session->userdata('id_member')])->num_rows();
+        $data['ca'] = $this->db->get_where('cart',  ['id_member' => $this->session->userdata('id_member')])->num_rows();
         $data['kategori'] = $this->db->get('kategori')->result_array();
         $data['product'] = $this->db->get('product')->result_array();
         $this->load->view('templates/header_home', $data);
@@ -26,6 +28,8 @@ class Home extends CI_Controller
     {
         $data['title'] = 'Account';
         $data['url'] = $this->uri->segment(2);
+        $data['wi'] = $this->db->get_where('wishlist',  ['id_member' => $this->session->userdata('id_member')])->num_rows();
+        $data['ca'] = $this->db->get_where('cart',  ['id_member' => $this->session->userdata('id_member')])->num_rows();
         $data['member'] = $this->db->get_where('member', ['email_member' => $this->session->userdata('email_member')])->row_array();
         $this->form_validation->set_rules('nama_member', 'Nama Member', 'required|trim');
         $this->form_validation->set_rules('email_member', 'Email Member', 'required|trim');
@@ -56,6 +60,8 @@ class Home extends CI_Controller
     {
         $data['title'] = 'Wishlist';
         $data['url'] = $this->uri->segment(2);
+        $data['wi'] = $this->db->get_where('wishlist',  ['id_member' => $this->session->userdata('id_member')])->num_rows();
+        $data['ca'] = $this->db->get_where('cart',  ['id_member' => $this->session->userdata('id_member')])->num_rows();
         $data['user'] = $this->db->get_where('member', ['email_member' => $this->session->userdata('email_member')])->row_array();
         $data['pro'] = $this->db->get('product')->result_array();
         $this->form_validation->set_rules('id_member', 'Id_Member', 'required|trim');
@@ -91,6 +97,8 @@ class Home extends CI_Controller
     {
         $data['url'] = $this->uri->segment(1);
         $data['title'] = 'Cart';
+        $data['wi'] = $this->db->get_where('wishlist',  ['id_member' => $this->session->userdata('id_member')])->num_rows();
+        $data['ca'] = $this->db->get_where('cart',  ['id_member' => $this->session->userdata('id_member')])->num_rows();
         $data['user'] = $this->db->get_where('member', ['email_member' => $this->session->userdata('email_member')])->row_array();
         $data['pro'] = $this->db->get('product')->result_array();
         $this->load->view('templates/header_home', $data);
@@ -112,6 +120,8 @@ class Home extends CI_Controller
     {
         $data['title'] = 'Product Detail';
         $data['url'] = $this->uri->segment(3);
+        $data['wi'] = $this->db->get_where('wishlist',  ['id_member' => $this->session->userdata('id_member')])->num_rows();
+        $data['ca'] = $this->db->get_where('cart',  ['id_member' => $this->session->userdata('id_member')])->num_rows();
         $data['kategori'] = $this->db->get('kategori')->result_array();
         $data['product'] = $this->db->get_where('product', ['id_product' => $data['url']])->row_array();
         $data['user'] = $this->db->get_where('member', ['email_member' => $this->session->userdata('email_member')])->row_array();
@@ -136,6 +146,8 @@ class Home extends CI_Controller
     {
         $data['title'] = 'Product List';
         $data['url'] = $this->uri->segment(3);
+        $data['wi'] = $this->db->get_where('wishlist',  ['id_member' => $this->session->userdata('id_member')])->num_rows();
+        $data['ca'] = $this->db->get_where('cart',  ['id_member' => $this->session->userdata('id_member')])->num_rows();
         $data['kategori'] = $this->db->get('kategori')->result_array();
         $data['product'] = $this->db->get_where('product', ['id_kategori' => $data['url']])->result_array();
         $this->load->view('templates/header_home', $data);
@@ -169,6 +181,7 @@ class Home extends CI_Controller
                     'email_member' => $member['email_member'],
                     'nama_member' => $member['nama_member'],
                     'role_id' => $member['role_id'],
+                    'id_member' => $member['id_member']
                 ];
                 $this->session->set_userdata($data);
                 redirect('home');

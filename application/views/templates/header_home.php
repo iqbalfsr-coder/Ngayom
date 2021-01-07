@@ -45,15 +45,14 @@
                     <div class="user">
                         <a href="<?= base_url('home/wishlist') ?>" class="btn wishlist">
                             <i class="fa fa-heart"></i>
-                            <span>(0)</span>
+                            <span>(<?= $wi; ?>)</span>
                         </a>
                         <a href="<?= base_url('home/cart') ?>" class="btn cart">
                             <i class="fa fa-shopping-cart"></i>
-                            <span>(0)</span>
+                            <span>(<?= $ca; ?>)</span>
                         </a>
                         <a href="<?= base_url('home/account') ?>" class="btn cart">
                             <i class="fa fa-user"></i>
-                            <span>(0)</span>
                         </a>
                     </div>
                 </div>

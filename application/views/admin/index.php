@@ -64,7 +64,7 @@
                         <div class="small-box bg-success">
                             <div class="inner">
                                 <h3><?= $order; ?></h3>
-                                <p>Order</p>
+                                <p>Order Masuk</p>
                             </div>
                             <div class="icon">
                                 <i class="ion ion-bag"></i>
@@ -91,13 +91,27 @@
                         <!-- small box -->
                         <div class="small-box bg-danger">
                             <div class="inner">
-                                <h3>0</h3>
-                                <p>Pengiriman</p>
+                                <h3><?= $dikirim; ?></h3>
+                                <p>Pesanan Dikirim</p>
                             </div>
                             <div class="icon">
                                 <i class="fas fa-truck"></i>
                             </div>
                             <a href="<?= base_url('admin/list_pengiriman') ?>" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-6">
+                        <!-- small box -->
+                        <div class="small-box bg-warning">
+                            <div class="inner">
+                                <h3><?= $diterima; ?></h3>
+                                <p>Pesanan Diterima</p>
+                            </div>
+                            <div class="icon">
+                                <i class="far fa-handshake"></i>
+                            </div>
+                            <a href="<?= base_url('admin/list_diterima') ?>" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
                         </div>
                     </div>
                     <!-- ./col -->

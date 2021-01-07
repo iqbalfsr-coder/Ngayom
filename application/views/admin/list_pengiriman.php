@@ -69,19 +69,19 @@
                                     } else if ($m['status_order'] == '1') {
                                         echo ' <a href="" class="badge badge-success">Pesanan Diproses</a>';
                                     } else if ($m['status_order'] == '2') {
-                                        echo ' <a href="" class="badge badge-success">Pesanan Dikirim</a>';
+                                        echo ' <a href="" class="badge badge-secondary">Pesanan Dikirim</a>';
                                     } else if ($m['status_order'] == '4') {
                                         echo ' <a href="" class="badge badge-success">Pesanan Diterima</a>';
                                     } ?></td>
                                 <td>
-                                    <br>
+
                                     <!-- Button trigger modal -->
-                                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#staticBackdrop">
+                                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#cek<?= $m['id_order']; ?>">
                                         View
                                     </button>
 
                                     <!-- Modal -->
-                                    <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                                    <div class="modal fade" id="cek<?= $m['id_order']; ?>" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                                         <div class="modal-dialog modal-xl">
                                             <div class="modal-content">
                                                 <div class="modal-header">
@@ -220,6 +220,15 @@
                                         </div>
                                     </div>
             </div>
+            </td>
+            <td>
+                <form action="<?= base_url('admin/editkir/') . $m['id_order']; ?>" method="post">
+                    <input type="text" name="id_order" id="id_order" value="<?= $m['id_order']; ?>" hidden>
+                    <input type="text" name="status_order" id="status_order" value="3" hidden>
+                    <button type="submit" class="btn btn-primary">
+                        Terima Pesanan
+                    </button>
+                </form>
             </td>
             </tr>
             <?php $i++; ?>

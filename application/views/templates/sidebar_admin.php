@@ -81,7 +81,7 @@
                                                                                 echo 'class="nav-link"';
                                                                             } ?>>
                                 <i class="far fa-circle nav-icon"></i>
-                                <p>Order</p>
+                                <p>Order Masuk</p>
                             </a>
                         </li>
                         <li class="nav-item">
@@ -101,7 +101,17 @@
                                                                                     echo 'class="nav-link"';
                                                                                 } ?>>
                                 <i class="far fa-circle nav-icon"></i>
-                                <p>Pengiriman</p>
+                                <p>Pesanan Dikirim</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="<?= base_url('admin/list_diterima') ?>" <?php if ($url == 'list_diterima') {
+                                                                                    echo 'class="nav-link active"';
+                                                                                } else {
+                                                                                    echo 'class="nav-link"';
+                                                                                } ?>>
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Pesanan Diterima</p>
                             </a>
                         </li>
                         <li class="nav-item">
