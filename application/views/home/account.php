@@ -129,7 +129,8 @@
                                         <th>Price</th>
                                         <th>Status</th>
                                         <th>Panduan Bayar</th>
-                                        <th>Action</th>
+                                        <th>Detail</th>
+                                        <th>Refund</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -163,7 +164,7 @@
                                             </td>
                                             <td>
                                                 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#order">
-                                                    View
+                                                    Detail
                                                 </button>
                                                 <div class="modal fade" id="order" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                                                     <div class="modal-dialog modal-xl">
@@ -297,6 +298,16 @@
                                                         </div>
                                                     </div>
                                                 </div>
+                                            </td>
+                                            <td>
+                                                <?php if ($o['status_order'] == '3') {
+                                                    echo ' <a href= "' . base_url('home/refund') . '" 
+                                                    class="badge badge-danger">Refund Items
+                                                    </a>';
+                                                } else {
+                                                    echo '';
+                                                }
+                                                ?>
                                             </td>
                                         </tr>
                                         <?php $i++; ?>

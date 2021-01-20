@@ -270,7 +270,28 @@ class Home extends CI_Controller
         }
     }
 
-
+    public function refund()
+    {
+        $data['title'] = 'Refund';
+        $data['url'] = $this->uri->segment(2);
+        $data['wi'] = $this->db->get_where('wishlist',  ['id_member' => $this->session->userdata('id_member')])->num_rows();
+        $data['ca'] = $this->db->get_where('cart',  ['id_member' => $this->session->userdata('id_member')])->num_rows();
+        $data['member'] = $this->db->get_where('member', ['email_member' => $this->session->userdata('email_member')])->row_array();
+        $this->form_validation->set_rules('bukti', 'Bukti', 'required|trim');
+        if ($this->form_validation->run() == false) {
+            $this->load->view('templates/header_home', $data);
+            $this->load->view('home/refund');
+            $this->load->view('templates/footer_home');
+        } else {
+            $data = [
+                'bukti' => htmlspecialchars($this->input->post('nama_kategori', true)),
+                'id_transaksi' => htmlspecialchars($this->input->post('id_transaksi', true)),
+            ];
+            $this->db->insert('kategori', $data);
+            $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Refund berhasil diubah!</div>');
+            redirect('home/refund');
+        }
+    }
 
     public function logout()
     {
